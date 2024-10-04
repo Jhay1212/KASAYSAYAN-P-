@@ -1,0 +1,377 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa, #e2dece);
+    color: #343a40;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Sidebar styles */
+.sidebar {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%; /* Ensure the sidebar takes full height of the viewport */
+    width: 250px; /* Sidebar width */
+    position: fixed; /* Keeps the sidebar fixed during scrolling */
+    top: 0; /* Ensure it's at the top of the viewport */
+    left: 0; /* Position the sidebar on the left */
+    background-color: rgba(197, 197, 183, 0.50);
+    backdrop-filter: blur(10px);
+    overflow-x: hidden;
+    transition: width 0.5s ease;
+    padding-top: 20px;
+    z-index: 1000; /* Ensure it stays above other elements */
+    opacity: 1;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #080808;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.sidebar a i {
+    margin-right: 7px;
+    font-size: 1.5rem;
+}
+
+.sidebar a:hover {
+    transform: scale(1.05);
+    background-color: #adb5bd;
+}
+
+/* User Info Section in Sidebar */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.user-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #ffffff;
+}
+
+.username {
+    font-size: 1.2rem;
+    color: #0a0303;
+    font-weight: 600;
+}
+
+/* Navbar styles */
+.navbar {
+    width: 100%;
+    background-image: url('../PICS/bg2-login1.jpg');
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Align left items (toggle button and logo/name) */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Sidebar Toggle Button */
+.toggle-btn {
+    font-size: 2rem;
+    color: rgb(2, 2, 2);
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+/* Website Logo and Name */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.website-name {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Align right side items (search bar and info icon) */
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+.search-bar:focus {
+    width: 300px;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.info-icon:hover {
+    color: #adb5bd;
+}
+
+.container {
+    max-width: 1590px;
+    margin: 0;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+}
+
+.container img{
+	margin-left:10px;
+    height:40px;
+	width:40px;
+	background-color:transparent;
+}
+
+.quiz-container {
+    text-shadow: 2px 2px rgb(255, 254, 254);
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 800px;
+    background-image: url("../PICS/QUIZBG.jpg");
+    background-size: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 80px;
+    margin: 120px 320px 120px; /* Center horizontally */
+    position: relative;
+    top: 35%; /* Move it down to the center */
+    transform: translateY(-50%); /* Adjust for its own height */
+}
+
+.score-section {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #4caf50;
+}
+
+.question-section {
+    flex: 1;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.choices-section {
+    flex: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.choice-group {
+    text-shadow: 2px 2px rgb(255, 254, 254);
+    flex: 1;
+    margin: 0 10px; /* Adjust spacing */
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.choice-group:hover {
+    border-color: #4a90e2;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.choice-group.selected {
+    border-color: #4caf50;
+    background-color: rgba(76, 175, 80, 0.2);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    margin-top: 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#proceedButton {
+    background-color: #ecca32;
+    color: white;
+}
+
+#proceedButton:hover {
+    background-color: #3feccf;
+}
+
+#submitButton {
+    background-color: #f44336; /* Red color for submit */
+    color: white;
+}
+
+#submitButton:hover {
+    background-color: #d32f2f; /* Darker red */
+}
+
+#submitButton1 {
+    margin-top: 10px;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3a1fb1; /* Red color for submit */
+    color: white;
+}
+
+#submitButton1:hover {
+    background-color: #d32f2f; /* Darker red */
+}
+
+/* Existing CSS... */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    color: #4caf50; /* Green for the congratulatory message */
+}
+
+.balloon-container {
+    position: relative;
+    height: 120px; /* Adjust height for balloon animation */
+}
+
+.balloon {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    background-color: #ff4d4d; /* Balloon color */
+    border-radius: 20px 20px 0 0;
+    bottom: 0;
+    animation: rise 3s ease-in forwards; /* Animation for balloons */
+}
+
+.balloon::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #000; /* Balloon knot */
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+}
+
+.balloon:nth-child(1) {
+    left: 10%;
+    background-color: #ff4d4d; /* Red */
+}
+.balloon:nth-child(2) {
+    left: 30%;
+    background-color: #ffcc00; /* Yellow */
+}
+.balloon:nth-child(3) {
+    left: 50%;
+    background-color: #33cc33; /* Green */
+}
+.balloon:nth-child(4) {
+    left: 70%;
+    background-color: #3399ff; /* Blue */
+}
+.balloon:nth-child(5) {
+    left: 90%;
+    background-color: #ff66b3; /* Pink */
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px);
+        opacity: 0; /* Fade out */
+    }
+}

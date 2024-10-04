@@ -1,0 +1,147 @@
+body {
+    font-family: 'Noto Sans Tagalog', sans-serif !important;
+}
+
+.c-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    margin: 2rem;
+}
+
+.c-wrapper > * {
+    margin: 1.5rem;
+}
+
+textarea {
+    font-family: 'Noto Sans Tagalog', sans-serif !important;
+    width: clamp(300px, 70%, 800px);
+    height: 12rem;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #333;
+    background-color: #fff;
+    resize: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+    margin: 0 auto;
+}
+
+textarea:focus {
+    border-color: #0066ff;
+    outline: none;
+    box-shadow: 0px 6px 12px rgba(0, 102, 255, 0.2);
+}
+
+textarea::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+.gradient-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #0038a8, #ff0000, #e2f818, #0452ef);
+    -webkit-background-clip: text;
+    text-align: center;
+    margin-bottom: 1rem;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.original {
+    font-family: 'Noto Sans Tagalog', sans-serif;
+    margin-top: 2rem;
+}
+
+.original-text-container {
+    width: clamp(300px, 70%, 800px);
+    border-radius: 5px;
+    height: 12rem;
+    /* padding: ; */
+    padding-left: 5px;
+    border: 2px solid #6e626254;
+    background: rgb(247 247 247);
+    /* text-align: center; */
+}
+
+.h-wrapper {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.baybayin-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 90%;
+    max-width: 400px;
+    margin: 1rem auto;
+}
+
+button {
+    padding: 10px;
+    font-family: 'Noto Sans Tagalog', sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: #ffdd57;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ffa500;
+}
+
+.tagalog {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.baybayin {
+    font-size: 1.4rem;
+    font-family: 'Noto Sans Tagalog', sans-serif;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (min-width: 768px) {
+
+  .h-wrapper {
+    margin-top: 8rem;
+  }
+    .c-wrapper {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .gradient-text {
+        font-size: 3rem;
+    }
+
+    .baybayin-grid {
+        grid-template-columns: repeat(6, 1fr);
+        max-width: 600px;
+    }
+
+    .original-text-container {
+        width: 60%;
+        background: white;
+    }
+}
+
+@media (min-width: 1200px) {
+    .gradient-text {
+        font-size: 6rem;
+    }
+
+    textarea {
+        width: 60%;
+        font-size: 20px;
+    }
+}

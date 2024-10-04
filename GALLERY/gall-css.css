@@ -1,0 +1,277 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('../PICS/bg1-login1.png');
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Sidebar styles */
+.sidebar {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%; /* Ensure the sidebar takes full height of the viewport */
+    width: 250px; /* Sidebar width */
+    position: fixed; /* Keeps the sidebar fixed during scrolling */
+    top: 0; /* Ensure it's at the top of the viewport */
+    left: 0; /* Position the sidebar on the left */
+    background-color: rgba(197, 197, 183, 0.50);
+    backdrop-filter: blur(10px);
+    overflow-x: hidden;
+    transition: width 0.5s ease;
+    padding-top: 20px;
+    z-index: 1000; /* Ensure it stays above other elements */
+    opacity: 1;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #080808;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.sidebar a i {
+    margin-right: 7px;
+    font-size: 1.5rem;
+}
+
+.sidebar a:hover {
+    transform: scale(1.05);
+    background-color: #adb5bd;
+}
+
+/* User Info Section in Sidebar */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.user-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #ffffff;
+}
+
+.username {
+    font-size: 1.2rem;
+    color: #0a0303;
+    font-weight: 600;
+}
+
+
+/* Navbar styles */
+.navbar {
+    width: 100%;
+    background-image: url('../PICS/bg2-login1.jpg');
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Align left items (toggle button and logo/name) */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Website Logo and Name */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.website-name {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Align right side items (search bar and info icon) */
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+.search-bar:focus {
+    width: 300px;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.info-icon:hover {
+    color: #adb5bd;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+p {
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+/* Gallery Container */
+.gallery-container {
+    margin-left: 290px;
+    margin-right: 20px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 1090px;
+    text-align: center;
+}
+
+/* Gallery Grid Layout */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    grid-gap: 20px;
+    margin-top: 20px;
+    justify-items: center;
+}
+
+/* Each Gallery Item */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effects */
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1); /* Slight zoom-in effect */
+}
+
+/* Caption Overlay */
+.caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.gallery-item:hover .caption {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .gallery-item {
+        height: 200px;
+    }
+
+    .gallery-item img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-item {
+        height: 150px;
+    }
+
+    .gallery-item img {
+        height: 150px;
+    }
+}
+
+.galler, .gallervid {
+    padding: 15px 50px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+}
+
+.galler {
+    padding-right: 180px;
+    padding-left: 180px;
+    margin-right: 50px;
+}
+
+.gallervid {
+    padding-right: 180px;
+    padding-left: 180px;
+    margin-right: 20px;
+}
+
+.galler:hover, .gallervid:hover {
+    background-color: #e2e2da;
+}

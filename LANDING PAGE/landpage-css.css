@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background: linear-gradient(135deg, #f8f9fa, #64570c);*/
+    background-image: url('../PICS/bglp2.jpg');
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 100vh;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.content {
+    max-width: 600px;
+}
+
+.title {
+    text-shadow: 1px 1px white;
+    font-size: 4rem;
+    font-weight: 600;
+    color: #343a40;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: slideIn 1.5s ease-out forwards 0.3s;
+}
+
+.description {
+    font-size: 1.3rem;
+    color: #60686e;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: slideIn 1.5s ease-out forwards 0.5s;
+}
+
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.button {
+    padding: 15px 35px;
+    background-color: #495057;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 1.5s ease-out forwards 0.7s;
+}
+
+.button:hover {
+    background-color: #343a40;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Animation Effects */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+footer p {
+    color: #6c757d;
+    font-size: 0.9rem;
+}

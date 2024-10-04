@@ -1,0 +1,314 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa, #e2dece);
+    color: #343a40;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Sidebar styles */
+.sidebar {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%; /* Ensure the sidebar takes full height of the viewport */
+    width: 250px; /* Sidebar width */
+    position: fixed; /* Keeps the sidebar fixed during scrolling */
+    top: 0; /* Ensure it's at the top of the viewport */
+    left: 0; /* Position the sidebar on the left */
+    background-color: rgba(197, 197, 183, 0.50);
+    backdrop-filter: blur(10px);
+    overflow-x: hidden;
+    transition: width 0.5s ease;
+    padding-top: 20px;
+    z-index: 1000; /* Ensure it stays above other elements */
+    opacity: 1;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #080808;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.sidebar a i {
+    margin-right: 7px;
+    font-size: 1.5rem;
+}
+
+.sidebar a:hover {
+    transform: scale(1.05);
+    background-color: #adb5bd;
+}
+
+/* User Info Section in Sidebar */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.user-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #ffffff;
+}
+
+.username {
+    font-size: 1.2rem;
+    color: #0a0303;
+    font-weight: 600;
+}
+
+
+/* Navbar styles */
+.navbar {
+    width: 100%;
+    background-image: url('../PICS/bg2-login1.jpg');
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Align left items (toggle button and logo/name) */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Sidebar Toggle Button */
+.toggle-btn {
+    font-size: 2rem;
+    color: rgb(2, 2, 2);
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+/* Website Logo and Name */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.website-name {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Align right side items (search bar and info icon) */
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+.search-bar:focus {
+    width: 300px;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.info-icon:hover {
+    color: #adb5bd;
+}
+
+/* Game Container */
+.game-container {
+    margin-left: 250px;
+    margin-right: 100px;
+    margin-top: 75px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.image-container {
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animated-element {
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Hint Text */
+.hint-text {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    color: #555;
+    animation-delay: 0.2s;
+}
+
+/* Option Buttons */
+.options-container {
+    display: flex;
+    flex-direction:row;
+    gap: 10px;
+    margin-bottom: 2px;
+    animation-delay: 0.4s;
+}
+
+.option-btn {
+    padding: 15px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    animation: bounceIn 0.8s ease-in-out forwards;
+}
+
+.option-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Feedback Text */
+.feedback {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    height: 30px;
+    font-weight: bold;
+}
+
+/* Next and Exit Buttons */
+.next-btn, .exit-btn {
+    padding: 15px 30px;
+    margin: 10px;
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    visibility: hidden; /* Hidden until correct answer is chosen */
+    animation: bounceIn 0.8s ease-in-out forwards;
+}
+
+.next-btn:hover, .exit-btn:hover {
+    background-color: #27ae60;
+    transform: scale(1.05);
+}
+
+/* Show exit button always */
+.exit-btn {
+    visibility: visible;
+    margin-bottom: 10px;
+}
+
+/* Congrats Message Container */
+.congrats-message {
+    margin-left: 450px;
+    display: none; /* Initially hidden */
+    text-align: center;
+    padding: 30px;
+    background-color: #d1b96b;
+    color: #fff;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    font-size: 1.5rem;
+    opacity: 0;
+    animation: congratsAnimation 2s ease-in-out forwards;
+}
+
+/* Animation Keyframes for Congrats Message */
+@keyframes congratsAnimation {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,582 @@
+
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa, #e2dece);
+    color: #343a40;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Sidebar styles */
+.sidebar {
+    text-shadow: 1px 1px black;
+    height: 90%;
+    width: 0;
+    position: fixed;
+    top: 77px;
+    left: 0;
+    background-color: rgba(17, 17, 17, 0.2);
+	backdrop-filter: blur(15px);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 20px;
+    z-index: 900;
+}
+
+.sidebar a {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #f8f9fa;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #495057;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* User Info Section in Sidebar */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+.user-icon {
+    width: 80px; /* Size of the user icon */
+    height: 80px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #ffffff; /* Optional: Add a border around the user icon */
+}
+
+.username {
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+
+/* Navbar styles */
+.navbar {
+    width: 100%;
+    background-image: url('../PICS/bg2-login1.jpg');
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Align left items (toggle button and logo/name) */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Sidebar Toggle Button */
+.toggle-btn {
+    font-size: 2rem;
+    color: rgb(2, 2, 2);
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+/* Website Logo and Name */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.website-name {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Align right side items (search bar and info icon) */
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+.search-bar:focus {
+    width: 300px;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.info-icon:hover {
+    color: #adb5bd;
+}
+
+/* Main content styles */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.main-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    margin-top: 60px;
+}
+
+.main-content p {
+    font-size: 1.2rem;
+    color: #6c757d;
+}
+
+/* Content header styles */
+.content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #343a40; /* Dark color for contrast */
+}
+
+/* Content paragraph styles */
+.content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #495057; /* Slightly lighter color for paragraphs */
+}
+
+/* Back button styles */
+.content button {
+    background-color: #007bff; /* Primary button color */
+    color: #ffffff; /* Button text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.content button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Hidden class */
+.hidden {
+    display: none; /* Hide elements with this class */
+}
+
+/* Footer styles */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+}
+
+/* Container for 6 rectangles */
+.rectangle-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px;
+    margin: 40px 0;
+    width: 80%;
+    max-width: 1200px;
+}
+
+/* Styling for each rectangle */
+.rectangle {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 15px;
+}
+
+.rectangle img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.rectangle .label {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* Animation on hover */
+.rectangle:hover {
+    transform: scale(1.05); /* Slightly increase size */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add shadow */
+}
+
+.rectangle:hover img {
+    transform: scale(1.1); /* Image zooms in slightly */
+}
+
+.rectangle:hover .label {
+    background-color: rgba(0, 0, 0, 0.8); /* Darken label background */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .rectangle-container {
+        grid-template-columns: 1fr 1fr; /* 2 columns on tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .rectangle-container {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px); /* Start with a slight slide-up from below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at normal position */
+    }
+}
+
+/* Add animation to each rectangle */
+.rectangle {
+    opacity: 0; /* Initially invisible */
+    animation: fadeInUp 0.8s ease forwards; /* 0.8s animation, ease timing */
+}
+
+/* Stagger the animation for each rectangle */
+.rectangle:nth-child(1) {
+    animation-delay: 0.1s; /* Slight delay for the first rectangle */
+}
+.rectangle:nth-child(2) {
+    animation-delay: 0.2s; /* Slightly longer delay for the second */
+}
+.rectangle:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.rectangle:nth-child(4) {
+    animation-delay: 0.4s;
+}
+.rectangle:nth-child(5) {
+    animation-delay: 0.5s;
+}
+.rectangle:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.hidden {
+    display: none; /* Hide elements with this class */
+}
+
+.content-section {
+    text-align: center; /* Center align the content section */
+    margin-top: 2px; /* Adjust the top margin as needed */
+   
+}
+
+.content-section h2 {
+    font-size: 60px; /* Adjust the font size as needed */
+    color: #333; /* Adjust the color as needed */
+}
+
+main {
+    margin-left: 50px;
+    padding: 20px;
+	margin-top: 10px;
+	
+}
+
+#mainContent {
+    padding-top: 10px;
+	background-image: url("../PICS/content-bg.png");
+    background-repeat: no-repeat;
+	background-size: 98% 110%;
+	background-attachment:fixed;
+	background-position: center bottom -30px; /* Adjusted to lower the background image */
+}
+
+.content-section h2 {
+    font-size: 60px;
+    color: #333;
+	margin-bottom:40px;
+}
+
+.content-section p {
+    text-align: justify;
+    font-size: 25px;
+	margin-bottom:40px;
+	line-height:1.5;
+	text-indent:10%;
+}
+
+.content-section h1 {
+    text-align: left;
+	margin-bottom:20px;
+	font-size:40px;
+}
+
+.content-section img {
+    float: left; /* Float the image to the left */
+    margin-right: 20px; /* Add some space between the image and the paragraphs */
+    width: 410px; /* Adjust the width of the image as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+/* Bookmark Icon Default Styles */
+.bookmark-icon i {
+    font-size: 2rem;
+    color: #ccc; /* Default grey color */
+    cursor: pointer;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Bookmark Icon Clicked State */
+.bookmark-icon.clicked i {
+    color: #ff6b6b; /* Change to a red-like color on click */
+    transform: scale(1.2); /* Slight zoom effect */
+}
+
+/* Animation for smooth color and scale change */
+.bookmark-icon i {
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#navSidebar {
+    position: fixed;
+    top: 8.4%;
+    left: 0;
+    width: 240px;
+    height: 95%;
+    background-color: rgba(17, 17, 17, 0.5);
+    color: #fff;
+    overflow: auto;
+	padding-bottom:95px;
+}
+
+#navSidebar ul {
+    list-style-type: none;
+    padding: 20px;
+    margin: 0;
+}
+
+#navSidebar li {
+	text-align: center; /* Center-align the text */
+    margin-bottom: 10px;
+    margin-top: 10px;
+    position: relative; /* Make the position relative for absolute positioning */
+}
+
+#navSidebar a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#navSidebar a:hover {
+     background-color: rgba(17, 17, 17, 0.5);
+}
+
+#navSidebar::-webkit-scrollbar-track {
+     background-color: rgba(17, 17, 17, 0.6);
+}
+
+#navSidebar::-webkit-scrollbar {
+    width: 8px; /* Adjust scrollbar width */
+     background-color: rgba(17, 17, 17, 0.6);
+}
+
+#navSidebar::-webkit-scrollbar-thumb {
+    background-color: #555;
+}
+
+/* CSS to style the dropdown buttons */
+.topic-buttons {
+	display: none;
+    position: absolute;
+    left: 50%; /* Center the dropdown relative to its parent */
+    transform: translateX(-50%); /* Adjust to center the dropdown perfectly */
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+    background-color: rgba(17, 17, 17, 0.6);
+    padding: 5px 0;
+    width: 100%;
+}
+
+.topic-buttons #tpc-btn1{
+	display: block;
+}
+
+.topic-buttons button {
+	display: block;
+	margin-left:25px;
+    padding: 5px 30px 5px 30px;
+    background:transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+	transition: background-color 0.3s ease;
+	font-size:15px;
+}
+
+.topic-buttons button:hover {
+    background-color: #555;
+}
+
+.unit1h .unit1hh{
+	background-color: rgba(17, 17, 17, 0.2);
+}
+
+.dropdown-btn {
+    display: block;
+    margin-left: 3px;
+    padding: 5px 30px 5px 30px;
+    background: transparent; /* Set the background to transparent */
+    color: #fff;
+    border: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 15px;
+}
+
+.dropdown-btn:hover {
+    background-color: #555;
+}
+
+
+
+h1 {
+    font-size: 1.8rem;
+}
+
+#timeline-container {
+    display: flex;
+    flex-direction: row;
+    margin: 2rem;
+    justify-content: center;
+    gap: 3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.5s ease-in;
+}
+
+#events {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.draggable {
+    padding: 1rem;
+    background-color: #003366;
+    color: white;
+    border-radius: 8px;
+    cursor: grab;
+    text-align: center;
+    width: 250px;
+}
+
+.dropzone {
+    width: 250px;
+    height: 50px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.dropzone.highlight {
+    border-color: #4caf50;
+}
+
+button {
+    padding: 0.8rem 2rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 2rem;
+}
+
+#result {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+.center-bot {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+}
+
+.title {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+

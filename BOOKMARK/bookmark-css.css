@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa, #e2dece);
+    color: #343a40;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.desc {
+    font-size: 2vh;
+}
+.container {
+    max-width: 1590px;
+    margin: 0;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+}
+
+.container img{
+	margin-left:10px;
+    height:40px;
+	width:40px;
+	background-color:transparent;
+}
+
+header {
+	text-shadow: 2px 2px black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: url("../PICS/bg2-login1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 24px;
+	padding: 0px 200px 5px 2px;
+}
+
+/* Sidebar styles */
+.sidebar {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%; /* Ensure the sidebar takes full height of the viewport */
+    width: 250px; /* Sidebar width */
+    position: fixed; /* Keeps the sidebar fixed during scrolling */
+    top: 0; /* Ensure it's at the top of the viewport */
+    left: 0; /* Position the sidebar on the left */
+    background-color: rgba(197, 197, 183, 0.50);
+    backdrop-filter: blur(10px);
+    overflow-x: hidden;
+    transition: width 0.5s ease;
+    padding-top: 20px;
+    z-index: 1000; /* Ensure it stays above other elements */
+    opacity: 1;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #080808;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.sidebar a i {
+    margin-right: 7px;
+    font-size: 1.5rem;
+}
+
+.sidebar a:hover {
+    transform: scale(1.05);
+    background-color: #adb5bd;
+}
+
+/* Close button */
+.sidebar .closebtn {
+    position: absolute;
+    left: 15px; /* Adjusted position for left sidebar */
+    font-size: 2rem;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* User Info Section in Sidebar */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.user-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #ffffff;
+}
+
+.username {
+    font-size: 1.2rem;
+    color: #0a0303;
+    font-weight: 600;
+}
+
+/* Navbar styles */
+.navbar {
+    width: 100%;
+    background-image: url('../PICS/bg2-login1.jpg');
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Align left items (toggle button and logo/name) */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Website Logo and Name */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.website-name {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Align right side items (search bar and info icon) */
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+.search-bar:focus {
+    width: 300px;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.info-icon:hover {
+    color: #adb5bd;
+}
+
+.content-section {
+    text-align: left; /* Center align the content section */
+    margin-top: 100px; /* Adjust the top margin as needed */
+    margin-left: 220px;
+}
+
+.content-section h2 {
+    font-size: 40px; /* Adjust the font size as needed */
+    color: #333; /* Adjust the color as needed */
+    margin-left: 50px;
+}
+
+.square-container {
+    display: flex;
+    flex-direction: column; /* Align boxes vertically */
+    align-items: flex-start; /* Align boxes to the left */
+    margin-top: 40px;
+    margin-left: 20px; /* Adjust margin to align to the left */
+}
+
+.square {
+    width: 500px;
+    height: 70px;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: left; /* Align text to the left */
+    margin: 10px 30px;
+    display: flex;
+    align-items: center; /* Vertically center items */
+}
+
+/* Adjust the position of the title */
+.square small {
+	font-size:22px;
+    transform: translate(-50%, 250%);
+}
+.inner-box small {
+    transform: translate(-50%, 12vh);
+}
+.square:hover{
+    transform: translateY(-7px); /* Move the box up slightly on hover */
+    cursor: pointer;
+}
+
+.square .content {
+    display: flex;
+    align-items: left;
+}
+
+.square img {
+    width: 40px; /* Adjust the width of the image */
+    height: 40px; /* Adjust the height of the image */
+    border-radius: 5px;
+    margin-right: 20px; /* Adjust the spacing between image and title */
+}
+
+.preview-section {
+    position: absolute;
+    right: 70px;
+    top: 150px;
+    width: 450px;
+    height: 60%;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.preview-section h2 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.preview-section #previewContent {
+    font-size: 18px;
+    color: #666;
+}

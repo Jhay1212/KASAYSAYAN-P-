@@ -1,0 +1,281 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*border: 2px solid red;*/
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa, #e2dece);
+    color: #343a40;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center ;
+}
+
+/* Sidebar styles */
+.sidebar {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%; /* Ensure the sidebar takes full height of the viewport */
+    width: 250px; /* Sidebar width */
+    position: fixed; /* Keeps the sidebar fixed during scrolling */
+    top: 0; /* Ensure it's at the top of the viewport */
+    left: 0; /* Position the sidebar on the left */
+    background-color: rgba(197, 197, 183, 0.50);
+    backdrop-filter: blur(10px);
+    overflow-x: hidden;
+    transition: width 0.5s ease;
+    padding-top: 20px;
+    z-index: 1000; /* Ensure it stays above other elements */
+    opacity: 1;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #080808;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.sidebar a i {
+    margin-right: 7px;
+    font-size: 1.5rem;
+}
+
+.sidebar a:hover {
+    transform: scale(1.05);
+    background-color: #adb5bd;
+}
+
+/* User Info Section in Sidebar */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.user-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #ffffff;
+}
+
+.username {
+    font-size: 1.2rem;
+    color: #0a0303;
+    font-weight: 600;
+}
+
+
+/* Navbar styles */
+.navbar {
+    width: 100%;
+    background-image: url('../PICS/bg2-login1.jpg');
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Align left items (toggle button and logo/name) */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Sidebar Toggle Button */
+.toggle-btn {
+    font-size: 2rem;
+    color: rgb(2, 2, 2);
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+/* Website Logo and Name */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.website-name {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Align right side items (search bar and info icon) */
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+.search-bar:focus {
+    width: 300px;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.info-icon:hover {
+    color: #adb5bd;
+}
+
+/* Container Styles */
+.container {
+    margin-left: 120px;
+    background-image: url('../PICS/QUIZBG.jpg');
+    background-size: 100%;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    opacity: 0; /* Initially hidden for entrance animation */
+    transform: translateY(100px); /* Start from below */
+    animation: slideUpFadeIn 1s forwards ease-in-out; /* Entrance animation */
+}
+
+/* Animation for entrance */
+@keyframes slideUpFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    margin-left: 120px;
+    margin-bottom: 10px;
+    animation: fadeIn 1s ease; /* Simple fade-in animation */
+}
+
+.question {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    opacity: 1; /* Ensure it's visible */
+    animation: fadeIn 0.5s ease forwards; /* Fade-in when the question appears */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    opacity: 0;
+    transform: translateY(20px); /* Slide from bottom */
+    animation: slideUpFadeIn 0.5s forwards ease;
+    animation-delay: 0.5s; /* Button appears after the question */
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.score-container {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.result-message {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    display: none;
+    color: #333;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly below */
+}
+
+.result-message.show {
+    display: block;
+    animation: fadeInSlideUp 1s forwards ease;
+}
+
+/* Result message slide-up animation */
+@keyframes fadeInSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* End buttons */
+.end-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.end-buttons .btn {
+    margin: 0 10px;
+    background-color: #007BFF;
+}
+
+.end-buttons .btn:hover {
+    background-color: #0056b3;
+}
