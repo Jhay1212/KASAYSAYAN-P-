@@ -49,7 +49,7 @@ $result = $conn->query($sql);
     <!-- User Info Section -->
     <div class="user-info">
         <img src="../PICS/user.jpg" alt="User Icon" class="user-icon">
-        <span class="username">John Doe</span>
+        <span class="username"><?php echo $_SESSION['username']  ?></span>
     </div>
 
     <a href="../HOME1/home.php"><i class="fas fa-home"></i> Home</a>

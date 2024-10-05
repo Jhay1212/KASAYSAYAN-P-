@@ -21,7 +21,7 @@ session_start();
 <div id="sidebar" class="sidebar">
     <div class="user-info">
         <img src="../PICS/user.jpg" alt="User Icon" class="user-icon">
-        <span class="username">John Doe</span>
+        <span class="username"><?php echo $_SESSION['username']; ?></span>
     </div>
     <a href="../HOME1/home.php"><i class="fas fa-home"></i> Home</a>
     <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmark</a>

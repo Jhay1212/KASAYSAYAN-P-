@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f8f9fa, #e2dece);
+    background-image: url('../PICS/bg1-login1.png');
     color: #343a40;
     height: 100vh;
     display: flex;
@@ -231,7 +231,7 @@ body {
 
 .option-btn {
     padding: 15px;
-    background-color: #3498db;
+    background-color: #996515;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -242,7 +242,7 @@ body {
 }
 
 .option-btn:hover {
-    background-color: #2980b9;
+    background-color: #cca809;
     transform: scale(1.05);
 }
 
@@ -255,10 +255,10 @@ body {
 }
 
 /* Next and Exit Buttons */
-.next-btn, .exit-btn {
-    padding: 15px 30px;
-    margin: 10px;
-    background-color: #2ecc71;
+.next-btn {
+    padding: 10px 30px;
+    margin: 10px 10px;
+    background-color: #2ecc2e;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -269,8 +269,27 @@ body {
     animation: bounceIn 0.8s ease-in-out forwards;
 }
 
-.next-btn:hover, .exit-btn:hover {
-    background-color: #27ae60;
+.exit-btn {
+    padding: 5px 30px;
+    margin: 5px;
+    background-color: #cc2e2e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    visibility: hidden; /* Hidden until correct answer is chosen */
+    animation: bounceIn 0.8s ease-in-out forwards;
+}
+
+.next-btn:hover {
+    background-color: #45cc45;
+    transform: scale(1.05);
+}
+
+.exit-btn:hover {
+    background-color: #d65d63;
     transform: scale(1.05);
 }
 

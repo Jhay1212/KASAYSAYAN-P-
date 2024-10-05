@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 include_once ('./save_bookmark.php');
 include_once('../NOTES/save_notes.php');
 
@@ -1067,4 +1067,4 @@ function setCookie(cname, cvalue, cdate) {
 
 </script>
 </body>
-</html>
+</html> -->

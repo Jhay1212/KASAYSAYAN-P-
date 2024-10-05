@@ -1,7 +1,11 @@
 // script.js
 
 let noteText = '';
+const user_name = document.querySelector('#uname');
+const s_username = document.querySelector("span.username");
+const user_id = document.querySelector("#uid");
 document.addEventListener("DOMContentLoaded", function() {
+    // alert("poknat");
     const searchBar = document.querySelector(".search-bar");
 
     // Optional: you can implement logic to display suggestions here
@@ -84,6 +88,7 @@ document.querySelectorAll('.rectangle').forEach(rectangle => {
 //notes
 
 function openForm() {
+    checkSession()
     const form = document.getElementById('noteForm');
     if (noteText) {
         form.querySelector('textarea').value = noteText;
@@ -168,3 +173,14 @@ function toggleSidebar() {
     document.body.classList.toggle('active');
   }
   
+
+  function checkSession() {
+    if (!user_id) {
+        alert('Please login first');
+        window.location.href = '../LOGIN1/Login1.html';
+  }};
+
+  
+  console.log(s_username);
+  s_username.innerHTML = user_name.value;
+

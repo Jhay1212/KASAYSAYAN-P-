@@ -6,15 +6,13 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f8f9fa, #e2dece);
+    background-image: url('../PICS/bg1-login1.png');
     color: #343a40;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-
-
 
 /* Sidebar styles */
 .sidebar {
@@ -230,17 +228,12 @@ header h1 {
     justify-content: center;
     align-items: center;
 }
-.inner-box small {
-    transform: translate(-55px, 100px);
-}
 
 /* Adjust the position of the title */
-/* .square p {
-	position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-} */
+.square h3 {
+	font-size:22px;
+    margin-top: 300px;
+}
 
 .square:hover .inner-box {
     transform: translateY(-5px); /* Move the box up slightly on hover */

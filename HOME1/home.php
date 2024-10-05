@@ -2,9 +2,13 @@
 session_start();  // Start the session
 
 if (isset($_SESSION['username'])) {
+    $user_id = $_SESSION['user_id'];
+    $username = $_SESSION['username'];
     echo '<script>alert("Welcome, ' . $_SESSION['username'] .$_SESSION['user_id'] . '!");</script>';
 } else {
     echo '<script>alert("Username is not set!");</script>';
+    $username = "GUEST";
+    $user_id = 0;
 }
 
 if (isset($_POST['save_bookmark'])) {
@@ -42,12 +46,16 @@ if (isset($_POST['save_bookmark'])) {
 <body>
     <?php
     echo <<<EOD
+
+    <input  type="checkbox" id="uname" class="hidden" name="usernamej"  value=" $username">
+    <input  type="checkbox" id="uid" class="hidden" name="useridj"  value=" $user_id">
+
     <div id="sidebar" class="sidebar">
 
         <!-- User Info Section -->
         <div class="user-info">
             <img src="../PICS/user.jpg" alt="User Icon" class="user-icon">
-            <span class="username">USERNAME</span>
+            <span class="username">$_SESSION[username]</span>
         </div>
 
         <a href="../HOME1/home.php"><i class="fas fa-home"></i> Home</a>
@@ -1045,6 +1053,7 @@ EOD;
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
+  
     // alert('this')
 function saveBookmark(element) {
     // alert('bookmartk clicked');
@@ -1095,6 +1104,9 @@ function saveMiniBookmark(element) {
         }
     })
 };
+
+
+
 </script>
 </body>
 </html>
