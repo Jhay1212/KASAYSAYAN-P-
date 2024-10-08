@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,17 +22,17 @@
     <!-- User Info Section -->
     <div class="user-info">
         <img src="../PICS/user.jpg" alt="User Icon" class="user-icon">
-        <span class="username">John Doe</span>
+        <span class="username"><?php echo $_SESSION['username']; ?></span>
     </div>
 
     <a href="../HOME1/home.php"><i class="fas fa-home"></i> Home</a>
     <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmark</a>
-    <a href="../GAMES/games.html"><i class="fas fa-gamepad"></i> Games</a>
+    <a href="../GAMES/games.php"><i class="fas fa-gamepad"></i> Games</a>
     <a href="../NOTES/notes-box.php"><i class="fas fa-sticky-note"></i> Notes</a>
-    <a href="../GALLERY/gallery.html"><i class="fas fa-image"></i> Gallery</a>
-    <a href="../QUIZ1/quiz1.html"><i class="fas fa-question-circle"></i> Quiz</a>
-    <a href="../TRIVIA & FACTS/trivfac.html"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
-    <a href="../LANDING PAGE/landpage.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    <a href="../GALLERY/gallery.php"><i class="fas fa-image"></i> Gallery</a>
+    <a href="../QUIZ1/quiz1.php"><i class="fas fa-question-circle"></i> Quiz</a>
+    <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
+    <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>
 
 <!-- Navbar Section -->
@@ -57,44 +62,44 @@
 		
             <!-- 15 rectangle boxes -->
            <div class="rectangle">
-			<a href="../QUIZ1/q1.html"> <img src="../PICS/unit 1 pics/1.webp" alt="Image"></a>
+			<a href="../QUIZ1/q1.php"> <img src="../PICS/unit 1 pics/1.webp" alt="Image"></a>
 			<div class="dropdown">
-        <a href="../QUIZ1/q1.html">Pre- Historic Philippines</a>
+        <a href="../QUIZ1/q1.php">Pre- Historic Philippines</a>
     </div>
 			</div>
 			
             <div class="rectangle">
-			<a href="../QUIZ1/q2.html"><img src="../PICS/unit 2 pics/1.png" alt="Image"></a>
+			<a href="../QUIZ1/q2.php"><img src="../PICS/unit 2 pics/1.png" alt="Image"></a>
 			<div class="dropdown">
-        <a href="../QUIZ1/q2.html">Spanish Colonialism Period</a>
+        <a href="../QUIZ1/q2.php">Spanish Colonialism Period</a>
     </div>
 			</div>
 			
 			<div class="rectangle">
-			<a href="../QUIZ1/q3.html"><img src="../PICS/unit 3 pics/1.png" alt="Image"></a>
+			<a href="../QUIZ1/q3.php"><img src="../PICS/unit 3 pics/1.png" alt="Image"></a>
 			<div class="dropdown">
-        <a href="../QUIZ1/q3.html">Period of Filipino Nationalism</a>
+        <a href="../QUIZ1/q3.php">Period of Filipino Nationalism</a>
     </div>
 			</div>
 			
 			<div class="rectangle">
-			<a href="../QUIZ1/q4.html"><img src="../PICS/unit 4 pics/1.png" alt="Image"></a>
+			<a href="../QUIZ1/q4.php"><img src="../PICS/unit 4 pics/1.png" alt="Image"></a>
 			<div class="dropdown">
-        <a href="../QUIZ1/q4.html">AMERICAN PERIOD</a>
+        <a href="../QUIZ1/q4.php">AMERICAN PERIOD</a>
     </div>
 			</div>
 			
 			<div class="rectangle">
-			<a href="../QUIZ1/q5.html"><img src="../PICS/unit 5 pics/1.png" alt="Image"></a>
+			<a href="../QUIZ1/q5.php"><img src="../PICS/unit 5 pics/1.png" alt="Image"></a>
 			<div class="dropdown">
-        <a href="../QUIZ1/q5.html">JAPANESE OCCUPATION</a>
+        <a href="../QUIZ1/q5.php">JAPANESE OCCUPATION</a>
     </div>
 			</div>
 			
 			<div class="rectangle">
-			<a href="../QUIZ1/q6.html"><img src="../PICS/unit 6 pics/6pic0.avif" alt="Image"></a>
+			<a href="../QUIZ1/q6.php"><img src="../PICS/unit 6 pics/6pic0.avif" alt="Image"></a>
 			<div class="dropdown">
-        <a href="../QUIZ1/q6.html">Philippine Independence and Early Republic</a>
+        <a href="../QUIZ1/q6.php">Philippine Independence and Early Republic</a>
     </div>
 			</div>
 			

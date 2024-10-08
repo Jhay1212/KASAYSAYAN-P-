@@ -104,7 +104,7 @@ function closeModal() {
 
 // Function to go back to home (you can replace the location with your home page)
 function goHome() {
-    window.location.href = "../QUIZ1/quiz1.html"; // Adjust the link to your home page
+    window.location.href = "../QUIZ1/quiz1.php"; // Adjust the link to your home page
 }
 
 // Update score display

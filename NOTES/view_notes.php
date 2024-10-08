@@ -1,10 +1,11 @@
 <?php
 session_start(); 
 
-session_start(); 
+
 
 if (isset($_SESSION['user_id'])) {
-    echo "User ID: " . $_SESSION['user_id'];
+    var_dump($_SESSION['user_id']);  // Check if user_id is set and correct
+    // echo "User ID: " . $_SESSION['user_id'];
 } else {
     echo "User ID not set in session.";
 }

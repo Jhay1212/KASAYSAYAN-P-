@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./baybayin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body>
 
@@ -17,17 +23,17 @@
     <!-- User Info Section -->
     <div class="user-info">
         <img src="../PICS/user.jpg" alt="User Icon" class="user-icon">
-        <span class="username">USERNAME</span>
+        <span class="username"><?php echo $_SESSION['username']; ?></span>
     </div>
 
     <a href="../HOME1/home.php"><i class="fas fa-home"></i> Home</a>
     <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmark</a>
-    <a href="../GAMES/games.html"><i class="fas fa-gamepad"></i> Games</a>
+    <a href="../GAMES/games.php"><i class="fas fa-gamepad"></i> Games</a>
     <a href="../NOTES/notes-box.php"><i class="fas fa-sticky-note"></i> Notes</a>
-    <a href="../GALLERY/gallery.html"><i class="fas fa-image"></i> Gallery</a>
-    <a href="../QUIZ1/quiz1.html"><i class="fas fa-question-circle"></i> Quiz</a>
-    <a href="../TRIVIA & FACTS/trivfac.html"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
-    <a href="../LANDING PAGE/landpage.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    <a href="../GALLERY/gallery.php"><i class="fas fa-image"></i> Gallery</a>
+    <a href="../QUIZ1/quiz1.php"><i class="fas fa-question-circle"></i> Quiz</a>
+    <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
+    <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>
 
     <!-- Navbar Section -->
@@ -55,12 +61,17 @@
             <h1 class="gradient-text">Baybayin Key Translator</h1>
         </div>
         
-        <div class="c-wrapper">
-            <textarea id="input" placeholder="Type here..." rows="10" cols="30"></textarea>
-            <div class="original-text-container" style="display: none;;">
-                <p class="original">Output</p>
-            </div>
+        <div class="c-wrappehr">
+            <textarea id="input" placeholder="Type here..." rows="10" cols="40"></textarea>
+            
         </div>
+
+        <div>
+    <h3>Translated:</h3>
+    <p class=" original" id="output"></p>
+</div>
+
+
         
         <div class="baybayin-grid">
             <button>
@@ -136,6 +147,8 @@
     </div>
 
     <!-- JavaScript -->
+
+    
     <script src="../HOME1/home-js.js"></script>
     <script src="./baybayin.js"></script>
 </body>

@@ -6,12 +6,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../QUIZ1/q1-css.css">
-    <title>QUIZ 1</title>
+    <title>QUIZ 2</title>
 </head>
 <body>
 
- <!-- Sidebar on the Right -->
- <div id="sidebar" class="sidebar">
+<!-- Sidebar on the Right -->
+<div id="sidebar" class="sidebar">
 
     <!-- User Info Section -->
     <div class="user-info">
@@ -21,18 +21,20 @@
 
     <a href="../HOME1/home.php"><i class="fas fa-home"></i> Home</a>
     <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmark</a>
-    <a href="../GAMES/games.html"><i class="fas fa-gamepad"></i> Games</a>
+    <a href="../GAMES/games.php"><i class="fas fa-gamepad"></i> Games</a>
     <a href="../NOTES/notes-box.php"><i class="fas fa-sticky-note"></i> Notes</a>
-    <a href="../GALLERY/gallery.html"><i class="fas fa-image"></i> Gallery</a>
-    <a href="../QUIZ1/quiz1.html"><i class="fas fa-question-circle"></i> Quiz</a>
-    <a href="../TRIVIA & FACTS/trivfac.html"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
-    <a href="../LANDING PAGE/landpage.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    <a href="../GALLERY/gallery.php"><i class="fas fa-image"></i> Gallery</a>
+    <a href="../QUIZ1/quiz1.php"><i class="fas fa-question-circle"></i> Quiz</a>
+    <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
+    <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>
 
 <!-- Navbar Section -->
 <nav class="navbar">
     <!-- Sidebar Toggle Button -->
     <div class="navbar-left">
+        <span class="toggle-btn" id="openSidebar">&#9776;</span>
+
         <!-- Website Logo and Name -->
         <div class="navbar-logo">
             <img src="../PICS/logo1.png" alt="Website Logo" class="logo">
@@ -82,7 +84,7 @@
     </div>
 </div>
 
-<script src="../QUIZ1/q1-js.js"></script>
+<script src="../QUIZ1/q2-js.js"></script>
 <script src="../HOME1/home-js.js"></script>
 
 </body>

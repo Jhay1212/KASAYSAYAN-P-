@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f8f9fa, #e2dece);
+    background-image: url('../PICS/bg1-login1.png');
     color: #343a40;
     height: 100vh;
     display: flex;

@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f8f9fa, #e2dece);
+    background-image: url('../PICS/bg1-login1.png');
     color: #343a40;
     height: 100vh;
     display: flex;
@@ -167,13 +167,13 @@ body {
 
 .container img{
 	margin-left:10px;
-    height:40px;
-	width:40px;
+    height:60px;
+	width:60px;
 	background-color:transparent;
 }
 
 .content-section {
-    text-align: center; /* Center align the content section */
+   
     margin-top: 100px;
 	margin-bottom: 150px;
     margin-left: 120px;
@@ -182,6 +182,7 @@ body {
 .content-section h2 {
     font-size: 60px; /* Adjust the font size as needed */
     color: #333; /* Adjust the color as needed */
+   margin-left: 530px;
 }
 
 .rectangle-container {
@@ -193,11 +194,10 @@ body {
 
 .rectangle {
     position: relative;
-    width: calc(25% - 40px); /* Reduced the width */
+    width: calc(30% - 40px); /* Reduced the width */
     height: 120px; /* Reduced the height */
-    margin-left: 50px;
-    margin-bottom: 30px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+    margin-left: 30px;
+    margin-bottom: 70px;
     transition: transform 0.3s ease;
 }
 
@@ -205,8 +205,8 @@ body {
     position: absolute;
     top: 8px;
     left: 80px;
-    width: 40%; /* Adjusted the width */
-    height: 80%; /* Adjusted the height */
+    width: 90%; /* Adjusted the width */
+    height: 140%; /* Adjusted the height */
     object-fit: cover;
     border-radius: 5px;
 }
@@ -230,9 +230,9 @@ body {
 .dropdown {
     display: none; /* Initially hide dropdown */
     position: absolute;
-    top: calc(100% + 5px); /* Position below rectangle */
-    left: 0;
-    width: 100%;
+    top: calc(100% + 15px); /* Position below rectangle */
+    left: 70px;
+    width: 95%;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     border-radius: 5px;

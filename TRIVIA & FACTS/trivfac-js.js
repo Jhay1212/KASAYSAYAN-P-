@@ -31,15 +31,51 @@ const triviaList = [
     "Did you know that the Philippines is known for its resilient and joyful people? Despite facing challenges, Filipinos are known for their positivity, warmth, and ability to rise above difficulties with a smile."
 ];
 
+const triviaImages = [
+    "../PICS/trivfac pics/1.jpg", // Corresponding image for the first trivia
+    "../PICS/trivfac pics/2.jpg", // Corresponding image for the second trivia
+    "../PICS/trivfac pics/3.jpg",
+    "../PICS/trivfac pics/4.jpg",
+    "../PICS/trivfac pics/5.jpg",
+    "../PICS/trivfac pics/6.jpg",
+    "../PICS/trivfac pics/7.jpg",
+    "../PICS/trivfac pics/8.jpg",
+    "../PICS/trivfac pics/9.jpg",
+    "../PICS/trivfac pics/10.jpg",
+    "../PICS/trivfac pics/11.jpg",
+    "../PICS/trivfac pics/12.jpg",
+    "../PICS/trivfac pics/13.jpg",
+    "../PICS/trivfac pics/14.jpg",
+    "../PICS/trivfac pics/15.jpg",
+    "../PICS/trivfac pics/1.jpg",
+    "../PICS/trivia-image1.jpg",
+    "../PICS/trivia-image1.jpg",
+    "../PICS/trivia-image1.jpg",
+    "../PICS/trivia-image1.jpg",
+    "../PICS/trivia-image1.jpg",
+    "../PICS/trivia-image1.jpg",
+    "../PICS/trivia-image1.jpg",
+    "../PICS/trivia-image1.jpg",
+    "../PICS/trivia-image1.jpg",
+    "../PICS/trivia-image1.jpg",
+    "../PICS/trivia-image1.jpg",
+    "../PICS/trivia-image1.jpg",
+    "../PICS/trivia-image1.jpg",
+    "../PICS/trivia-image1.jpg",
+    // Add corresponding images for all trivia facts...
+];
+
 let currentTriviaIndex = 0;
 
 const triviaText = document.getElementById('trivia-text');
+const triviaImage = document.querySelector('.trivia-image'); // Get the image element
 const backBtn = document.getElementById('back-btn');
 const nextBtn = document.getElementById('next-btn');
 
 // Function to display trivia
 function displayTrivia(index) {
     triviaText.textContent = triviaList[index];
+    triviaImage.src = triviaImages[index]; // Change the image source
     triviaText.classList.remove('fade-in'); // Reset animation
     void triviaText.offsetWidth; // Trigger reflow to restart animation
     triviaText.classList.add('fade-in'); // Add class for animation

@@ -97,7 +97,7 @@ function resetGame() {
 
 // Exit game function (for Exit button)
 function exitGame() {
-    window.location.href = "../GAMES/games.html";  // Redirect to homepage or other page
+    window.location.href = "../GAMES/games.php";  // Redirect to homepage or other page
 }
 
 // Event listeners for buttons

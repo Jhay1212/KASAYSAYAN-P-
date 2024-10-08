@@ -9,9 +9,7 @@ body {
     background-image: url('../PICS/bg1-login1.png');
     color: #343a40;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+
 }
 
 /* Sidebar styles */
@@ -193,6 +191,7 @@ header h1 {
     margin-left: 280px;
     text-align: left; /* Center align the content section */
     margin-top: 100px; /* Adjust the top margin as needed */
+    /* transform: translateY(-30%); */
 }
 
 .content-section h2 {
@@ -229,6 +228,9 @@ header h1 {
     align-items: center;
 }
 
+#mainContent {
+    position: relative;
+}
 /* Adjust the position of the title */
 .square h3 {
 	font-size:22px;

@@ -21,12 +21,12 @@
 
         <a href="../HOME1/home.php"><i class="fas fa-home"></i> Home</a>
         <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmark</a>
-        <a href="../GAMES/games.html"><i class="fas fa-gamepad"></i> Games</a>
+        <a href="../GAMES/games.php"><i class="fas fa-gamepad"></i> Games</a>
         <a href="../NOTES/notes-box.php"><i class="fas fa-sticky-note"></i> Notes</a>
-        <a href="../GALLERY/gallery.html"><i class="fas fa-image"></i> Gallery</a>
-        <a href="../QUIZ1/quiz1.html"><i class="fas fa-question-circle"></i> Quiz</a>
-        <a href="../TRIVIA & FACTS/trivfac.html"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
-        <a href="../LANDING PAGE/landpage.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <a href="../GALLERY/gallery.php"><i class="fas fa-image"></i> Gallery</a>
+        <a href="../QUIZ1/quiz1.php"><i class="fas fa-question-circle"></i> Quiz</a>
+        <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
+        <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </div>
 
     <!-- Navbar Section -->

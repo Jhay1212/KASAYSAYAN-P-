@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f8f9fa, #e2dece);
+    background-image: url('../PICS/bg1-login1.png');
     color: #343a40;
     height: 100vh;
     display: flex;
@@ -159,7 +159,7 @@ body {
 
 .container {
     margin-left: 200px;
-    margin-top: 220px;
+    margin-top: 70px;
     margin-right: 50px;
 }
 
@@ -172,7 +172,7 @@ h1 {
 .trivia-container {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 15px;
-    padding: 30px;
+    padding: 20px;
     margin: 20px auto;
     width: 80%;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -202,7 +202,7 @@ h1 {
 }
 
 .nav-button:hover {
-    background-color: #4facfe;
+    background-color: #996515;
     color: #fff;
     transform: translateY(-2px);
 }
@@ -244,3 +244,16 @@ button:disabled {
     }
 }
 
+/* Image styles */
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.trivia-image {
+    width: 25%;
+    max-width: 30%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}

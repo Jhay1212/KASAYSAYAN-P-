@@ -2,35 +2,48 @@
 
 let noteText = '';
 const user_name = document.querySelector('#uname');
-const s_username = document.querySelector("span.username");
-const user_id = document.querySelector("#uid");
-document.addEventListener("DOMContentLoaded", function() {
-    // alert("poknat");
-    const searchBar = document.querySelector(".search-bar");
+const defaultIcon = '../PICS/user.jpg'; // Default user icon path
+const icon = document.querySelector('.user-icon');
 
-    // Optional: you can implement logic to display suggestions here
-    searchBar.addEventListener("input", function() {
-        console.log("User is typing:", searchBar.value);
-        // Show search suggestions dynamically
-    });
-});
+
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     // alert("poknat");
+//     const searchBar = document.querySelector(".search-bar");
+
+//     // Optional: you can implement logic to display suggestions here
+//     searchBar.addEventListener("input", function() {
+//         console.log("User is typing:", searchBar.value);
+//         // Show search suggestions dynamically
+//     });
+// });
+
+
+// script.js
+
+
 
 // script.js
 
 document.addEventListener("DOMContentLoaded", function() {
-
+    // Load everything when dom is ready hehe 
     
+    // Call the function to set the default user icon when the page is loaded
+    // window.addEventListener('load', setDefaultUserIcon);
+    
+    const iconX =document. getElementById('userIcon');
+    setDefaultUserIcon();
+    iconX.addEventListener('click', function(){
+        alert('tite')
+        const profileForm = document.querySelector('form.hidden');
+        profileForm.classList.toggle('hidden');
 
-    // Example: Set the username dynamically (e.g., based on a logged-in user)
+    });
 
-
-});
-
-// script.js
-
-document.addEventListener("DOMContentLoaded", function() {
     const searchBar = document.querySelector(".search-bar");
 
+const s_username = document.querySelector("span.username");
+const uid = document.querySelector('#uid').value;
     // Function to show content for the clicked lesson
     window.showContent = function(lessonId) {
         // Hide all lesson rectangles
@@ -68,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
         e.preventDefault(); // Prevent default anchor behavior
         // Toggle the 'clicked' class
         bookmarkIcon.classList.toggle("clicked");
+        checkSession();
     });
 });
 
@@ -87,15 +101,30 @@ document.querySelectorAll('.rectangle').forEach(rectangle => {
 
 //notes
 
+
+ function checkSession(){
+    console.log(`uid ${uid.value}  ${typeof uid.value}`)
+    if (uid.value == 0) {
+        alert('Please login first');
+        window.location.href = '../LOGIN1/Login1.html';
+
+        return false;
+    };
+    return true;
+ };
+
 function openForm() {
-    checkSession()
-    const form = document.getElementById('noteForm');
-    if (noteText) {
-        form.querySelector('textarea').value = noteText;
+    if (checkSession()) {
+        const form = document.getElementById('noteForm');
+        if (noteText) {
+            form.querySelector('textarea').value = noteText;
+        }
+        form.classList.add('show');
+        form.classList.remove('hidden');
     }
-    form.classList.add('show');
-    form.classList.remove('hidden');
-}
+    
+    }
+ 
 
 function closeForm() {
     const form = document.getElementById('noteForm');
@@ -173,14 +202,44 @@ function toggleSidebar() {
     document.body.classList.toggle('active');
   }
   
-
-  function checkSession() {
-    if (!user_id) {
-        alert('Please login first');
-        window.location.href = '../LOGIN1/Login1.html';
-  }};
-
-  
-  console.log(s_username);
   s_username.innerHTML = user_name.value;
 
+
+
+
+  function setDefaultUserIcon() {
+    const defaultIcon = "../PICS/user.jpg"; // Default user icon path
+    const storedIcon = localStorage.getItem('userIcon');
+
+    // Check if there's a stored user icon
+    if (storedIcon) {
+        document.getElementById('userIcon').src = storedIcon;
+    } else {
+        document.getElementById('userIcon').src = defaultIcon;
+    }
+}
+
+// Function to handle changing the user icon
+function changeUserIcon(event) {
+    alert('User icon clicked');
+    // Get the selected file
+    const file = event.target.files[0];
+    
+    // Check if a file is selected
+    if (file) {
+        // Create a FileReader object to read the file
+        const reader = new FileReader();
+        
+        // Define a function to execute when the file is read
+        reader.onload = function(e) {
+            // Update the user icon with the selected image
+            document.getElementById('userIcon').src = e.target.result;
+            
+            // Store the selected image in local storage
+            localStorage.setItem('userIcon', e.target.result);
+        };
+        
+        // Read the selected file as a data URL
+        reader.readAsDataURL(file);
+    }
+}

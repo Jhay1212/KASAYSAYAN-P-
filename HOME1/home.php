@@ -1,22 +1,35 @@
 <?php
 session_start();  // Start the session
 
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['username']) && isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
     $username = $_SESSION['username'];
-    echo '<script>alert("Welcome, ' . $_SESSION['username'] .$_SESSION['user_id'] . '!");</script>';
+    echo '<script>alert("Welcome, ' . $username . ' ' . $user_id . '!");</script>';
 } else {
     echo '<script>alert("Username is not set!");</script>';
+    
+    // Set default values if user is not logged in
+    $_SESSION['username'] = "GUEST";
+    $_SESSION['user_id'] = 0; // Set the user_id to 0 for guests
     $username = "GUEST";
     $user_id = 0;
 }
 
 if (isset($_POST['save_bookmark'])) {
-    include_once('./save_bookmark.php'); // Only save the bookmark
+    include_once(__DIR__ . '\\HOME1\\save_bookmark.php'); // Only save the bookmark
 } elseif (isset($_POST['save_note'])) {
-    include_once('../NOTES/save_notes.php'); // Only save the note
+    include_once(__DIR__ . '\\..\\NOTES\\save_notes.php'); // Only save the note
+}elseif (isset($_POST['change_profile'])) {
+    include_once(__DIR__ . '\\..\\HOME1\\profile.php');
 }
 
+function sessionCheck($message, $fallback) {
+    if (isset($_SESSION['username']) and isset($_SESSION['user_id']))   {
+        return $message;
+}
+return $fallback;
+
+}$logging = sessionCheck("Logout", 'Login');
 
 
 // // Check if the user is logged in
@@ -50,27 +63,35 @@ if (isset($_POST['save_bookmark'])) {
     <input  type="checkbox" id="uname" class="hidden" name="usernamej"  value=" $username">
     <input  type="checkbox" id="uid" class="hidden" name="useridj"  value=" $user_id">
 
+    <form  id='profile' action='../HOME1/profile.php' method='POST' class='hidden' enctype='multipart/form-data'>
+        <label for='file'>Choose File</label>
+        <input type='file' name='file' id='file'>
+        <input type='submit' value='Upload' name='upload'>
+    <button type='submit' name='change_profile' value='upload'>Change Profile Picture</button>
+    </form>
+
+
     <div id="sidebar" class="sidebar">
 
         <!-- User Info Section -->
         <div class="user-info">
-            <img src="../PICS/user.jpg" alt="User Icon" class="user-icon">
+            <img src="../PICS/user.jpg" alt="User Icon" class="user-icon" id="userIcon">
             <span class="username">$_SESSION[username]</span>
         </div>
 
         <a href="../HOME1/home.php"><i class="fas fa-home"></i> Home</a>
         <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmark</a>
-        <a href="../GAMES/games.html"><i class="fas fa-gamepad"></i> Games</a>
+        <a href="../GAMES/games.php"><i class="fas fa-gamepad"></i> Games</a>
         <a href="../NOTES/notes-box.php"><i class="fas fa-sticky-note"></i> Notes</a>
-        <a href="../GALLERY/gallery.html"><i class="fas fa-image"></i> Gallery</a>
-        <a href="../QUIZ1/quiz1.html"><i class="fas fa-question-circle"></i> Quiz</a>
-        <a href="../TRIVIA & FACTS/trivfac.html"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
-        <a href="../LANDING PAGE/landpage.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <a href="../GALLERY/gallery.php"><i class="fas fa-image"></i> Gallery</a>
+        <a href="../QUIZ1/quiz1.php"><i class="fas fa-question-circle"></i> Quiz</a>
+        <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
+        <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> $logging</a>
     </div>
 
     <!-- Navbar Section -->
     <nav class="navbar">
-        <!-- Sidebar Toggle Button -->
+        <!-- Sidebar Toggle Button --
         <div class="navbar-left">
 
             <!-- Website Logo and Name -->
@@ -1049,18 +1070,17 @@ EOD;
 ?>
     <!-- JavaScript -->
     <script src="../HOME1/home-js.js"></script>
-
+    <script src="./gome.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
   
     // alert('this')
 function saveBookmark(element) {
-    // alert('bookmartk clicked');
-    // Get the title text from the parent <h2> element
-    var title = $(element).closest('h2').text().trim();
-    console.log('title:', title);
 
+    if (checkSession()) {
+    var title = $(element).closest('h2').text().trim();
+        
     $.ajax({
         url: '../HOME1/save_bookmark.php',  // PHP script to handle the database insertion
         type: 'POST',
@@ -1073,6 +1093,11 @@ function saveBookmark(element) {
             console.error('Error saving bookmark:', error);
         }
     });
+    }
+    // alert('bookmartk clicked');
+    // Get the title text from the parent <h2> element
+    console.log('title:', title);
+
 }
 function setCookie(cname, cvalue, cdate) {
     const d = new Date();

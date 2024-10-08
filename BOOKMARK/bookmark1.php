@@ -1,11 +1,6 @@
 <?php 
 session_start();
-if (!isset($_SESSION['username'])) {
-    $username = "GUEST";
-   // $user_id = $_SESSION['user_id'];
-} else {
-    $username = $_SESSION['username'];
-}
+
 
 $servername = "localhost";
 $username = "root";
@@ -18,6 +13,17 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+}
+
+if (isset($_SESSION['username'])) {
+    $user_id = $_SESSION['user_id'];
+    $username = $_SESSION['username'];
+    echo '<script>alert("Welcome, ' . $_SESSION['username'] .$_SESSION['user_id'] . '!");</script>';
+} else {
+    echo '<script>alert("Username is not set!");</script>';
+    $_SESSION['username'] = "GUEST";
+    $username = "GUEST";
+    $user_id = 0;
 }
 
 $sql = "SELECT * FROM bookmark WHERE user_id = '$_SESSION[user_id]'";
@@ -54,12 +60,12 @@ $result = $conn->query($sql);
 
     <a href="../HOME1/home.php"><i class="fas fa-home"></i> Home</a>
     <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmark</a>
-    <a href="../GAMES/games.html"><i class="fas fa-gamepad"></i> Games</a>
+    <a href="../GAMES/games.php"><i class="fas fa-gamepad"></i> Games</a>
     <a href="../NOTES/notes-box.php"><i class="fas fa-sticky-note"></i> Notes</a>
-    <a href="../GALLERY/gallery.html"><i class="fas fa-image"></i> Gallery</a>
-    <a href="../QUIZ1/quiz1.html"><i class="fas fa-question-circle"></i> Quiz</a>
-    <a href="../TRIVIA & FACTS/trivfac.html"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
-    <a href="../LANDING PAGE/landpage.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    <a href="../GALLERY/gallery.php"><i class="fas fa-image"></i> Gallery</a>
+    <a href="../QUIZ1/quiz1.php"><i class="fas fa-question-circle"></i> Quiz</a>
+    <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
+    <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>
 
 <!-- Navbar Section -->

@@ -145,7 +145,7 @@ function nextQuestion() {
 // Exit the game
 function exitGame() {
     if (confirm("Are you sure you want to exit the game?")) {
-        window.location.href = '../GAMES/games.html'; // Redirect to exit page or another URL
+        window.location.href = '../GAMES/games.php'; // Redirect to exit page or another URL
     }
 }
 
