@@ -81,6 +81,15 @@ function handleDropzoneClick(e) {
     eventsContainer.insertBefore(original.item, eventsContainer.children[original.index]);
 }
 
+
+function getNewRandomEvent() {
+    const remainingEvents = timeline.filter(event => !selectedEvents.includes(event));
+    if (remainingEvents.length > 0) {
+        return remainingEvents[Math.floor(Math.random() * remainingEvents.length)];
+    }
+    return null; // Return null if no more events are available
+}
+
 // Check the order
 checkOrderBtn.addEventListener('click', () => {
     let correct = true;
@@ -99,6 +108,23 @@ checkOrderBtn.addEventListener('click', () => {
     if (correct) {
         result.textContent = "Correct! You arranged the timeline perfectly!";
         result.style.color = 'green';
+
+        selectedEvents.forEach(event => {
+            const index = timeline.findIndex(e => e.date.getTime() === event.date.getTime());
+            if (index > -1) {
+                timeline.splice(index, 1); // Remove the correctly guessed event from the timeline
+            }
+        });
+
+        const newEvent = getNewRandomEvent();
+        if (newEvent) {
+            selectedEvents.push(newEvent); // Add the new event to the list
+            const clickableDiv = document.createElement('div');
+            clickableDiv.className = 'clickable';
+            clickableDiv.setAttribute('data-date', newEvent.date.getTime()); // Store date as timestamp
+            clickableDiv.textContent = newEvent.event;
+            eventsContainer.appendChild(clickableDiv);
+        }
 
         // Reset correct events to their original positions
         originalPositions.forEach(pos => {

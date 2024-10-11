@@ -15,20 +15,12 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-
-$bisla = "SELECT COUNT(*) as user_count FROM users";
-$result = $conn->query($bisla);
-$user_count = $result->fetch_assoc()['user_count'];
-
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $_SESSION['username'] = $username;
-    $_SESSION['user_id'] = $user_count;
-
-
+    
     // Sanitize input data to prevent SQL injection
     $username = mysqli_real_escape_string($conn, $username);
     $password = mysqli_real_escape_string($conn, $password);
@@ -41,11 +33,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // User exists, verify password
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['password'])) {
-            // Password is correct, send success response
-            $_SESSION['id'] = $row['id'];
-            $_SESION['username'] = $row['username'];
+            // Password is correct, store user info in session
+            $_SESSION['user_id'] = $row['id']; // Store user ID
+            $_SESSION['username'] = $row['username']; // Store username
+            $_SESSION['login'] = true; // Set login status
             echo "success";
-            $_SESSION['login'] = true;
             exit();
         } else {
             // Password is incorrect, send error message

@@ -28,7 +28,8 @@ const choices = [
 ];
 
 const correctAnswers = [1, 1, 1, 1, 1, 1, 2, 1, 2, 1]; // Index of correct answers for each question
-
+const searchBar = document.querySelector('.search-bar');
+searchBar.style.display = 'none';
 function loadQuestion() {
     const questionElement = document.getElementById('question');
     const choiceElements = document.querySelectorAll('.choice-group');

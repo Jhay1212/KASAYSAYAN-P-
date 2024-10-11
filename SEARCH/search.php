@@ -26,10 +26,10 @@ if (isset($_SESSION['username'])) {
     $user_id = 0;
 }
 
-$sql = "SELECT * FROM bookmark WHERE user_id = '$_SESSION[user_id]'";
-$count = "SELECT COUNT(*) as total FROM bookmark";
-$count_res = $conn->query($sql);
-$result = $conn->query($sql);
+// $sql = "SELECT * FROM bookmark WHERE user_id = '$_SESSION[user_id]'";
+// $count = "SELECT COUNT(*) as total FROM bookmark";
+// $count_res = $conn->query($sql);
+// $result = $conn->query($sql);
 
 
 ?>
@@ -88,37 +88,7 @@ $result = $conn->query($sql);
 
 <!-- CONTENTS -->
     <main id="mainContent">
-    <section class="content-section">
-        <h2>Bookmarks</h2>
-
-        <div class="square-container">
-
-        <?php 
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        // Get the first word of the title
-        $title = htmlspecialchars($row['title']);
-        $firstWord = explode(' ', $title)[0]; // Split the title by spaces and get the first word
-        
-        // Add the first word to the data-title attribute
-        echo('<div class="square" data-title="'.htmlspecialchars($firstWord).'">');
-        echo('<img src="../PICS/bookmark.svg" alt="Bookmark Image">');
-        echo('<h3 class="pamagat">'.htmlspecialchars($row['title']).'</h3>');
-        echo('</div>');
-    }
-}
-?>
-            <!-- Box 1 -->
-    </div>
-    </section>
-
-    <!-- Bookmark Preview Section -->
-    <section id="bookmarkPreview" class="preview-section">
-        <h2>Bookmark Preview</h2>
-        <div id="previewContent">
-            <p class="desc">Select a bookmark to see details here.</p>
-        </div>
-    </section>
+    
 </main>
 
 <script src="../HOME1/home-js.js"></script>

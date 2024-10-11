@@ -1,14 +1,12 @@
 <?php
-session_start();
+// session_start();
 
 include_once (__DIR__ . '\\view_notes.php');
 
 if (isset($_SESSION['username']) && isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
     $username = $_SESSION['username'];
-    echo '<script>alert("Welcome, ' . $username . ' ' . $user_id . '!");</script>';
 } else {
-    echo '<script>alert("Username is not set!");</script>';
     
     // Set default values if user is not logged in
     $_SESSION['username'] = "GUEST";
@@ -68,6 +66,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_id'])) {
     line-height: 1.6;
     flex-grow: 1;
     transform: translate(-20px, -60px);
+    padding-left: 1.5rem;
 }
 
 /* Created At Small Text (Positioned Bottom Right) */
