@@ -17,3 +17,4 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_id'])) {
     $profile_path =  $_SESSION['profile_path'];
     $user_id = 0;
 }
+echo('<script>alert($profile_path);</script>');

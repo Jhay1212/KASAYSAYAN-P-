@@ -1,5 +1,6 @@
 <?php
-session_start();
+include __DIR__.'\\..\\UTILS\\session_check.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +20,8 @@ session_start();
 
     <!-- User Info Section -->
     <div class="user-info">
-        <img src="../PICS/user.jpg" alt="User Icon" class="user-icon">
+    <img src="<?php echo $profile_path?>" alt="User Icon" class="user-icon profile-pic" id="userIcon">
+    
         <span class="username"><?php  echo $_SESSION['username']; ?></span>
     </div>
 

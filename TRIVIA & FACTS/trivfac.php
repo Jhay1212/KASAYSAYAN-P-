@@ -18,11 +18,11 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
     <!-- Sidebar on the Right -->
     <div id="sidebar" class="sidebar">
 
-        <!-- User Info Section -->
-        <div class="user-info">
-            <img src="../PICS/user.jpg" alt="User Icon" class="user-icon">
-            <span class="username"><?php echo $_SESSION['username']; ?></span>
-        </div>
+    <div class="user-info">
+    <img src="<?php echo $profile_path?>" alt="User Icon" class="user-icon profile-pic" id="userIcon">
+        
+        <span class="username"><?php echo $_SESSION['username'] ?></span>
+    </div>
 
         <a href="../HOME1/home.php"><i class="fas fa-home"></i> Home</a>
         <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmark</a>

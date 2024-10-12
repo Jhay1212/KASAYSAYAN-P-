@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php 
+include __DIR__.'\\..\\UTILS\\session_check.php';
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,8 +17,9 @@
 
     <!-- User Info Section -->
     <div class="user-info">
-        <img src="../PICS/user.jpg" alt="User Icon" class="user-icon">
-        <span class="username">John Doe</span>
+    <img src="<?php echo $profile_path?>" alt="User Icon" class="user-icon profile-pic" id="userIcon">
+        
+        <span class="username"><?php echo $_SESSION['username'] ?></span>
     </div>
 
     <a href="../HOME1/home.php"><i class="fas fa-home"></i> Home</a>

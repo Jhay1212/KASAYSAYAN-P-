@@ -34,7 +34,8 @@ $logging = sessionCheck("Login", 'Logout');
 
         <!-- User Info Section -->
         <div class="user-info">
-            <img src="../PICS/user.jpg" alt="User Icon" class="user-icon profile-pic" id="userIcon">
+         <img src="<?php echo $profile_path?>" alt="User Icon" class="user-icon profile-pic" id="userIcon">
+         
             <span class="username"><?php echo $_SESSION['username'] ?></span>
         </div>
 
