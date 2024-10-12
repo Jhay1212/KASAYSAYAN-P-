@@ -79,6 +79,18 @@ function handleDropzoneClick(e) {
     // Return the item to its original spot
     const original = originalPositions.find(pos => pos.item.getAttribute('data-date') == clickedDate);
     eventsContainer.insertBefore(original.item, eventsContainer.children[original.index]);
+    console.log(dropzone);
+    alert(...eventsContainer.childNodes);
+    console.log(...eventsContainer.childNodes);
+}
+
+
+function getNewRandomEvent() {
+    const remainingEvents = timeline.filter(event => !selectedEvents.includes(event));
+    if (remainingEvents.length > 0) {
+        return remainingEvents[Math.floor(Math.random() * remainingEvents.length)];
+    }
+    return null; // Return null if no more events are available
 }
 
 // Check the order
@@ -100,6 +112,23 @@ checkOrderBtn.addEventListener('click', () => {
         result.textContent = "Correct! You arranged the timeline perfectly!";
         result.style.color = 'green';
 
+        selectedEvents.forEach(event => {
+            const index = timeline.findIndex(e => e.date.getTime() === event.date.getTime());
+            if (index > -1) {
+                timeline.splice(index, 1); // Remove the correctly guessed event from the timeline
+            }
+        });
+
+        const newEvent = getNewRandomEvent();
+        if (newEvent) {
+            selectedEvents.push(newEvent); // Add the new event to the list
+            const clickableDiv = document.createElement('div');
+            clickableDiv.className = 'clickable';
+            clickableDiv.setAttribute('data-date', newEvent.date.getTime()); // Store date as timestamp
+            clickableDiv.textContent = newEvent.event;
+            eventsContainer.appendChild(clickableDiv);
+        }
+
         // Reset correct events to their original positions
         originalPositions.forEach(pos => {
             eventsContainer.insertBefore(pos.item, eventsContainer.children[pos.index]);
@@ -115,9 +144,65 @@ checkOrderBtn.addEventListener('click', () => {
 // Reset function to clear dropzone
 function resetTimeline() {
     selectedOrder = [];
-    while (dropzone.firstChild) {
-        const cloneChild = dropzone.firstChild.cloneNode(true);
-        eventsContainer.appendChild(cloneChild);
-        dropzone.removeChild(dropzone.firstChild);
-    }
+    originalPositions.forEach(pos => {
+        // Remove the element from the dropzone and restore it in its original position
+        const itemInDropzone = [...dropzone.children].find(child => child.getAttribute('data-date') == pos.item.getAttribute('data-date'));
+        if (itemInDropzone) {
+            itemInDropzone.remove();
+        }
+        if (![...eventsContainer.children].includes(pos.item)) {
+            eventsContainer.insertBefore(pos.item, eventsContainer.children[pos.index]);
+        }
+    });
+    originalPositions.length = 0; // Clear out originalPositions after resetting
 }
+
+checkOrderBtn.addEventListener('click', () => {
+    let correct = true;
+
+    // First, check if the user has selected all events
+    if (selectedOrder.length !== selectedEvents.length) {
+        correct = false;
+    } else {
+        // Check if the events are in the correct order
+        for (let i = 0; i < selectedOrder.length - 1; i++) {
+            if (selectedOrder[i] > selectedOrder[i + 1]) {
+                correct = false;
+                break;
+            }
+        }
+    }
+
+    if (correct) {
+        result.textContent = "Correct! You arranged the timeline perfectly!";
+        result.style.color = 'green';
+
+        // Remove the correct events from the timeline
+        selectedEvents.forEach(event => {
+            const index = timeline.findIndex(e => e.date.getTime() === event.date.getTime());
+            if (index > -1) {
+                timeline.splice(index, 1); // Remove the correctly guessed event from the timeline
+            }
+        });
+
+        // Add a new event from the remaining timeline
+        const newEvent = getNewRandomEvent();
+        if (newEvent) {
+            selectedEvents.push(newEvent); // Add the new event to the list
+            const clickableDiv = document.createElement('div');
+            clickableDiv.className = 'clickable';
+            clickableDiv.setAttribute('data-date', newEvent.date.getTime()); // Store date as timestamp
+            clickableDiv.textContent = newEvent.event;
+            eventsContainer.appendChild(clickableDiv);
+            originalPositions.push({ item: clickableDiv, index: [...eventsContainer.children].indexOf(clickableDiv) }); // Store its original position
+        }
+
+        resetTimeline(); // Reset dropzone and clear selections
+    } else {
+        result.textContent = "Oops! Try again, the order is not correct.";
+        result.style.color = 'red';
+
+        // Allow the user to try again without resetting their progress
+        resetTimeline();
+    }
+});

@@ -4,46 +4,27 @@ let noteText = '';
 const user_name = document.querySelector('#uname');
 const defaultIcon = '../PICS/user.jpg'; // Default user icon path
 const icon = document.querySelector('.user-icon');
+const searchBar = document.querySelector('.search-bar');
 
 
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     // alert("poknat");
-//     const searchBar = document.querySelector(".search-bar");
-
-//     // Optional: you can implement logic to display suggestions here
-//     searchBar.addEventListener("input", function() {
-//         console.log("User is typing:", searchBar.value);
-//         // Show search suggestions dynamically
-//     });
-// });
-
-
-// script.js
-
-
-
-// script.js
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Load everything when dom is ready hehe 
-    
-    // Call the function to set the default user icon when the page is loaded
-    // window.addEventListener('load', setDefaultUserIcon);
-    
-    const iconX =document. getElementById('userIcon');
-    setDefaultUserIcon();
-    iconX.addEventListener('click', function(){
-        alert('tite')
+    const iconX = document.getElementById('userIcon');
+    // setDefaultUserIcon();
+
+    // Toggle profile form visibility when the icon is clicked
+    iconX.addEventListener('click', function () {
         const profileForm = document.querySelector('form.hidden');
         profileForm.classList.toggle('hidden');
-
     });
 
-    const searchBar = document.querySelector(".search-bar");
+    // Handle the image upload and change the user icon
+    // iconX.addEventListener('change', changeUserIcon);
 
-const s_username = document.querySelector("span.username");
-const uid = document.querySelector('#uid').value;
+
+
+    const s_username = document.querySelector("span.username");
+    const uid = document.querySelector('#uid').value;
     // Function to show content for the clicked lesson
     window.showContent = function(lessonId) {
         // Hide all lesson rectangles
@@ -71,12 +52,46 @@ const uid = document.querySelector('#uid').value;
             content.classList.add('hidden');
         });
     };
+
+
+    function searchContent() {
+        // Get search query from input
+        let query = document.getElementById('searchInput').value.toLowerCase();
+        
+        // Clear previous search results
+        let searchResults = document.getElementById('searchResults');
+        searchResults.innerHTML = '';
+      
+        // Get all sections of content (assuming each lesson has 'content-section' class)
+        let sections = document.querySelectorAll('.content-section');
+      
+        // Loop through each section and search for the query
+        sections.forEach(section => {
+          let sectionText = section.innerText.toLowerCase();
+          
+          // If the query is found inside the section, display the section
+          if (sectionText.includes(query)) {
+            let result = section.cloneNode(true);  // Clone the matching section
+            searchResults.appendChild(result);     // Append it to the search results div
+          }
+        });
+      
+        // Prevent form submission redirect
+        return false;
+      }
+
+    //   searchBar.addEventListener('submit', searchContent);
+      document.querySelector('searchFormBtn').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          searchContent();
+        }
+      })
 });
 
 // JavaScript to handle bookmark click
 document.addEventListener("DOMContentLoaded", function() {
     const bookmarkIcon = document.getElementById("bookmarkIcon");
-
+    
     bookmarkIcon.addEventListener("click", function(e) {
         e.preventDefault(); // Prevent default anchor behavior
         // Toggle the 'clicked' class
@@ -99,19 +114,37 @@ document.querySelectorAll('.rectangle').forEach(rectangle => {
     });
 });
 
-//notes
 
 
- function checkSession(){
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "../HOME1/profile.php", true);
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+            try {
+                var response = JSON.parse(xhr.responseText);
+                console.log(response);
+            } catch (e) {
+                console.error("Invalid JSON response", e);
+            }
+        } else {
+            console.log("Error: " + xhr.statusText);
+        }
+    }
+};
+
+
+
+function checkSession(){
     console.log(`uid ${uid.value}  ${typeof uid.value}`)
     if (uid.value == 0) {
         alert('Please login first');
         window.location.href = '../LOGIN1/Login1.html';
-
+        
         return false;
     };
     return true;
- };
+};
 
 function openForm() {
     if (checkSession()) {
@@ -123,8 +156,8 @@ function openForm() {
         form.classList.remove('hidden');
     }
     
-    }
- 
+}
+
 
 function closeForm() {
     const form = document.getElementById('noteForm');
@@ -146,7 +179,7 @@ function dragElement(el) {
     } else {
         el.onmousedown =this. dragMouseDown;
     }
-
+    
     function dragMouseDown(e) {
         e = e || window.event;
         e.preventDefault();
@@ -221,25 +254,23 @@ function toggleSidebar() {
 
 // Function to handle changing the user icon
 function changeUserIcon(event) {
-    alert('User icon clicked');
     // Get the selected file
     const file = event.target.files[0];
     
     // Check if a file is selected
     if (file) {
-        // Create a FileReader object to read the file
         const reader = new FileReader();
-        
-        // Define a function to execute when the file is read
-        reader.onload = function(e) {
-            // Update the user icon with the selected image
-            document.getElementById('userIcon').src = e.target.result;
-            
+
+        // When the file is read, set it as the user icon and save it in local storage
+        reader.onload = function (e) {
+            const newIcon = e.target.result;
+            document.getElementById('userIcon').src = newIcon;
+
             // Store the selected image in local storage
-            localStorage.setItem('userIcon', e.target.result);
+            localStorage.setItem('userIcon', newIcon);
         };
-        
-        // Read the selected file as a data URL
-        reader.readAsDataURL(file);
+
+        reader.readAsDataURL(file); // Read the file as a data URL
     }
 }
+

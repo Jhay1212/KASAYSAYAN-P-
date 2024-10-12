@@ -1,50 +1,80 @@
 <?php
 session_start();
 
-if (isset($_POST['save_profile'])) {
-    $target_dir = "uploads/";
-    $target_file = $target_dir . basename($_FILES["file"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+$servername = "localhost";
+$username = "root";
+$password = ""; // Your database password
+$dbname = "kasaysayan";
 
-    // Check if image file is a actual image or fake image
-    $check = getimagesize($_FILES["file"]["tmp_name"]);
-    if ($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-    } else {
-        echo "File is not an image.";
-        $uploadOk = 0;
-    }
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Check if file already exists
-    if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
-        $uploadOk = 0;
-    }
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-    // Check file size
-    if ($_FILES["file"]["size"] > 500000) {
-        echo "Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
-
-    // Allow certain file formats
-    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-        $uploadOk = 0;
-    }
-
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
-    // if everything is ok, try to upload file
-    } else {
-        if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-            echo "The file ". htmlspecialchars(basename($_FILES["file"]["name"])). " has been uploaded.";
-        } else {
-            echo "Sorry, there was an error uploading your file.";
+// Ensure user is logged in and an image file was uploaded
+if (isset($_SESSION['user_id']) && isset($_FILES['profilePicture'])) {
+    $userId = $_SESSION['user_id'];
+    $file = $_FILES['profilePicture'];
+    
+    // Directory to save the uploaded image
+    $uploadDir = '../HOME1/uploads/profile_pictures'.$_SESSION['username'].'/';
+    
+    // Create the directory if it doesn't exist
+    if (!is_dir($uploadDir)) {
+        if (!mkdir($uploadDir, 0755, true)) {
+            die('Failed to create upload directory.');
         }
     }
+    
+    // Validate file type (allowing only images)
+    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    if (!in_array($file['type'], $allowedTypes)) {
+        die('Invalid file type. Only JPG, PNG, and GIF are allowed.');
+    }
+
+    // Validate file size (e.g., limit to 2MB)
+    $maxFileSize = 2 * 1024 * 1024;
+    if ($file['size'] > $maxFileSize) {
+        die('File size exceeds the maximum allowed size of 2MB.');
+    }
+    
+    // Sanitize the file name and create a unique name for the file
+    $fileName = uniqid() . '_' . preg_replace("/[^a-zA-Z0-9\._-]/", "", basename($file['name']));
+    $uploadPath = $uploadDir . $fileName;
+    
+    // Move the uploaded file to the designated directory
+    if (move_uploaded_file($file['tmp_name'], $uploadPath)) {
+        // Update the user's profile picture in the database
+        $stmt = $conn->prepare("UPDATE users SET profile_picture = ? WHERE id = ?");
+        $stmt->bind_param("si", $uploadPath, $userId);
+        
+        if ($stmt->execute()) {
+            echo 'Profile picture updated successfully.';
+            $_SESSION['profile_path'] = $uploadPath;
+            header('Location: home.php');
+        } else {
+            echo 'Failed to update profile picture in the database.';
+        }
+        
+        $stmt->close();
+    } else {
+        echo 'Failed to upload the profile picture.';
+    }
+} else {
+    echo __DIR__ . '/uploads/guest/user.jpg';
 }
+
+// Update the session path
+if (isset($_SESSION['username'])) {
+    $_SESSION['path'] = $uploadPath;
+} else {
+    $_SESSION['path'] = 'uploads/guest/user.jpg';
+}
+
+echo json_encode($_SESSION['path']);
+
+$conn->close();
 ?>

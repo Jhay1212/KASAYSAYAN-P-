@@ -1,5 +1,6 @@
 <?php
-session_start(); 
+include __DIR__.'\\..\\UTILS\\session_check.php';
+
 
 
 
@@ -38,7 +39,7 @@ try {
     $conn = null;
 
     if (empty($notes)) {
-        echo "No notes found for the current user.";
+        // echo "No notes found for the current user./";
     }
     
     

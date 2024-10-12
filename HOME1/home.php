@@ -1,19 +1,6 @@
 <?php
-session_start();  // Start the session
+include __DIR__.'\\..\\UTILS\\session_check.php';
 
-if (isset($_SESSION['username']) && isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-    $username = $_SESSION['username'];
-    echo '<script>alert("Welcome, ' . $username . ' ' . $user_id . '!");</script>';
-} else {
-    echo '<script>alert("Username is not set!");</script>';
-    
-    // Set default values if user is not logged in
-    $_SESSION['username'] = "GUEST";
-    $_SESSION['user_id'] = 0; // Set the user_id to 0 for guests
-    $username = "GUEST";
-    $user_id = 0;
-}
 
 if (isset($_POST['save_bookmark'])) {
     include_once(__DIR__ . '\\HOME1\\save_bookmark.php'); // Only save the bookmark
@@ -29,7 +16,8 @@ function sessionCheck($message, $fallback) {
 }
 return $fallback;
 
-}$logging = sessionCheck("Logout", 'Login');
+}
+$logging = sessionCheck("Login", 'Logout');
 
 
 // // Check if the user is logged in
@@ -62,20 +50,21 @@ return $fallback;
 
     <input  type="checkbox" id="uname" class="hidden" name="usernamej"  value=" $username">
     <input  type="checkbox" id="uid" class="hidden" name="useridj"  value=" $user_id">
-
-    <form  id='profile' action='../HOME1/profile.php' method='POST' class='hidden' enctype='multipart/form-data'>
-        <label for='file'>Choose File</label>
-        <input type='file' name='file' id='file'>
-        <input type='submit' value='Upload' name='upload'>
-    <button type='submit' name='change_profile' value='upload'>Change Profile Picture</button>
-    </form>
+<form id="profile-picture-form" action="profile.php" method="POST" enctype="multipart/form-data" class='hidden'>
+    <div>
+        <label for="profilePicture">Change Profile Picture:</label><br>
+        <img id="profilePicPreview" src="../HOME1/uploads/profile_pictures/guest/user.jpg" alt="Profile Picture" width="150" class='profile-pic'/>
+        <input type="file" id="profilePicture" name="profilePicture" accept="image/*" onchange="previewImage(event)">
+    </div>
+    <button type="submit">Upload</button>
+</form>
 
 
     <div id="sidebar" class="sidebar">
 
         <!-- User Info Section -->
         <div class="user-info">
-            <img src="../PICS/user.jpg" alt="User Icon" class="user-icon" id="userIcon">
+            <img src="$profile_path" alt="User Icon" class="user-icon profile-pic" id="userIcon">
             <span class="username">$_SESSION[username]</span>
         </div>
 
@@ -103,8 +92,11 @@ return $fallback;
 
         <!-- Search and Info Section -->
         <div class="navbar-right">
+        <form action="../SEARCH/search.php" method="post" id='searchForm'>
             <input type="text" class="search-bar" placeholder="Search...">
             <a href="#" class="info-icon">ℹ️</a>
+            <button type="submit" name="searchFormBtn"><i class="fa-sharp-duotone fa-solid fa-magnifying-glass"></i></button>
+        </form>
         </div>
 
 

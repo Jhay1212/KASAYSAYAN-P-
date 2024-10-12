@@ -1,5 +1,6 @@
 <?php 
-session_start();
+include __DIR__.'\\..\\UTILS\\session_check.php';
+
 ?>
 
 <!DOCTYPE html>
