@@ -17,7 +17,13 @@ document.addEventListener("DOMContentLoaded", function() {
         const profileForm = document.querySelector('form.hidden');
         profileForm.classList.toggle('hidden');
     });
-
+    if (isUserLoggedIn !== 0){
+    icon.addEventListener('click', function() {
+        const profileForm = document.querySelector('#profile-picture-form');
+        profileForm.style.display = 'flex';
+        })}
+        
+        ;
     // Handle the image upload and change the user icon
     // iconX.addEventListener('change', changeUserIcon);
 
@@ -27,6 +33,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const uid = document.querySelector('#uid').value;
     // Function to show content for the clicked lesson
     window.showContent = function(lessonId) {
+        icon.addEventListener('click', function() {
+            const profileForm = document.querySelector('#profile-picture-form');
+            profileForm.style.display = 'flex';
+        });
         // Hide all lesson rectangles
         const rectangles = document.querySelectorAll('.rectangle');
         rectangles.forEach(rectangle => {
@@ -273,4 +283,8 @@ function changeUserIcon(event) {
         reader.readAsDataURL(file); // Read the file as a data URL
     }
 }
+icon.addEventListener('click', function() {
+    const profileForm = document.querySelector('#profile-picture-form');
+    profileForm.style.display = 'flex';
+});
 

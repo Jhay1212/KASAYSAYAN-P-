@@ -4,6 +4,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
     $username = $_SESSION['username'];
     $profile_path = $_SESSION['profile_path'];
+    
 
     // echo '<script>alert("Welcome, ' . $username . ' ' . $user_id . '!");</script>';
 } else {
@@ -16,5 +17,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_id'])) {
     $username = "GUEST";
     $profile_path =  $_SESSION['profile_path'];
     $user_id = 0;
+
+    
 }
-echo('<script>alert($profile_path);</script>');
+echo "<script>let isUserLoggedIn = $user_id;</script>";
