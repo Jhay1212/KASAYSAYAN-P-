@@ -35,7 +35,7 @@ if ($conn->connect_error) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../BOOKMARK/bookmark-css.css">
-    <title>BOOKMARK</title>
+    <title>SEARCH</title>
 </head>
 
 <body>
@@ -46,7 +46,7 @@ if ($conn->connect_error) {
 
     <!-- User Info Section -->
     <div class="user-info">
-        <img src="../PICS/user.jpg" alt="User Icon" class="user-icon">
+        <img src="<?php echo $profile_path ?>" alt="User Icon" class="user-icon">
         <span class="username"><?php echo $_SESSION['username']  ?></span>
     </div>
 
@@ -84,7 +84,7 @@ if ($conn->connect_error) {
 </main>
 
 <script src="../HOME1/home-js.js"></script>
-<script src="./bookmark.js"></script>
+<script src="./search.js"></script>
 
 
 </body>

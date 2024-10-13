@@ -20,4 +20,13 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_id'])) {
 
     
 }
-echo "<script>let isUserLoggedIn = $user_id;</script>";
+
+function sessionCheck($message, $fallback) {
+    if (isset($_SESSION['username']) and isset($_SESSION['user_id']))   {
+        return $message;
+    }
+    return $fallback;
+    
+}
+$logging = sessionCheck("Login", 'Logout');
+    echo "<script>let isUserLoggedIn = $user_id;</script>";

@@ -10,14 +10,7 @@ if (isset($_POST['save_bookmark'])) {
     include_once(__DIR__ . '\\..\\HOME1\\profile.php');
 }
 
-function sessionCheck($message, $fallback) {
-    if (isset($_SESSION['username']) and isset($_SESSION['user_id']))   {
-        return $message;
-}
-return $fallback;
 
-}
-$logging = sessionCheck("Login", 'Logout');
 
 
 // // Check if the user is logged in
@@ -43,6 +36,7 @@ $logging = sessionCheck("Login", 'Logout');
     <link rel="stylesheet" href="../HOME1/home-css.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="../PICS/icon/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <?php

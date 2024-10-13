@@ -32,7 +32,7 @@ if (isset($_SESSION['user_id']) && isset($_FILES['profilePicture'])) {
     // Validate file type (allowing only images)
     $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
     if (!in_array($file['type'], $allowedTypes)) {
-        die('Invalid file type. Only JPG, PNG, and GIF are allowed.');
+       echo "<script> alert('Invalid file type. Only JPEG, PNG, and GIF files are allowed.')</script>;";
     }
 
     // Validate file size (e.g., limit to 2MB)
@@ -61,7 +61,7 @@ if (isset($_SESSION['user_id']) && isset($_FILES['profilePicture'])) {
         
         $stmt->close();
     } else {
-        echo 'Failed to upload the profile picture.';
+        echo "<script>alert('Failed to upload image.')</script>";
     }
 } else {
     echo __DIR__ . '/uploads/guest/user.jpg';

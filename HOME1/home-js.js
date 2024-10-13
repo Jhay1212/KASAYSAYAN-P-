@@ -5,10 +5,15 @@ const user_name = document.querySelector('#uname');
 const defaultIcon = '../PICS/user.jpg'; // Default user icon path
 const icon = document.querySelector('.user-icon');
 const searchBar = document.querySelector('.search-bar');
-
+const favIcon = document.createElement('link');
+favIcon.rel  = 'shortcut icon';
+favIcon.href= '../PICS/icon/favicon.ico';
+favIcon.type = 'image/x-icon';
+document.head.appendChild(favIcon);
 
 
 document.addEventListener("DOMContentLoaded", function() {
+
     const iconX = document.getElementById('userIcon');
     // setDefaultUserIcon();
 
@@ -83,7 +88,10 @@ document.addEventListener("DOMContentLoaded", function() {
           if (sectionText.includes(query)) {
             let result = section.cloneNode(true);  // Clone the matching section
             searchResults.appendChild(result);     // Append it to the search results div
+            console.log(result);
           }
+          localStorage.setItem('searchQuery', query);
+
         });
       
         // Prevent form submission redirect
@@ -96,6 +104,8 @@ document.addEventListener("DOMContentLoaded", function() {
           searchContent();
         }
       })
+      document.querySelector('searchFormBtn').addEventListener('click', searchContent);
+      
 });
 
 // JavaScript to handle bookmark click

@@ -142,8 +142,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_id'])) {
     <a href="../GALLERY/gallery.php"><i class="fas fa-image"></i> Gallery</a>
     <a href="../QUIZ1/quiz1.php"><i class="fas fa-question-circle"></i> Quiz</a>
     <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
-    <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
-</div>
+    <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> <?php echo $logging ?></a>
+    </div>
 
 <!-- Navbar Section -->
 <nav class="navbar">

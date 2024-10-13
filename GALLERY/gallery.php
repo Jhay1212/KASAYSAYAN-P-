@@ -20,7 +20,7 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
 
     <!-- User Info Section -->
     <div class="user-info">
-        <img src="../PICS/user.jpg" alt="User Icon" class="user-icon">
+        <img src="<?php echo $profile_path?>" alt="User Icon" class="user-icon">
         <span class="username"><?php echo $_SESSION['username']; ?></span>
     </div>
 
@@ -31,7 +31,8 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
     <a href="../GALLERY/gallery.php"><i class="fas fa-image"></i> Gallery</a>
     <a href="../QUIZ1/quiz1.php"><i class="fas fa-question-circle"></i> Quiz</a>
     <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
-    <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> <?php echo $logging ?></a>
+
 </div> 
 
 <!-- Navbar Section -->
