@@ -69,6 +69,11 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
 
+
+// for gettin all of the title in boonmark and sub bookmarks
+
+
+
     function searchContent() {
         // Get search query from input
         let query = document.getElementById('searchInput').value.toLowerCase();
@@ -86,9 +91,11 @@ document.addEventListener("DOMContentLoaded", function() {
           
           // If the query is found inside the section, display the section
           if (sectionText.includes(query)) {
-            let result = section.cloneNode(true);  // Clone the matching section
+            let result = section.cloneNode(true);
+            localStorage.setItem('lesson', result);  // Clone the matching section
             searchResults.appendChild(result);     // Append it to the search results div
             console.log(result);
+            alert(result);
           }
           localStorage.setItem('searchQuery', query);
 
@@ -297,4 +304,5 @@ icon.addEventListener('click', function() {
     const profileForm = document.querySelector('#profile-picture-form');
     profileForm.style.display = 'flex';
 });
+
 

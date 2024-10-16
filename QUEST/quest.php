@@ -1,15 +1,5 @@
 <?php
 include __DIR__.'\\..\\UTILS\\session_check.php';
-
-
-function sessionCheck($message, $fallback) {
-    if (isset($_SESSION['username']) and isset($_SESSION['user_id']))   {
-        return $message;
-}
-return $fallback;
-
-}
-$logging = sessionCheck("Login", 'Logout');
 ?>
 
 <!DOCTYPE html>

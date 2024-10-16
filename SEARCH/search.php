@@ -85,7 +85,7 @@ if ($conn->connect_error) {
 
 <script src="../HOME1/home-js.js"></script>
 <script src="./search.js"></script>
-
+<!-- <script src="../HOME1/home-js.js"></script> -->
 
 </body>
 </html>

@@ -1,3 +1,6 @@
-alert(localStorage);
+// alert(localStorage);
 
-console.log(localStorage.getItem('searchQuery'));
+// console.log(localStorag
+// e.getItem('bookmarks'));
+
+console.warn(localStorage);

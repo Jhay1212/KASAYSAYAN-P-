@@ -612,70 +612,107 @@ main {
 
 
 
+  #timeline-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start; /* Align the top of both containers */
+    margin: 40px 0;
+    padding: 20px;
+    width: 80%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    border-radius: 10px; /* Rounded corners */
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for contrast */
+}
 
-#timeline-container {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin: 20px 0;
-        position: absolute;
-    top: 50%;
+#events, #dropzone {
+    width: 45%; /* Make both containers take up equal width */
+    padding: 20px; /* Add padding for spacing */
+    border-radius: 10px;
+}
+
+#events {
+    background-color: rgba(240, 240, 240, 0.9); /* Light background for event container */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+#dropzone {
+    background-color: rgba(220, 220, 220, 0.9); /* Slightly darker background for drop zone */
+    border: 2px dashed #007bff; /* Dashed border */
+    min-height: 300px; /* Set a minimum height to prevent shrinking */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#dropzone.drag-over {
+    background-color: #007bff; /* Change background color on drag over */
+    border-color: white; /* Change border color on drag over */
+    color: white; /* Change text color on drag over */
+}
+
+.clickable {
+    background-color: #fff;
+    border: 2px solid #007bff;
+    border-radius: 10px; /* Make the corners rounded */
+    padding: 15px; /* Add more padding for better aesthetics */
+    margin: 15px 0;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.clickable:hover {
+    background-color: #007bff;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.center-bot {
+    margin-top: 20px;
+    position: absolute;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
-    }
+}
 
-    #events {
-        width: 40%;
-    }
+button {
+    padding: 12px 25px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px; /* Increase font size */
+}
 
-    .clickable {
-        background-color: #fff;
-        border: 2px solid #007bff;
-        border-radius: 5px;
-        padding: 10px;
-        margin: 10px 0;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.3s;
-    }
+button:hover {
+    background-color: #0056b3;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
 
-    .clickable:hover {
-        background-color: #007bff;
-        color: #fff;
-        transform: scale(1.05);
-    }
+#result {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+}
 
-    #dropzone {
-        width: 40%;
-        min-height: 50px;
-        border: 2px dashed #007bff;
-        border-radius: 5px;
-        padding: 10px;
-        margin-left: 20px;
-    }
+/* Add smooth transitions when items are added to dropzone */
+#dropzone .clickable {
+    animation: fadeIn 0.5s ease-in-out;
+}
 
-    .center-bot {
-        margin-top: 20px;
-        position: absolute;
-        top: 80%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+/* Keyframe for smooth fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
     }
-
-    button {
-        padding: 10px 20px;
-        border: none;
-        background-color: #007bff;
-        color: white;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
-
-    button:hover {
-        background-color: #0056b3;
-    }
-
-    #result {
-        margin-top: 10px;
-        font-size: 18px;
-    }
+}

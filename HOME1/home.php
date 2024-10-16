@@ -87,7 +87,7 @@ if (isset($_POST['save_bookmark'])) {
         <!-- Search and Info Section -->
         <div class="navbar-right">
         <form action="../SEARCH/search.php" method="post" id='searchForm'>
-            <input type="text" class="search-bar" placeholder="Search...">
+            <input type="text" class="search-bar" placeholder="Search..." id='searchInput'>
             <a href="#" class="info-icon">ℹ️</a>
             <button type="submit" name="searchFormBtn"><i class="fa-sharp-duotone fa-solid fa-magnifying-glass"></i></button>
         </form>
@@ -449,7 +449,7 @@ The Filipinos had initially seen the Americans as aiding them in their independe
 <div class="toggle-container">
     <input type="checkbox" id="audio-toggle" class="toggle-checkbox">
     <label for="audio-toggle" class="toggle-label">
-        <span class="toggle-text">🔈</span>
+        <span class="toggle-text">🔈</span>a
         <span class="toggle-text toggle-text-muted">🔇</span>
     </label>
 </div>
@@ -1060,6 +1060,42 @@ EOD;
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
+
+let bookmarksArray = [];
+
+// Select all main bookmark titles using their class or ID
+let mainBookmarks = document.querySelectorAll('.content-section h2 span'); // Adjust the selector if needed
+
+// Loop through each main bookmark and extract the text
+mainBookmarks.forEach(bookmark => {
+    // Get the text inside the main bookmark (i.e., the title)
+    let title = bookmark.parentNode.textContent.trim();
+    
+    // Append the title to the bookmarksArray
+    bookmarksArray.push({
+        type: 'main',
+        title: title
+    });
+});
+
+// Select all sub-bookmark titles (h1 and h3) using their class or ID
+let subBookmarks = document.querySelectorAll('.content-section h1 span, .content-section h3 span');
+
+// Loop through each sub-bookmark and extract the text
+subBookmarks.forEach(subBookmark => {
+    // Get the text inside the sub-bookmark (i.e., the title)
+    let title = subBookmark.parentNode.textContent.trim();
+    
+    // Append the title to the bookmarksArray
+    bookmarksArray.push({
+        type: 'sub',
+        title: title
+    });
+});
+
+// Output the array to console (for testing)
+localStorage.setItem('bookmarks', JSON.stringify(bookmarksArray));
+console.log(localStorage.getItem('bookmarks'));
   
     // alert('this')
 function saveBookmark(element) {
