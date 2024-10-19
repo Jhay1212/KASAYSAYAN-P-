@@ -1110,7 +1110,7 @@ function saveBookmark(element) {
         data: { title: title },  // Send the title dynamically
         success: function(response) {
             alert('Bookmark saved successfully!');
-            alert(response);
+            // alert(response);
         },
         error: function(error) {
             console.error('Error saving bookmark:', error);
