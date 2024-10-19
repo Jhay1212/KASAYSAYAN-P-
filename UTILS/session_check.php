@@ -22,11 +22,13 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_id'])) {
 }
 
 function sessionCheck($message, $fallback) {
-    if (isset($_SESSION['username']) and isset($_SESSION['user_id']))   {
+    if ($_SESSION['username'] != 'GUEST' and isset($_SESSION['username']))   {
         return $message;
     }
-    return $fallback;
+    else if($_SESSION['username'] == 'GUEST'){
+        return $fallback;
+    }
     
 }
-$logging = sessionCheck("Login", 'Logout');
+$logging = sessionCheck("Logout", 'Login');
     echo "<script>let isUserLoggedIn = $user_id;</script>";

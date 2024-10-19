@@ -71,48 +71,65 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // for gettin all of the title in boonmark and sub bookmarks
+function searchContent() {
+    // Get search query from input
+    const rectangleContainer = document.querySelector('.rectangle-container');
+    
+    const title = document.querySelector('h1.rectangle');
+    let query = document.getElementById('searchInput').value.toLowerCase();
+;
+    // Clear previous search results
+    let searchResults = document.getElementById('searchResults');
+    searchResults.innerHTML = '';
 
+    // Get all sections of content
+    let sections = document.querySelectorAll('.content-section');
 
+    // Loop through each section and search for the query
+    sections.forEach(section => {
+        let sectionText = section.innerText.toLowerCase();
 
-    function searchContent() {
-        // Get search query from input
-        let query = document.getElementById('searchInput').value.toLowerCase();
-        
-        // Clear previous search results
-        let searchResults = document.getElementById('searchResults');
-        searchResults.innerHTML = '';
-      
-        // Get all sections of content (assuming each lesson has 'content-section' class)
-        let sections = document.querySelectorAll('.content-section');
-      
-        // Loop through each section and search for the query
-        sections.forEach(section => {
-          let sectionText = section.innerText.toLowerCase();
-          
-          // If the query is found inside the section, display the section
-          if (sectionText.includes(query)) {
-            let result = section.cloneNode(true);
-            localStorage.setItem('lesson', result);  // Clone the matching section
+        // If the query is found inside the section, display the section
+        if (sectionText.includes(query)) {
+            let result = section.cloneNode(true);  // Clone the matching section
             searchResults.appendChild(result);     // Append it to the search results div
-            console.log(result);
-            alert(result);
-          }
-          localStorage.setItem('searchQuery', query);
+    title.textContent = `Result for query ${query.toUpperCase()}`;
+    rectangleContainer.style.display = 'none';
 
-        });
-      
-        // Prevent form submission redirect
-        return false;
-      }
-
-    //   searchBar.addEventListener('submit', searchContent);
-      document.querySelector('searchFormBtn').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-          searchContent();
         }
-      })
-      document.querySelector('searchFormBtn').addEventListener('click', searchContent);
-      
+    });
+
+    // Store the query for later use (if necessary)
+    localStorage.setItem('searchQuery', query);
+
+    // Prevent form submission redirect
+    return false;
+}
+
+// Prevent form submission default behavior and perform search
+document.getElementById('searchForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    searchContent();
+});
+
+// Add listener for Enter key on the search input field
+document.getElementById('searchInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        searchContent();
+    }
+});
+
+// Add listener for the click event on the search button
+document.getElementById('searchFormButton').addEventListener('click', function(e) {
+    e.preventDefault();
+    searchContent();
+});
+
+
+    
+
+
 });
 
 // JavaScript to handle bookmark click
@@ -304,5 +321,3 @@ icon.addEventListener('click', function() {
     const profileForm = document.querySelector('#profile-picture-form');
     profileForm.style.display = 'flex';
 });
-
-

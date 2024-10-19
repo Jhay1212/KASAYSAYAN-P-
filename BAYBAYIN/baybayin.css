@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
     font-family: 'Noto Sans Tagalog', sans-serif !important;
 }
@@ -61,15 +62,13 @@ textarea::placeholder {
     width: clamp(300px, 70%, 800px);
     border-radius: 5px;
     height: 12rem;
-    /* padding: ; */
     padding-left: 5px;
     border: 2px solid #6e626254;
-    background: rgb(247 247 247);
-    /* text-align: center; */
+    background: rgb(247, 247, 247);
 }
 
 .h-wrapper {
-    margin: .5rem 0;
+    margin: 0.5rem 0;
     text-align: center;
 }
 
@@ -110,49 +109,13 @@ p.original {
     margin: 0;
     color: #555;
 }
+
 .baybayin {
     font-size: 1.4rem;
     font-family: 'Noto Sans Tagalog', sans-serif;
 }
 
-/* Media Queries for Responsive Design */
-@media screen and (min-width: 768px) {
-
-  .h-wrapper {
-    margin-top: 2.5rem;
-  }
-    .c-wrapper {
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
-
-    .gradient-text {
-        font-size: 3rem;
-    }
-
-    .baybayin-grid {
-        grid-template-columns: repeat(6, 1fr);
-        max-width: 600px;
-    }
-
-    .original-text-container {
-        width: 60%;
-        background: white;
-    }
-}
-
-@media (min-width: 1200px) {
-    .gradient-text {
-        font-size: 6rem;
-    }
-
-    textarea {
-        width: 60%;
-        font-size: 20px;
-    }
-}
-
-/* Container for translated text */
+/* Styling for output letters */
 p#output {
     font-family: 'Noto Sans Tagalog', sans-serif;
     margin: 2rem 0;
@@ -162,7 +125,6 @@ p#output {
     justify-content: center;
 }
 
-/* Styling each translated letter */
 p#output .letter {
     padding: 5px;
     font-size: 4rem;
@@ -174,15 +136,15 @@ p#output .letter {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, background 0.3s ease;
     cursor: pointer;
+    line-height: 1.1; /* To ensure the kudlit stays in place */
 }
 
-/* Add hover effect with a slight zoom and tooltip for original text */
+/* Hover effect for letters */
 p#output .letter:hover {
     transform: scale(1.1);
     background: #f0f0f0;
 }
 
-/* Show the original text when hovering */
 p#output .letter:hover::after {
     content: attr(data-text);
     position: absolute;
@@ -202,20 +164,48 @@ p#output .letter:hover::after {
     z-index: 10;
 }
 
-/* Make the original text appear on hover */
+/* Show original text on hover */
 p#output .letter:hover::after {
     opacity: 1;
 }
 
-/* Responsive adjustments */
+/* Media Queries for Improved Responsiveness */
 @media (max-width: 768px) {
+    .c-wrapper {
+        flex-direction: column;
+    }
+
+    .gradient-text {
+        font-size: 2rem;
+    }
+
+    .baybayin-grid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 300px;
+    }
+
     p#output .letter {
         font-size: 2.5rem;
+        line-height: 1.3; /* Adjust line height for kudlit positioning */
     }
 }
 
 @media (max-width: 480px) {
+    .c-wrapper {
+        flex-direction: column;
+    }
+
+    .gradient-text {
+        font-size: 1.8rem;
+    }
+
+    .baybayin-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 280px;
+    }
+
     p#output .letter {
         font-size: 2rem;
+        line-height: 1.4; /* Further adjustment for kudlit */
     }
 }

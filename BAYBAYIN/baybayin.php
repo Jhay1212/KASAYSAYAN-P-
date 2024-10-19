@@ -1,6 +1,6 @@
 <?php
 include __DIR__.'\\..\\UTILS\\session_check.php';
-echo '<script>alert($profile_path);</script>';
+
 
 ?>
 

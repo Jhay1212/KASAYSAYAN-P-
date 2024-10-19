@@ -696,3 +696,16 @@ form#searchForm button {
     background: transparent;
     transform: translate(-50%, -50%);
 }
+
+@media (max-width: 400px) {
+    .sidebar {
+        display: none;
+    }
+    main {
+        margin: 4rem auto;
+    }
+}
+
+#searchResults {
+    margin-left: 5rem;
+}

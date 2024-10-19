@@ -1,24 +1,27 @@
 const timeline = [
-    { event: 'First Cry of the Philippine Revolution', date: new Date(1896, 7, 23) },
-    { event: 'Death of José Rizal', date: new Date(1896, 11, 30) },
-    { event: 'Declaration of Philippine Independence', date: new Date(1898, 5, 12) },
-    { event: 'Inauguration of the First Philippine Republic', date: new Date(1899, 0, 23) },
-    { event: 'Philippine-American War Begins', date: new Date(1899, 1, 4) },
-    { event: 'Capture of Emilio Aguinaldo', date: new Date(1901, 2, 23) },
-    { event: 'Tydings–McDuffie Act Signed', date: new Date(1934, 2, 24) },
-    { event: 'Commonwealth of the Philippines Inaugurated', date: new Date(1935, 10, 15) },
-    { event: 'Japanese Occupation of the Philippines', date: new Date(1942, 0, 2) },
-    { event: 'Bataan Death March', date: new Date(1942, 3, 9) },
-    { event: 'The Fall of Corregidor', date: new Date(1942, 4, 6) },
-    { event: 'Leyte Landing', date: new Date(1944, 9, 20) },
-    { event: 'Battle of Manila', date: new Date(1945, 1, 3) },
-    { event: 'Independence from the United States', date: new Date(1946, 6, 4) },
-    { event: 'Proclamation of Martial Law', date: new Date(1972, 8, 21) },
-    { event: 'Assassination of Benigno Aquino Jr.', date: new Date(1983, 7, 21) },
-    { event: 'EDSA People Power Revolution', date: new Date(1986, 1, 25) },
-    { event: 'Mount Pinatubo Eruption', date: new Date(1991, 5, 15) },
-    { event: 'People Power 2', date: new Date(2001, 0, 20) },
-    { event: 'Typhoon Yolanda', date: new Date(2013, 10, 8) }
+    { event: 'First Cry of the Philippine Revolution', date: new Date(1896, 7, 23), ranking: 1 },
+    { event: 'Death of José Rizal', date: new Date(1896, 11, 30), ranking: 2 },
+    { event: 'Declaration of Philippine Independence', date: new Date(1898, 5, 12), ranking: 3 },
+    { event: 'Inauguration of the First Philippine Republic', date: new Date(1899, 0, 23), ranking: 4 },
+    { event: 'Philippine-American War Begins', date: new Date(1899, 1, 4), ranking: 5 },
+    { event: 'Capture of Emilio Aguinaldo', date: new Date(1901, 2, 23), ranking: 6 },
+    { event: 'Tydings–McDuffie Act Signed', date: new Date(1934, 2, 24), ranking: 7 },
+    { event: 'Commonwealth of the Philippines Inaugurated', date: new Date(1935, 10, 15), ranking: 8 },
+    { event: 'Japanese Occupation of the Philippines', date: new Date(1942, 0, 2), ranking: 9 },
+    { event: 'Bataan Death March', date: new Date(1942, 3, 9), ranking: 10 },
+    { event: 'The Fall of Corregidor', date: new Date(1942, 4, 6), ranking: 11 },
+    { event: 'Leyte Landing', date: new Date(1944, 9, 20), ranking: 12 },
+    { event: 'Battle of Manila', date: new Date(1945, 1, 3), ranking: 13 },
+    { event: 'Independence from the United States', date: new Date(1946, 6, 4), ranking: 14 },
+    { event: 'Proclamation of Martial Law', date: new Date(1972, 8, 21), ranking: 16 },
+    { event: 'Assassination of Benigno Aquino Jr.', date: new Date(1983, 7, 21), ranking: 17 },
+    { event: 'EDSA People Power Revolution', date: new Date(1986, 1, 25), ranking: 18 },
+    { event: 'Mount Pinatubo Eruption', date: new Date(1991, 5, 15), ranking: 19 },
+    { event: 'People Power 2', date: new Date(2001, 0, 20), ranking: 20 },
+    { event: 'Typhoon Yolanda', date: new Date(2013, 10, 8), ranking: 21 },
+    { event: 'COVID-19 Pandemic', date: new Date(2020, 2, 15), ranking: 22 },
+    { event: 'Philippines Presidential Elections', date: new Date(2022, 4, 9), ranking: 23 },
+    { event: 'Typhoon Paeng', date: new Date(2022, 9, 29), ranking: 24 }
 ];
 
 function shuffleArray(array) {
@@ -43,7 +46,7 @@ let originalPositions = [];
 selectedEvents.forEach(event => {
     const clickableDiv = document.createElement('div');
     clickableDiv.className = 'clickable';
-    clickableDiv.setAttribute('data-date', event.date.getTime()); // Store date as timestamp
+    clickableDiv.setAttribute('data-ranking', event.ranking); // Store ranking
     clickableDiv.textContent = event.event;
     eventsContainer.appendChild(clickableDiv);
 });
@@ -51,10 +54,10 @@ selectedEvents.forEach(event => {
 // Event listener for the clickable events
 eventsContainer.addEventListener('click', (e) => {
     if (e.target.classList.contains('clickable')) {
-        const clickedDate = parseInt(e.target.getAttribute('data-date'));
+        const clickedRanking = parseInt(e.target.getAttribute('data-ranking'));
 
-        if (!selectedOrder.includes(clickedDate)) {
-            selectedOrder.push(clickedDate);
+        if (!selectedOrder.includes(clickedRanking)) {
+            selectedOrder.push(clickedRanking);
             const clonedItem = e.target.cloneNode(true);
             clonedItem.addEventListener('click', handleDropzoneClick);
             dropzone.appendChild(clonedItem);
@@ -68,19 +71,19 @@ eventsContainer.addEventListener('click', (e) => {
 
 // Handle removing an item from the dropzone and restoring to the event container
 function handleDropzoneClick(e) {
-    const clickedDate = parseInt(e.target.getAttribute('data-date'));
-    selectedOrder = selectedOrder.filter(date => date !== clickedDate);
+    const clickedRanking = parseInt(e.target.getAttribute('data-ranking'));
+    selectedOrder = selectedOrder.filter(ranking => ranking !== clickedRanking);
     e.target.remove(); // Remove from dropzone
 
     // Return the item to its original position in the events container
-    const original = originalPositions.find(pos => pos.item.getAttribute('data-date') == clickedDate);
+    const original = originalPositions.find(pos => pos.item.getAttribute('data-ranking') == clickedRanking);
     if (original) {
         eventsContainer.insertBefore(original.item, eventsContainer.children[original.index]);
-        originalPositions = originalPositions.filter(pos => pos.item.getAttribute('data-date') !== clickedDate);
+        originalPositions = originalPositions.filter(pos => pos.item.getAttribute('data-ranking') !== clickedRanking);
     }
 }
 
-// Check if the selected events are in the correct chronological order
+// Check if the selected events are in the correct ranking order
 checkOrderBtn.addEventListener('click', () => {
     let correct = true;
 
@@ -88,7 +91,7 @@ checkOrderBtn.addEventListener('click', () => {
     if (selectedOrder.length !== selectedEvents.length) {
         correct = false;
     } else {
-        // Check if the selected dates are in ascending order
+        // Check if the selected rankings are in ascending order
         for (let i = 0; i < selectedOrder.length - 1; i++) {
             if (selectedOrder[i] > selectedOrder[i + 1]) {
                 correct = false;

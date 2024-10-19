@@ -86,10 +86,10 @@ if (isset($_POST['save_bookmark'])) {
 
         <!-- Search and Info Section -->
         <div class="navbar-right">
-        <form action="../SEARCH/search.php" method="post" id='searchForm'>
+        <form method="post" id='searchForm'>
             <input type="text" class="search-bar" placeholder="Search..." id='searchInput'>
             <a href="#" class="info-icon">ℹ️</a>
-            <button type="submit" name="searchFormBtn"><i class="fa-sharp-duotone fa-solid fa-magnifying-glass"></i></button>
+            <button type="submit" name="searchFormBtn" id='searchFormBtn'><i class="fa-sharp-duotone fa-solid fa-magnifying-glass"></i></button>
         </form>
         </div>
 
@@ -101,6 +101,7 @@ if (isset($_POST['save_bookmark'])) {
 <div class="main-content">
 
     <h1 class="rectangle" onclick="showContent">PHILIPPINE HISTORY</h1>
+    <div id='searchResults'></div>
     <p class="rectangle" onclick="showContent">Choose your period lesson to tackle.</p>
 
     <!-- New Container for 6 Clickable Rectangles -->
