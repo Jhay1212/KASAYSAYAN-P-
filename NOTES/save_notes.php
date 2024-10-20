@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute the statement
     if ($stmt->execute()) {
-        echo "Note saved successfully!";
+        echo "<script>alert('Note Saved Successfully);</script>";
     } else {
         echo "Error saving note: " . $stmt->error;
     }

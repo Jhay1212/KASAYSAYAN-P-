@@ -36,6 +36,7 @@ if (isset($_POST['save_bookmark'])) {
     <link rel="stylesheet" href="../HOME1/home-css.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../Home1/new_home.css">
     <link rel="shortcut icon" href="../PICS/icon/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -100,37 +101,90 @@ if (isset($_POST['save_bookmark'])) {
    <!-- Main Content -->
 <div class="main-content">
 
-    <h1 class="rectangle" onclick="showContent">PHILIPPINE HISTORY</h1>
     <div id='searchResults'></div>
-    <p class="rectangle" onclick="showContent">Choose your period lesson to tackle.</p>
 
-    <!-- New Container for 6 Clickable Rectangles -->
-    <div class="rectangle-container">
-        <div class="rectangle" onclick="showContent('lesson1')" onclick="showContent('navSidebar')">
-            <img src="../PICS/unit 1 pics/1.webp" alt="Image 1">
-            <div class="label">EARLY PHILIPPINES</div>
+    <div id="sidebar2" class="sidebar2">
+    <a href="#"><strong>About<br></strong>
+
+        This website is an online learning module about Philippine history, offering lessons, quizzes, and fun games to make learning enjoyable. Its goal is to help users understand and appreciate the rich history of the Philippines in an engaging and easy way.
+
+    </a>
+    <a href="#"><strong>Developers<br></strong>
+
+        <img class="devpic" src="../PICS/jok1.jpg"><br>
+        Joan Hermo<br><br><br>
+
+        <img class="devpic" src="../PICS/danni.jpg"><br>
+        Allen Candelaria<br><br><br>
+
+        <img class="devpic" src="../PICS/jok3.jpg"><br>
+        Jose Rivera<br><br><br>
+
+        <img class="devpic" src="../PICS/jok2.jpg"><br>
+        Mikas Viscayno
+
+    </a>
+  </div>
+
+     <!-- Gallery Section -->
+     <main class="gallery-section">
+        <h2>Periods of Philippine History</h2>
+        <div class="gallery-container">
+            <!-- Lesson Card Example -->
+            <div class="card" onclick="showContent('lesson1')">
+                <img src="../PICS/unit 1 pics/1.webp" alt="Pre-Historic Philippines">
+                <div class="card-content">
+                    <h3>Pre-Colonial Period</h3>
+                    <p>Explore the early history and civilizations of the Philippines.</p>
+                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <!-- Repeat similar cards for other lessons -->
+            <div class="card" onclick="showContent('lesson2')">
+                <img src="../PICS/unit 2 pics/1.png" alt="Spanish Colonialism">
+                <div class="card-content">
+                    <h3>Spanish Colonization Period</h3>
+                    <p>Dive into the era of Spanish rule and its impact on Philippine society.</p>
+                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <!-- Add more cards as needed -->
+            <div class="card" onclick="showContent('lesson3')">
+                <img src="../PICS/unit 4 pics/1.png" alt="Filipino Nationalism">
+                <div class="card-content">
+                    <h3>American Period</h3>
+                    <p>Analyze the influence of American governance and culture in the Philippines.</p>
+                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="card"onclick="showContent('lesson4')">
+                <img src="../PICS/unit 5 pics/1.png" alt="American Period">
+                <div class="card-content">
+                    <h3>Japanese Occupation Period</h3>
+                    <p>Examine the challenges and changes during Japanese occupation.</p>
+                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="card" onclick="showContent('lesson5')">
+                <img src="../PICS/unit 3 pics/1.png" alt="Japanese Occupation">
+                <div class="card-content">
+                    <h3>Post Independence and Early Republic</h3>
+                    <p>Study the journey towards independence and the formation of the early republic.</p>
+                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="card" onclick="showContent('lesson6')">
+                <img src="../PICS/unit 6 pics/6pic0.avif" alt="Philippine Independence">
+                <div class="card-content">
+                    <h3>Philippine Presidential Period</h3>
+                    <p>Understand the rise of nationalism and its role in shaping the nation.</p>
+                    <a class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
         </div>
-        <div class="rectangle" onclick="showContent('lesson2')">
-            <img src="../PICS/unit 2 pics/1.png" alt="Image 2">
-            <div class="label">SPANISH COLONIALISM</div>
-        </div>
-        <div class="rectangle" onclick="showContent('lesson3')">
-            <img src="../PICS/unit 3 pics/1.png" alt="Image 3">
-            <div class="label">FILIPINO NATIONALISM</div>
-        </div>
-        <div class="rectangle" onclick="showContent('lesson4')">
-            <img src="../PICS/unit 4 pics/1.png" alt="Image 4">
-            <div class="label">AMERICAN COLONIALISM</div>
-        </div>
-        <div class="rectangle" onclick="showContent('lesson5')">
-            <img src="../PICS/unit 5 pics/1.png" alt="Image 5">
-            <div class="label">JAPANESE OCCUPATION</div>
-        </div>
-        <div class="rectangle" onclick="showContent('lesson6')">
-            <img src="../PICS/unit 6 pics/6pic0.avif" alt="Image 6">
-            <div class="label">THE PHILIPPINE REPUBLIC</div>
-        </div>
+    </main>
     </div>
+
 
      <!-- Content sections for lessons -->
      <div id="lesson1" class="content hidden">
@@ -139,69 +193,160 @@ if (isset($_POST['save_bookmark'])) {
 <button class="back-btn" onclick="hideContent()"><i class="fas fa-arrow-left"></i></button>
 
         <!-- CONTENTS -->	
-			<main id="mainContent">
+	<main id="mainContent">
 
                 <section class="content-section">
                  
-                     <h2 id="sbt1"><span class="bookmark-icon" onclick="saveBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> EARLY PHILIPPINES PERIOD<br>(22,000 BCE -1521 AD)</h2>
-                     <img src="../PICS/unit 1 pics/1.webp" alt="Image Description">
-                     <p>The early period of the Philippines from 22,000 BCE to 1521 AD can be further broken 
-                     down into detailed sections that explore a variety of different aspects, including prehistoric 
-                     migrations, the development of societies, the trade networks, religious and cultural influences, and the arrival of the Spanish.</p>
+                     <h2 id="sbt1"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> PRE COLONIAL PERIOD<br></h2>
+
+                     <h1 id="sb1"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Barangay System and Political Organization</h1>
+                     <img src="../PICS/unit 1 pics/1.webp" alt="Image Description"><p>
+
+            In Pre-Colonial Philippine society, the barangay was the fundamental political unit, typically consisting of 30 to 100 families, though some larger communities could house up to 1,000 people. These small, independent settlements were usually located along rivers or coastal areas, positioning them well for trade and interaction with neighboring regions.
+            <br><br><br>
+            At the center of each barangay was the datu, a leader whose authority stemmed from heredity, wealth, and military prowess. The datu governed, protected the community, led during times of war, and acted as a mediator. Though each barangay operated autonomously, temporary alliances between them were not uncommon, especially for mutual defense or trade.
+            <br><br>
+            Unlike the centralized empires of Southeast Asia, such as those in Indonesia or Thailand, the Philippines had no large kingdoms. However, Corpuz highlights that the barangay system was sophisticated in its own right, fostering strong local governance and community bonds. These structures persisted into the Spanish colonial period, with the Spanish adapting the system rather than dismantling it entirely.
             
-            </p><br><br><h1 id="sb1"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> 22,000 BCE – Pre- Historic Philippines</h1>
-            <img src="../PICS/unit 1 pics/2.jfif" alt="Image Description"><h3>Early Human Settlements (22,000 BCE - 5,000 BCE)</h3><br><p>
-            The earliest known human remains in the Philippines, dating back to roughly 22,000 BCE, indicate a long history of human habitation in the archipelago. These remains, known as the "Tabon Man," were discovered in the Tabon Caves in Palawan in 1962. Though initially thought to be a single individual, additional discoveries revealed that the remains represented numerous individuals, providing insight into early human existence in the region.<br><br>
+            </p><br><br><h1 id="sb1"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>Social Stratification</h1>
+            <img src="../PICS/unit 1 pics/2.jfif" alt="Image Description"><br><p>
+
+                In the time before the Philippines came under colonial rule, its society was intricately structured, a system described in vivid detail by historian Onofre Corpuz. Life in this era moved to the rhythm of its social classes, with power and influence concentrated in the hands of a privileged few while the lower classes supported the needs of the barangays—the small, independent communities that dotted the islands.
+                <br><br>
+                At the peak of this hierarchy were the datus, the community’s leaders, whose authority stemmed from both bloodline and achievements. They ruled with wisdom and valor, ensuring the welfare of their people while commanding respect in return. Alongside them were the maharlika, a class of nobility and warriors. These were men and women born to defend and protect the barangay, bound by honor and duty. Their status was not just inherited; it was earned through acts of courage and service. In times of conflict, the maharlika rose as the shield of the community, their loyalty to the datu unwavering. Below them were the timawa, the freemen. These were the farmers, artisans, and tradespeople who made the everyday life of the barangay flourish. While they were not nobles, they held significant autonomy, enjoying the freedom to own land and live without the burden of tribute. The timawa were the backbone of the local economy, their labor ensuring the survival and prosperity of the barangay. Though they did not hold the same influence as the datu or maharlika, their contributions were deeply respected.
+                <br><br>
+                At the bottom of this system were the alipin, but even here, the distinctions were nuanced. These were not slaves in the harsh sense of later colonial times, where humanity was stripped away. Instead, alipin were individuals bound to service, either through debt, war capture, or economic hardship. Yet, even within this class, there was fluidity. The aliping namamahay lived separately from their masters, often working as farm hands or craftsmen. They had their own homes and some degree of independence, able to marry and start families, provided they met the obligations of their service.
+                <br><br>
+                In contrast, the aliping sagigilid had fewer rights, living within their master’s household and tied to them more intimately. They served in closer quarters, doing daily household tasks and laboring under more direct supervision. Despite their lower status, even they had a chance to improve their position. An alipin could, in time, rise above their station, either by paying off their debts, being rewarded for meritorious service, or marrying into a higher class.
+                <br><br>
+                Corpuz emphasizes that unlike the rigid feudal systems of Europe and other parts of Asia, the stratification in pre-colonial Philippine society was far more flexible. It allowed for social mobility, and while wealth or achievement could elevate an individual, misfortune or loss could just as easily bring someone down. The ability to shift between classes created a dynamic society where political power was not solely determined by birthright but also by an individual’s resourcefulness, valor, and sometimes, fate. This fluidity shaped the political landscape of the barangays, where alliances and loyalty often shifted, and the bonds of leadership were constantly negotiated.
+                In this way, the pre-colonial Philippine social structure wasn’t just a hierarchy—it was a living, breathing system that reflected the ebb and flow of life in the archipelago, where honor, duty, and destiny played as much a role as wealth and bloodline.
+                
+
+            </p><br><br><h1 id="sb1"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>Economic Systems and Trade</h1>
+            <img src="../PICS/unit 1 pics/3.jfif" alt="Image Description"><br><p>
+
+                At the heart of many communities, especially in the rich plains of Luzon, was the cultivation of rice. Rice, the life-giving grain, was not just food—it was a symbol of survival, wealth, and even status. In areas with access to rivers and lakes, the people mastered the art of wet-rice agriculture, creating intricate irrigation systems that allowed them to cultivate fertile fields year after year. These banaue-like terraces, carved into mountain sides, stood as testaments to their ingenuity. On the other hand, in forested areas or places where flatland was scarce, the people practiced swidden agriculture, also known as slash-and-burn farming. By clearing small patches of forest, they could temporarily enrich the soil, growing crops such as rice, sweet potatoes, and yams before moving on to let the land recover.
+                <br><br>
+                But their livelihoods extended far beyond the rice fields. The forests surrounding their communities offered more than just wood; they were a source of life. In their shadows, skilled hunters tracked deer and wild pigs, providing valuable meat for their families. Fishing too was essential, especially in the coastal villages where the sea brought an endless harvest. Fishermen cast their nets into the sparkling waters, pulling in fish that would feed their families and be traded with neighbors.
+                <br><br>
+                The Filipinos were also craftsmen, their hands shaped by centuries of tradition. In bustling villages, potters spun clay into delicate jars and bowls, essential for cooking and storing food. Weavers took fiber from the abaca plant and turned it into fine textiles, creating patterns passed down through generations. There were blacksmiths as well, working with gold, copper, and iron, which they forged into tools, weapons, and beautiful ornaments. Gold, in particular, was abundant in certain regions, and the people crafted intricate jewelry that adorned their bodies, a reflection of both status and beauty.
+                <br><br>
+                But it wasn’t just what they produced locally that shaped their lives. Far beyond their shores, a great maritime trade network wove the islands into the fabric of Southeast Asian commerce. Chinese junks, their sails catching the warm winds of the South China Sea, arrived on the coasts of Luzon, bearing fine porcelain, silk, and glassware. These precious goods were traded for Filipino gold, pearls, and other natural resources that were highly prized in the courts of China. The trade wasn’t limited to the Chinese. Arab merchants from the west brought with them rare spices and influenced the archipelago’s spiritual and cultural life. Indian traders, too, with their colorful clothes and knowledge of maritime navigation, shaped the region’s commerce. Even the Japanese, with their skilled craftsmanship in swords and silver, found their way to Philippine shores.
+                <br><br>
+                The people of the Philippines became not only farmers, fishermen, and craftsmen but also skilled traders, their ports buzzing with activity. Tondo, a flourishing kingdom along the Pasig River, became a vital trading hub where merchants from across the seas would gather to exchange goods. Here, the language of barter flowed easily, and the influence of foreign ideas and products began to shape the everyday lives of the locals. It was a time of prosperity, where each barangay had its own role in a larger, interconnected world.
+                <br><br>
+                In this exchange of goods, ideas flowed as well. From the Chinese, the Filipinos learned about more advanced agricultural techniques and the artistry of fine pottery. From the Malay Archipelago, the people absorbed cultural practices, languages, and even the tools for governance, as seafaring Malays navigated the same waters. The Arabs brought with them knowledge of Islam, which began to spread in parts of the southern Philippines, laying the groundwork for the Sultanates that would later rise in Sulu and Maguindanao.
+                <br><br>
+                As the ships from foreign lands came and went, the islands became a meeting place of cultures, a crossroads where East met Southeast Asia. The pre-colonial Filipino economy was thus not an isolated or simple subsistence system, but one deeply tied to the thriving maritime trade routes that spanned across oceans. As Corpuz describes, these trade networks didn’t just exchange goods; they wove the Philippines into the fabric of a global economy long before the arrival of European colonizers. These interactions shaped the islands in profound ways, from the goods in their markets to the clothes they wore and the ideas they began to embrace.
+                
+
+            </p><br><br><h1 id="sbt3"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>Cultural and Religious Life</h1>
+            <img src="../PICS/unit 1 pics/4.jfif" alt="Image Description"><br><p>
             
-            Tabon Man is one of Southeast Asia's oldest human fossils, and it is thought that these early people were part of the first wave of human migrations into the region. These migrations were probably linked to larger movements out of Africa and across mainland Asia. The tools and artifacts discovered alongside the Tabon Man bones indicate that the early settlers were hunter-gatherers who relied on stone tools to survive.<br><br>
+                Long before the echoes of church bells and the songs of colonizers filled the air, the people of the Philippines lived in a world alive with spirits, gods, and ancestors. Their existence was woven into the fabric of nature, where every tree, river, and mountain held a divine presence. In the lush forests and along the sunlit shores, animism was the guiding belief, and the Filipinos' connection to the spiritual world was as natural as the land itself.
+                <br><br>
+                The forests were sacred, with anitos, spirits of ancestors, residing in ancient trees. The mountains were home to deities, and the rivers carried the blessings of the gods. Life was a constant conversation with the unseen. To ensure prosperity, peace, and protection, the people turned to those who knew how to bridge the gap between the physical and the spiritual—the babaylan o katalonan, depending on where you were in the archipelago.
+                <br><br>
+                The babaylan, often women but sometimes men, where the heart of the community’s spiritual life. Their influence extended beyond mere religious duties; they were healers, shamans, and wise leaders. Clad in flowing robes, they could be seen in moments of ritual, dancing and chanting to summon the spirits. They wielded not just herbs for healing but words of power, using incantations to call upon deities for guidance and protection. The people revered them, knowing that the babaylan had the gift of seeing beyond the veil that separated the mortal world from the supernatural.
+                <br><br>
+                For every occasion, from the smallest harvest to the grandest battle, the babaylan led ceremonies that called upon the spirits for favor. Before rice was planted, a ritual was held, offerings laid at the feet of the rice god for a plentiful yield. When warriors prepared for battle, they sought blessings to protect them from harm, leaving offerings at shrines dedicated to the God of war. It was not just about the fight but the spiritual balance—without proper rituals, the warriors risked offending the gods and spirits, dooming them to failure.
+                <br><br>
+                These beliefs were not confined to the fields or the battlefield—they permeated every part of life. Even in building a home, it was essential to ask permission from the earth spirits before digging into the ground. Failure to do so could bring misfortune. The very way homes were designed, with elevated floors and bamboo walls, was a reflection of a respect for the land, and the belief that spirits needed their own space to move freely. The idea of harmony with nature wasn’t just practical; it was sacred.
+                <br><br>
+                Corpuz described how this reverence for the supernatural shaped warfare, too. Before battle, warriors didn't merely sharpen their spears or prepare their shields—they first invoked the protection of the spirits, seeking strength and luck from the gods. The babaylan performed rituals to ensure their success, reading the signs in the flight of birds or the patterns in the stars to see if the gods favored them.
+                <br><br>
+                As the people of the north and central islands lived according to these beliefs, a different kind of spiritual influence was slowly seeping into the south. By the 14th century, Islam had begun to take root in Sulu and Mindanao, brought by Malay and Arab merchants who sailed into the islands’ ports. These traders not only brought goods but also the teachings of a single God, Allah, and the wisdom of the Prophet Muhammad. The people of these southern islands, always attuned to the currents of the world, began to embrace this new faith.
+                <br><br>
+                In the courts of the Sulu Sultanate, a new religious and political order began to form. Sultans emerged, leaders who ruled not just by the sword but by the divine will of Allah. Under their guidance, Islamic teachings started to shape the laws and customs of these southern communities. The spread of Islam was swift, but not forceful; it moved through trade and diplomacy, bringing with it new ideas about governance, justice, and spirituality. Mosques began to rise where animist shrines once stood, and the sound of the adhan—the call to prayer—echoed through the coastal towns of Mindanao.
+                <br><br>
+                For a time, the animist traditions of the north and the Islamic faith of the south existed in parallel, with each region following its own path. But when the Spanish arrived in the 16th century, bearing Christianity and conquest, they found a formidable challenge in the southern islands. The Islamic sultanates, with their faith and their tightly-knit political structures, would resist Spanish colonization with a fierceness that lasted centuries.
+                <br><br>
+                In the end, the cultural and religious tapestry of the pre-colonial Philippines was as diverse as the islands themselves. In the north, the spirits of nature reigned, and the babaylan guided their people with wisdom drawn from the earth and sky. In the south, Islam brought a new way of seeing the world, one that would shape the destiny of Mindanao and Sulu for generations. These ancient beliefs, whether rooted in animism or Islam, created a cultural landscape rich in faith, resilience, and a deep connection to both the seen and unseen worlds.
+
+            </p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>Pre-Colonial Legal Systems</h1>	 
+            <img src="../PICS/unit 1 pics/5.jfif" alt="Image Description"><br><p>	 
             
-            As the millennia passed, these early people transitioned from hunter-gatherers to more settled agricultural societies. Climate change and the development of new technologies, such as plant and animal domestication, are thought to have affected this transition. It is thought that early Filipinos farmed rice, root crops, and other foods. Archaeological evidence suggests that these people lived in caves or built temporary shelters as they traveled around looking for food.
+                Justice was woven deeply into the fabric of everyday life. Long before the arrival of foreign laws and codes, the people lived by rules that had been passed down through generations, shaping their sense of right and wrong. These ancient laws, known as "batas" in some regions and "adat" in others, were not written in books or etched in stone. Instead, they lived in the memories of the elders and were passed on through word of mouth—stories, proverbs, and rituals that carried the weight of tradition.
+                <br><br>
+                At the heart of each barangay, the local community, stood the datu, the leader, whose authority was as much spiritual as it was political. The datu’s wisdom and fairness were essential to maintaining order and harmony. When disputes arose or wrongs were committed, it was to the datu that the people turned. But he did not judge alone. Surrounding him was a council of elders, respected men and women who had lived long enough to see many seasons and knew the ways of the ancestors. Together, they interpreted the laws, using not just the words of tradition but their deep understanding of the community’s needs and values.
+                <br><br>
+                Unlike in many societies where justice was harsh and retribution swift, the legal traditions of pre-colonial Filipinos leaned toward restoration and compensation. The goal was not to destroy or exile a wrongdoer but to mend the broken bonds within the community. When someone committed a crime, they were not seen as simply a criminal to be punished; they were a member of the barangay who had strayed from the path of righteousness, and the task of justice was to guide them back.
+                <br><br>
+                Take, for example, the case of theft. If a man was found guilty of stealing, the first course of action was not to imprison or harm him. Instead, the datu and the elders would ask him to return what he had taken, restoring the balance. If he could not repay the stolen goods in full, he might be required to offer services to the wronged party, laboring in their fields or crafting goods until the debt was settled. This way, the wrong was made right not through punishment but through action—a system of recompense that allowed the thief to redeem himself, while also providing justice to the victim.
+                <br><br>
+                The people believed that community was everything, and every person within the barangay had a role to play in its survival and success. Thus, to exile or harshly punish someone for a lesser crime would only weaken the whole. Justice had to preserve harmony. It wasn’t about punishment for punishment’s sake, but about restoring balance and ensuring that everyone continued to play their part.
+                <br><br>
+                Of course, not all crimes were so easily forgiven. Some acts struck at the heart of the community's well-being—crimes like murder or treason, which threatened not just individuals but the very fabric of society. In such cases, the datu’s role became far heavier, for here the consequences were grave. When a person took the life of another, the council might consider the seriousness of the offense, weighing the impact on the community. If the crime was deemed beyond redemption, the ultimate punishment—the death penalty—could be invoked, though this was rare and only reserved for the gravest of offenses.
+                <br><br>
+                For lesser but still serious crimes, such as adultery or slander, the punishment could involve fines or public acts of atonement. A man caught in adultery, for instance, might be required to pay a substantial fine to the aggrieved party or offer valuable goods, like gold or livestock, as a means of reparation. In cases where words had caused harm—like insults or false accusations—a public apology or a symbolic offering to the offended family might be enough to heal the rift.
+                <br><br>
+                But the law was not just about dealing with offenses; it was also a framework for life. Marriage, inheritance, and land ownership were all governed by the same oral traditions, with the datu and elders guiding families through disputes and decisions. If a family had no heir, the barangay council might decide how their land should be divided or passed down. If two families were to join in marriage, the elders would help negotiate the bride price or dowry, ensuring that both sides left the agreement with honor.
+                <br><br>
+                There was a profound respect for these laws, not just because they were old, but because they were fair. The people believed that justice was not about revenge but restoration—about healing the wounds within the community so that it could remain strong and whole. This way of justice was a living thing, adaptable to the circumstances, shaped by the wisdom of those who had lived long enough to understand that true peace came not from fear but from fairness.
+                <br><br>
+                And as Corpuz points out, this legal system was rooted in the collective memory of the people. It was communal, passed down from generation to generation, and always attuned to the needs of the time. Though the datu held power, his rule was not absolute. The elders, and sometimes the community itself, had a say in how justice was meted out, creating a balance of power that kept leaders accountable.
+                <br><br>
+                In the end, the pre-colonial Filipino justice system wasn’t just about keeping order—it was about preserving the web of relationships that tied people together, ensuring that every person had a place, a purpose, and a chance for redemption. Through batas and adat, they maintained peace, not by fear, but by the wisdom of their ancestors and the collective strength of their community.
+                   
+                
+            </p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>Absence of National Unity</h1>	 
+            <img src="../PICS/unit 1 pics/5.jfif" alt="Image Description"><br><p>	 
             
-            </p><br><br>
-            <h3>Stone Tools and Early Cultures</h3><br><p>
-            Stone tools discovered in sites such as Palawan suggest early human activity in the Philippines. The finding of "Callao Man" in the Cagayan Valley, which dates back around 67,000 years, precedes the Tabon Man and demonstrates much older human presence in the region. Callao Man, likely a member of the species Homo luzonensis, 
-            shows that early human migration and settlement in the Philippines occurred far earlier than previously thought, adding to our understanding of ancient human history in Southeast Asia.
-            
-            </p><br><br><h1 id="sb1"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> 5,000 BCE - 1,000 BCE</h1>
-            <h3><img src="../PICS/unit 1 pics/3.jfif" alt="Image Description">Austronesian Migration (circa 3,000 BCE)</h3><br><p>
-            Austronesian-speaking peoples came from Taiwan to the Philippines between 3,000 and 2,000 BCE, bringing extensive knowledge of agriculture, boatbuilding, and pottery. They introduced rice cultivation, domesticated animals, and the use of metal tools, resulting in the development of established populations and increasingly complex societies. Their contributions, which included maritime abilities and the use of metal, influenced early Filipino culture and facilitated the formation of trade networks and established governmental systems.<br><br>
-            
-            <h3>Development of Early Societies</h3><br><p>
-            Early Filipino towns developed near riverbanks, coastal locations, and fertile plains, thriving on agriculture, fishing, and maritime trade. These settlements evolved into small, independent communities known as barangays, which were led by datus. The reliance on fishing and trade with nearby regions aided the growth of these barangays, resulting in interconnected but self-sufficient societies. This paved the way for increasingly complex social and political systems in the Philippines.
-            
-            </p><br><br><h1 id="sbt3"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> 1,000 BCE - 1000 AD</h1>
-            <h3><img src="../PICS/unit 1 pics/4.jfif" alt="Image Description">Iron Age (500 BCE - 1000 AD)</h3><br><p>
-            By the Iron Age in the Philippines, metalworking using bronze and iron had spread, resulting in advanced tools, weapons, and artifacts that benefited agriculture, defense, and trade. This period also saw the formation of social strata, with datus (chieftains) controlling communities and being supported by nobles and soldiers. A distinction between commoners and dependent classes, such as slaves or alipin, arose, resulting in a highly stratified society. These developments paved the way for more organized chiefdoms and complicated political structures in the future.<br><br>
-            
-            <h3>Trade with Neighboring Regions (200 BCE - 900 AD)</h3><br><p>
-            During this time, marine commerce networks expanded, connecting the Philippines to China, India, and the Malay Archipelago. This enormous trade facilitated substantial cultural interactions, influencing Philippine languages, customs, and religious activities.<br><br>
-            The Chinese and Indian textiles became extremely popular on the islands, reflecting the increased desire for luxury items. By the ninth century, foreign traders were making regular visits to the Philippines, allowing for not just economic exchanges but also the sharing of ideas, technology, and ideologies. These exchanges enhanced local cultures, adding to the diversity of Philippine society while also laying the framework for increasingly complex social systems and cultural identities. The infusion of new goods and influences shaped the islands into a thriving center of trade and cultural interchange in Southeast Asia.
+                The islands we now know as the Philippines were not one nation but a vast mosaic of independent communities. The archipelago stretched across seas, dotted with thousands of islands, each home to distinct barangays, small yet self-sufficient villages, and larger politics ruled by powerful leaders. It was a land rich in diversity, where people spoke different languages, followed unique customs, and swore allegiance not to a single ruler, but to their local datu, rajah, or sultan.
+                <br><br>
+                The barangay was the heart of pre-colonial society. Led by the datu, each barangay was an autonomous community, governing itself through the wisdom of its elders and the strength of its leader. Some barangays were small, nestled along rivers or in coastal coves, while others grew into thriving centers of trade, diplomacy, and culture. These barangays often interacted, forming alliances or rivalries with their neighbors, but they operated as independent units. There was no single king or empire to unite them under one flag.
+                <br><br>
+                In some regions, however, these barangays coalesced into larger, more complex political entities. Cebu and Butuan, for example, became thriving Rajahnates, ruled by powerful rajahs who controlled vast networks of trade and influence. Cebu, in particular, was a bustling hub of commerce, where merchants from across Asia came to trade goods like spices, gold, and textiles. Butuan, with its strategic location along the Agusan River, became a center for gold and regional diplomacy, its rulers respected by traders from distant lands.
+                <br><br>
+                Further south, the islands of Mindanao and the Sulu Archipelago were home to the mighty Sultanates of Sulu and Maguindanao. These sultanates were far more centralized and powerful, their rulers drawing strength from both Islam and the loyalty of their people. The Sultans commanded large armies and fleets, making them formidable forces, not only in battle but also in trade and diplomacy. The Sultanate of Sulu, in particular, controlled strategic trade routes that linked the Philippines to Borneo, Malaysia, and Indonesia, making it a significant player in regional politics.
+                <br><br>
+                Yet, despite the strength of these larger polities, the archipelago remained fragmented. The rulers of Cebu, Butuan, Sulu, and Maguindanao might have commanded respect within their territories, but they had no authority over the thousands of barangays scattered across the islands. Each barangay had its own laws, its own customs, and its own sense of identity. This fierce independence, while a source of local pride, also prevented the islands from forming a unified front against outside threats.
+                <br><br>
+                This lack of political cohesion, as Corpuz and other scholars have emphasized, became one of the most significant factors that made the Philippines vulnerable to foreign invasion. The barangays, so used to their autonomy, often saw themselves as separate entities rather than parts of a larger whole. While alliances were sometimes formed, they were often temporary, driven by immediate needs rather than a shared vision of unity. When faced with external threats, such as raids from neighboring kingdoms or the arrival of foreign powers, each barangay or polity acted alone, defending its own interests rather than coming together for a common cause.
+                <br><br>
+                In 1521, when Ferdinand Magellan first arrived on the shores of Cebu, he encountered not a nation but a patchwork of independent leaders. Rajah Humabon of Cebu welcomed Magellan, hoping to use this new alliance to gain an advantage over his local rivals. This was the nature of politics in the pre-colonial Philippines—leaders often saw foreign powers as opportunities to strengthen their own position rather than as threats to their independence.
+                <br><br>
+                By the time the Spanish returned decades later, led by Miguel López de Legazpi in 1565, the same divisions that had defined pre-colonial society for centuries continued to exist. The Spaniards, though few in number, quickly realized that the fragmented nature of the islands played to their advantage. They forged alliances with certain local rulers, offering promises of protection or shared wealth in exchange for loyalty. For those who resisted, the Spanish used their superior weapons and military tactics to swiftly conquer individual barangays or polities, one by one.
+                <br><br>
+                Without a unified defense, the Spanish were able to conquer the islands relatively easily. The barangays, with their local loyalties and lack of a central leadership, were not equipped to fight off an enemy that came with the ambition of empire. Though some regions, particularly in the southern sultanates, put up fierce resistance, the lack of a unified front across the islands made conquest inevitable.
+                <br><br>
+                Yet, this fragmentation was not just a weakness. Corpuz argues that it was also a source of strength in its own way. The independence of each barangay allowed for a rich diversity of cultures and traditions to flourish. Each community had the freedom to govern itself, to develop its own laws, its own way of life. Local autonomy allowed the people to adapt to their unique environments, whether they lived in the highlands, by the sea, or deep in the forest. And it was this fierce independence that would later fuel resistance movements against colonial rule, as the people of the islands, though fragmented, were never truly subjugated in spirit.
+                <br><br>
+                So, the story of Pre-Colonial Philippines is one of diversity and division, where local autonomy gave way to external vulnerability. The barangays, rajahnates, and sultanates lived by their own rules, their leaders driven by the needs of their people and the rhythms of trade and survival. But when the winds of colonization swept across the seas, it was the absence of a unified political entity that left the islands open to conquest, even as their rich traditions and cultures remained resilient beneath the surface.
                  
-            </p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> 900 AD - 1521 AD: Pre-colonial Philippines</h1>	 
-            <h3><img src="../PICS/unit 1 pics/5.jfif" alt="Image Description">Laguna Copperplate Inscription (900 AD)</h3><br><p>	 
-            The oldest known written document in the Philippines is an inscription in Kawi script that records a debt repayment. This record suggests that a highly literate culture with established and intricate political processes existed at the time.<br><br>
-            Furthermore, the impact of Indianized cultures, as well as Hindu and Buddhist traditions, grew widespread in certain regions of the Philippines, notably in the south, such as Mindanao. These influences were brought by traders and migrants, resulting in the introduction of new ideas, art forms, and religious beliefs that enhanced the cultural landscape. This combination of local and foreign components helped the Philippines build a distinct identity, reflecting the archipelago's role as a hub of trade and cultural interchange in Southeast Asia.<br><br>	
+            </p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>External Influences and Cultural Adaptation</h1>	 
+            <img src="../PICS/unit 1 pics/5.jfif" alt="Image Description"><br><p>	 
             
-            <h3>Emergence of Kingdoms and Sultanates (1000 AD - 1521 AD)</h3><br><p>
-            During this time, various tiny kingdoms and sultanates arose in the Philippines, each adding to the political scene. Notable among them were the Rajahnate of Butuan in Mindanao, the Rajahnate of Cebu, and the Kingdom of Tondo on Luzon. These governments played important roles in local governance, trade, and cultural interaction.<br><br>
-            The Sultanates of Sulu and Maguindanao were created in the southern Philippines during the 13th and 14th centuries, bringing Islam to the region. Muslim missionaries and traders helped spread Islamic doctrines and practices, which had a significant impact on local culture, governance, and social institutions.<br><br>
-            
-            <h3>Trade Networks and Contact with China and Southeast Asia:</h3><br><p>
-            During the Song, Yuan, and Ming dynasties, the Philippines traded with China actively, trading luxury commodities like porcelain and silk for gold, pearls, and local products. Trade with Brunei, Indonesia, and Malaysia also thrived, helping to develop the region's maritime cultures. These trading networks helped shape the Philippines' economy and culture.<br><br>
-                
-            <h3>Religious and Cultural Influences</h3><br><p>
-            By the 14th century, Islam had expanded to the southern Philippines through trade and missionary operations, particularly among the Tausug, Maranao, and Maguindanaon peoples. This resulted in the foundation of Islamic sultanates and a long-term cultural and theological impact in the region.<br><br>
-            At the same time, early Philippine kingdoms were heavily influenced by Hindu and Buddhist culture, as seen by art, architecture, and local folklore. These influences were spread through regional trade networks, combining with local beliefs and influencing early Filipino culture.<br><br>
-                
-            <h3>The Arrival of the Spanish (1521 AD)</h3><br><p>	
-            The first European to make meaningful contact with the Philippines occurred in 1521, when Portuguese adventurer Ferdinand Magellan was traveling to Spain. His presence signaled the start of Spanish interest in colonizing the islands, which began officially in 1565 under Miguel López de Legazpi.<br><br>	
-            Magellan's presence provoked confrontation with native chieftains, particularly Lapu-Lapu, the ruler of Mactan, who resisted Spanish attempts to establish dominance. Lapu-Lapu's soldiers killed Magellan at the Battle of Mactan, marking the beginning of Filipino resistance to European colonization.<br><br>	
-                
-                
-                
+                In the islands of the pre-colonial Philippines, the people lived at the crossroads of the sea, a place where winds carried ships from distant lands and brought with them new ideas, new faces, and new ways of life. The people of these islands were not strangers to the outside world. They were traders, navigators, and diplomats who welcomed the currents of change but knew how to make these influences their own. As Corpuz observed, the Filipinos of this time were not passive recipients of foreign influence; rather, they had a remarkable ability to absorb what came from afar and weave it seamlessly into the fabric of their local traditions.
+                <br><br>
+                For centuries, Chinese junks had sailed into the harbors of Luzon and the Visayas, their hulls heavy with porcelain, silk, and spices. In exchange, the islanders offered gold, pearls, and the rare, precious products of their lands. The Chinese merchants who came and went left more than just goods behind. They left pieces of their culture—delicate ceramics, intricate textiles, and the art of weaving silk. Yet, as these foreign objects entered Filipino homes, they did not overshadow the islanders' own craftsmanship. The people of the archipelago took these influences and infused them with their own spirit, blending them into their vibrant way of life.
+                <br><br>
+                Filipino potters continued to mold their own earthenware—simple yet beautiful—while incorporating some of the finer techniques they learned from Chinese artisans. In their weaving, they adopted the patterns of silk, but used their own abaca fibers, crafting fabrics that were uniquely Filipino. The influences from China didn’t erase the old ways; they simply added another layer to an already rich cultural tapestry.
+                <br><br>
+                Further west, the Indians arrived, bringing not just goods, but ideas—philosophies of governance, religion, and art. From the Indian subcontinent came the influence of Hinduism and Buddhism, which touched the minds of the ruling classes in certain parts of the archipelago. Rajah and Maharajah, titles used by rulers in places like Cebu and Butuan, were borrowed from the Indian Sanskrit language, but they took on meanings specific to the local context.
+                <br><br>
+                Indian influences also found their way into the spiritual practices of the islands. In some regions, Hindu-Buddhist symbols of power, like the Garuda, the mythical bird, or the lotus flower, became part of local iconography. But, once again, these foreign elements were not imposed; they were adapted. The people of the Philippines incorporated these symbols into their own belief systems, finding ways to make them resonate with the spirits, ancestors, and deities that had always guided them.
+                <br><br>
+                As Malay traders from the sprawling kingdoms of Srivijaya and Majapahit sailed through the islands, they brought with them not just commerce but their own systems of governance. The barangay system, already in place, found echoes in the ways the Malay kingdoms organized their societies. Leaders adopted the title "datu," a term that came from Malay roots, and in time, it became synonymous with local chieftaincy in many parts of the archipelago. But while the title was borrowed, the power and role of the datu remained deeply embedded in Filipino culture—leading with authority tempered by the wisdom of the elders and the traditions of their people.
+                <br><br>
+                But perhaps the most profound adaptation occurred in the southern islands, where Islam began to spread through the trade routes linking the Philippines with Malaysia, Indonesia, and the Middle East. By the 14th century, Arab and Malay merchants had brought not only spices and textiles but also the teachings of Islam. In the courts of Sulu and Maguindanao, the sound of the adhan, the call to prayer, began to mingle with the rhythms of everyday life.
+                <br><br>
+                Yet even as Islamic law and governance made their way into the Sultanates, they did not completely displace the indigenous systems that had long been in place. The Sultans of Sulu and Maguindanao embraced Islam, adopting its laws of Sharia and its customs of leadership, but they also retained elements of their pre-Islamic governance. The barangay councils continued to play a role in decision-making, and local traditions surrounding land, inheritance, and justice blended with the new religious principles. Islam was woven into the existing fabric of society, not as an outside force that eradicated the old ways, but as a new thread that strengthened the whole.
+                <br><br>
+                In these sultanates, Corpuz noted, the process of integrating Islamic governance was one of adaptation rather than replacement. The Sultans were not just spiritual leaders but also political ones, drawing from both their Islamic faith and the wisdom of their ancestors. The people continued to follow many of their older traditions, and the new faith provided a sense of unity that transcended the boundaries of their islands. The Islamic legal system, which valued community and justice, fit well with the local customs that also prioritized balance and harmony in resolving disputes.
+                <br><br>
+                As Islam spread, mosques rose in place of old shrines, and the people adopted new rituals of prayer and fasting, yet even these practices were touched by local flavor. In the festivals of the southern islands, the kulintang drums and gongs played, as they had for centuries, but now they accompanied songs praising Allah and the Prophet Muhammad. The people of the Philippines took the new faith and shaped it to fit their world, as they had done with every other influence that came before.
+                <br><br>
+                So, the story of the Pre-Colonial Filipinos is not one of isolation but of adaptation and resilience. The people of these islands were connected to a larger world, a world that brought with it Chinese ceramics, Indian titles, Malay governance, and Arab faith. But they never let these influences overshadow their own identity. Instead, they absorbed what was useful, blended it with their own traditions, and made it something uniquely Filipino. They were open to the world, yet always grounded in the land, the sea, and the spirits that had guided them for generations. In their hands, external influences became new tools, not to replace what came before but to enrich their already vibrant culture, creating a society that was both diverse and deeply rooted in its own traditions.
+            </p>
+
                  </section>
+                 <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">⬆️</button>
             </main>
         <button onclick="hideContent()">Back</button>
+        <!-- Scroll to Top Button -->
+
     </div>
 
 
@@ -210,63 +355,170 @@ if (isset($_POST['save_bookmark'])) {
 <!-- Back Button in Top Left Corner -->
 <button class="back-btn" onclick="hideContent()"><i class="fas fa-arrow-left"></i></button>
 
+
         <main id="mainContent">
             <section class="content-section">
              
-                 <h2 id="sbt2"><span class="bookmark-icon" onclick="saveBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> SPANISH COLONIZATION <br>PERIOD(1521- 1898)</h2><p>
+                 <h2 id="sbt2"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> SPANISH COLONIZATION <br></h2><p>
                  <img src="../PICS/unit 2 pics/1.png" alt="Image Description">
         
-        <h1 id="sb1"><span class="bookmark-icon" onclick="saveMiniBookmark(this)"></span>Early Spanish Expeditions</h1><p>	 
-            Ferdinand Magellan arrived in the Philippines in 1521 during a Spanish expedition he led as a Portuguese explorer. His landing on the island of Cebu marked the first significant European contact with the islands, which he claimed for Spain, naming them the Islas de San Lazaro. Magellan established friendly ties with some local chiefs and converted a few to Roman Catholicism. However, he was later killed by a group of natives led by Chief Lapu-Lapu, who resisted foreign domination.
+        <h1 id="sb1"><span class="bookmark-icon"></span>The Arrival of the Spanish <br>(1521–1565)</h1><p>	 
+
+            Portuguese explorer Ferdinand Magellan efficiently led the European day trip to the Philippines within the carrier of the King of Spain. On March 31, 1521, at Limasawa Island in Southern Leyte, as stated in Pigafetta's Primo Viaggio Intorno El Mondo (First Voyage Around the World), Magellan solemnly planted a move on the summit of a hill overlooking the ocean and claimed ownership of the islands for the king of Spain, naming them the Archipelago of Saint Lazarus. However, the invasion of the Philippines by using overseas powers did no longer start in earnest till 1564. Following Magellan's voyage, several subsequent expeditions have been dispatched to the islands. Spain sent 4 main expeditions: Loaisa in 1525, Cabot in 1526, Saavedra in 1527 and Villalobos in 1542, culminating inside the Legazpi excursion in 1564. This very last day trip changed into a hit, mainly to the invention of the tornaviaje, or return experience to Mexico across the Pacific, with the aid of Andrés de Urdaneta. This discovery initiated the Manila galleon exchange, which lasted for two and a half centuries.
             <br><br>
-        
-            In the following decades, other Spanish expeditions were sent to the islands. In 1543, Ruy López de Villalobos led one such expedition, naming the islands of Samar and Leyte Las Islas Filipinasin honor of Spain’s Prince Philip (later King Philip II). This name was eventually applied to the entire Philippine archipelago.
+            In 1570, Martín de Goiti, dispatched by means of Legazpi to Luzon, conquered the Kingdom of Maynila. Legazpi finally mounted Maynila as the capital of the Philippines, simplifying its spelling to Manila. His excursion also renamed Luzon Nueva Castilla. Legazpi has become the country’s first governor-fashionable, and the archipelago served as Spain's outpost in the Orient, with Manila the capital of the whole Spanish East Indies. The colony became administered through the Viceroyalty of New Spain till 1821, whilst Mexico achieved independence from Spain. After 1821, the colony was ruled at once from Spain.
             <br><br>
+            Spain had three predominant objectives in its coverage closer to the Philippines, it is the simplest colony in Asia: to collect a percentage inside the spice change, to expand contacts with China and Japan to further Christian missionary efforts there, and to transform the Filipinos to Christianity. Only the 0.33 objective changed into ultimately found out, even though no longer absolutely, due to the active resistance of the Muslims within the south and the Igorot, the upland tribal peoples in the north. Philip II, King of Spain, explicitly ordered that the pacification of the Philippines be cold to avoid a repetition of Spain's sanguinary conquests inside the Americas. The career of the islands began with quite little bloodshed, partially due to the fact that the majority of the population presented little armed resistance to begin with. However, numerous incidents of atrocities had been dedicated by means of Spanish authorities, one of the maximum infamous being the heinous torture that befell in the Fortress of Sebastian Intramuros in Manila, wherein a dungeon called the Black Hole turned into placed. This jail had simplest two small apertures: one three feet square inside the ceiling and another little gated hollow inside the ground via which the ocean might be visible washing underneath. The Spanish authorities might confine nation prisoners on this hole, filling it to the brim with water, depriving them of food and water, and allowing just sufficient air to save you instantaneous death. Physical torture became additionally inflicted upon unmanageable prisoners. Renato Constantino highlights this transformation in A Past Revisited, stating, "The arrival of the Spaniards was not merely an encounter of different cultures; it heralded the subjugation of the Filipino people and the imposition of foreign rule". This foreshadowed the profound changes that would engulf Filipino society.
         
-        
-        </p><br><br><h1 id="sbt2"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Spanish Colonization</h1>
+        </p><br><br><h1 id="sbt2"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>The Establishment of Spanish Rule (1565–1600)</h1>
         <img src="../PICS/unit 2 pics/2.png" alt="Image Description">
         <p>
-            The Spanish conquest of the Philippines did not fully begin until 1564, when an expedition from New Spain, led by Miguel López de Legazpi, arrived. Permanent Spanish settlement was established in 1565 when Legazpi, the first Governor-General of the Philippines, arrived in Cebu. Spanish authority was soon imposed over many small, independent communities that had previously lacked any central government. Six years later, after defeating a local Muslim ruler, Legazpi founded the capital in Manila, attracted by its excellent harbor in Manila Bay, large population, and proximity to the fertile rice lands of central Luzon. Manila quickly became the hub of Spanish civil, military, religious, and commercial activities in the Philippines. By 1571, Legazpi had established the Spanish city of Manila on the site of a former Moro town he had conquered a year earlier, solidifying Spain's control over the islands. Despite resistance from the Portuguese, who sought to maintain their monopoly over East Asian trade, the Philippines became a strategic outpost in the East Indies under Spanish rule. The islands were governed as a province of New Spain (Mexico) until Mexico gained independence in 1821.
+           
+            The establishment of Spanish colonial rule in the Philippines brought sweeping changes, reshaping the islands' political, economic, and cultural landscapes. The Spanish government, under the authority of the governor-general appointed by the Spanish crown, operated with a highly centralized structure. This centralized governance meant that decisions affecting the entire archipelago were often made in Manila, the seat of Spanish power. The governor-general wielded immense control, supported by a bureaucracy of Spanish officials who managed local provinces, often with little regard for the well-being of the indigenous population.
             <br><br>
-            In 1574, Manila repelled an attack by the Chinese pirate Limahong. Although the Chinese had traded with the Filipinos for centuries before the arrival of the Spanish, it wasn't until after the conquest that they began settling in the islands. Chinese labor and trade were crucial to the early development of the Spanish colony, but the growing Chinese population led to fear and resentment among the Spanish. In 1603, the Spanish massacred thousands of Chinese settlers, and there were smaller-scale massacres in subsequent years.
+            Spanish colonial rule also introduced a new legal and administrative framework, which replaced the traditional systems of governance that had been in place before their arrival. The Spanish legal system imposed European laws and customs, often clashing with indigenous practices. This was part of a broader colonial strategy that sought to subdue local resistance and assert Spanish dominance. An important part of this system was the introduction of new tax structures, such as the "tribute" system, where local inhabitants were required to pay taxes to the colonial government. These taxes were often burdensome, especially on the rural populace, leading to economic hardships and sparking occasional revolts.
             <br><br>
-            In 1589, the Spanish governor was elevated to the status of a viceroy, ruling with the advice of the powerful royal audiencia. Frequent uprisings occurred as Filipinos resisted the encomienda system, a system of forced labor and tribute. By the end of the 16th century, Manila had become a major commercial hub in East Asia, engaging in prosperous trade with China, India, and the East Indies. While the Philippines did provide some wealth, including gold, for Spain, its galleons, which transported valuable cargo between the islands and New Spain, were often targeted by English pirates.
+            One of the most significant and enduring impacts of Spanish colonialism in the Philippines was the widespread religious conversion of the Filipino people to Christianity, particularly Catholicism. The Spanish crown saw the conversion of the indigenous population as a primary mission, and this goal was vigorously pursued by religious orders such as the Franciscans, Dominicans, Augustinians, and Jesuits. These missionaries played a critical role in establishing the church as a powerful institution in colonial society. Through the construction of churches, monasteries, and schools, the Spanish religious orders aimed to root Catholicism in Filipino culture.
             <br><br>
-            The period from 1600 to 1663 saw continued warfare with the Dutch, who were establishing their empire in the East Indies, as well as with Moro pirates. One of Spain's greatest challenges was dealing with the Moros (Muslims) of Mindanao and the Sulu Archipelago, who carried out raids on Luzon and the Visayas in retaliation for Spanish and allied native attacks. The Spanish launched sporadic campaigns against the Muslims, but they only achieved significant success in the mid-19th century.
+            The religious orders were not just concerned with conversion but also with shaping the social fabric of the islands. They built massive stone churches that became the center of community life, both spiritually and socially. These churches, like San Agustin Church in Manila, were grand architectural projects that symbolized the dominance of Catholicism and the permanence of Spanish rule. The church also introduced new traditions, such as Catholic sacraments, saints' feast days, and religious festivals that gradually became integral to Filipino culture.
             <br><br>
-            Spanish occupation of the Philippines was relatively bloodless, in part because most of the population, except for the Muslims, did not initially offer much armed resistance. The invasion of Mindanao and the Sulu Archipelago by the Muslims, however, presented a persistent problem, as they frequently raided Spanish-controlled areas. The Spanish waged irregular military campaigns against the Muslims, achieving no decisive results until much later in the colonial period.
+            As historian Agoncillo observes, "The Spanish conquest was not solely military; it involved the systematic conversion of the indigenous population to Christianity, which became the cornerstone of Spanish colonial policy." This cultural imposition through religion was a deliberate strategy to unite the islands under Spanish control, making religion not just a spiritual pursuit but a political tool for consolidation. Over time, Catholicism became deeply embedded in Filipino society, influencing family structures, gender roles, and community norms.
             <br><br>
-            In Spain's colonial policy, church and state were tightly intertwined, with the state taking responsibility for religious institutions. One of Spain's primary goals in colonizing the Philippines was to convert the local population to Catholicism. The absence of other organized religions, aside from Islam in the south, facilitated this process. The grandeur of the Catholic Church's rituals and its incorporation of local customs made it widely appealing. As a result, a Christian majority emerged among the lowland Malay population, while the Muslims in the south and the tribal peoples in the mountains remained largely detached.
+            Moreover, the intertwining of religion and governance blurred the lines between the state and the church in colonial life. The Catholic Church wields significant power in both religious and political spheres, becoming a vital partner in maintaining colonial order. As a result, the colonial government relied on the church to help pacify the population, using religion as a means to legitimize Spanish rule and suppress dissent. The church also controlled vast tracts of land, further solidifying its influence over both the economic and social lives of Filipinos. 
             <br><br>
-            At the local level, the Spanish adapted traditional village governance by co-opting local leaders, creating a principalía, or Filipino upper class, which held local power, wealth, and privileges. This system of indirect rule allowed the Spanish to maintain control through a local oligarchy. One of the major changes under Spanish rule was the introduction of private land ownership, replacing the Filipino practice of communal land use. Land titles were granted to members of the principalía, further entrenching their status.
-            <br><br>
-            Despite its strategic location, the Philippines was not a highly profitable colony for Spain. A long war with the Dutch in the 17th century, combined with ongoing conflicts with the Muslims, strained the colonial treasury. Most of the colony's income came from entrepôt trade. The Manila Galleons brought silver from Acapulco (Mexico), which was traded for Chinese goods, but there was no direct trade with Spain itself.
-            <br><br>
+            Catholicism's lasting influence can still be seen in contemporary Filipino society, where it continues to shape values, practices, and traditions. The deep roots of Catholicism, planted during the Spanish colonial era, have made the Philippines one of the largest Catholic countries in the world today, reflecting the profound impact of the Spanish conquest on the nation’s religious and cultural identity.
+
         
-        
-        </p><br><br><h1 id="sbt3"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Decline of Spanish Rule</h1>
+        </p><br><br><h1 id="sbt3"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>Societal Changes and Economic Structures (1600–1800)</h1>
         <img src="../PICS/unit 2 pics/3.png" alt="Image Description">
         <p>
-            Spanish rule in the Philippines was briefly interrupted in 1762 when British forces invaded and occupied the islands during Spain’s involvement in the Seven Years’ War. However, the Treaty of Paris in 1763 restored Spanish control, and the British withdrew by 1764. Although brief, the British occupation weakened Spain’s hold on the Philippines, sparking rebellions and growing demands for independence.
+            As Spanish rule solidified its hold over the Philippines, the islands experienced profound social, economic, and political transformations, many of which shaped the foundations of Philippine society for centuries to come. One of the key systems introduced during this period was the encomienda system, a Spanish colonial practice intended to manage the indigenous labor force while extracting tribute from the local population. Under this system, Spanish colonizers, known as encomenderos, were granted control over specific territories, allowing them to collect tribute—often in the form of agricultural products, labor, or gold—from the native inhabitants in exchange for supposed protection and religious instruction.
             <br><br>
-            In 1781, Governor-General José Basco y Vargas established the Economic Society of Friends of the Country to promote economic development. By this time, the Philippines was directly governed by Spain. The opening of the Suez Canal in 1869 significantly reduced travel time to Spain, bringing new ideas to the Philippines and allowing many young Filipinos, known as ilustrados, to study in Europe. These ilustrados became an enlightened upper class and were key to the rise of Filipino nationalism.
+            While the encomienda system was presented as a means of civilizing the local population and integrating them into Spanish society, it quickly devolved into a mechanism for exploitation. The encomenderos frequently abused their power, overtaxing the locals and forcing them to work under harsh conditions. The encomienda became a source of widespread discontent, as it contributed to the impoverishment of the majority of Filipinos. As historian Gregorio Zaide notes, "The encomienda system exploited native labor, leading to widespread discontent and laying the groundwork for future resistance." The system entrenched a rigid social hierarchy in which the indigenous population was subjugated to serve the needs of Spanish colonizers, perpetuating a cycle of poverty and disenfranchisement.
             <br><br>
-            Inspired by the Propaganda Movement, the ilustrados initially sought representation in the Spanish Cortes but later advocated for independence. The most notable of these intellectuals was José Riza, whose novels, Noli Me Tangere and El Filibusterismo, exposed the abuses of the Spanish colonial government and clergy, fueling the independence movement. Around this time, Andrés Bonifacio founded the Katipunan, a secret society dedicated to overthrow Spanish rule.
+            Within this social hierarchy, a small native elite class known as the principalia emerged. These were local chieftains, or datus, who had been co-opted by the Spanish authorities to serve as intermediaries between the colonial government and the broader Filipino population. In exchange for their loyalty, the principalia were allowed to maintain a degree of social and economic privilege. They were often granted land and other resources, as well as a certain level of political power at the local level, which they used to further entrench their influence. As a result, the principalia became collaborators in the colonial project, benefiting from the system even as the majority of Filipinos faced severe oppression and poverty.
             <br><br>
-            The Philippine Revolution began in 1896. Although Rizal did not support the armed uprising, he was implicated and executed for treason that same year. The Katipunan then split into two factions: the Magdiwang, led by Bonifacio, and the Magdalo, led by Emilio Aguinaldo. The rivalry between Bonifacio and Aguinaldo ended with Bonifacio's execution by Aguinaldo’s forces. Aguinaldo later negotiated the Pact of Biak-na-Bato, which resulted in his exile to Hong Kong along with other revolutionaries.
+            The principalia collaboration with the Spanish authorities created a dual dynamic: while they were the bridge between the colonizers and the local populace, their privileged position often alienated them from the majority of Filipinos, who saw them as part of the colonial machinery that perpetuated their suffering. The alliance between the Spanish and the native elite thus reinforced the social stratification that marked colonial Philippine society.
             <br><br>
-            Opposition to the Spanish clergy's power was a major factor in the growing demand for independence. Widespread Spanish injustices, prejudice, and economic oppression also contributed to the movement, which was further inspired by Rizal’s writings. After his execution in December 1896, the revolution spread across the Philippines. Under Aguinaldo’s leadership, Filipino forces achieved several victories, but a temporary peace with Spain was short-lived. Hostilities resumed with the outbreak of the Spanish-American War in 1898.
+            At the same time, the Philippines became part of a global economic network through the Manila-Acapulco galleon trade, which began in 1565. This trade route connected the Philippines to the vast Spanish empire, particularly linking it to Mexico and the larger network of European-controlled commerce. The galleon trade facilitated the exchange of goods such as silk, spices, porcelain, and other luxury items from Asia, which were shipped from Manila to Mexico and eventually to Europe. In return, silver from the Americas flowed into the Philippines, stimulating the local economy, at least for the Spanish elite.
             <br><br>
-            The Spanish-American War began after the USS Maine was sunk in Havana Harbor amid efforts to mediate between Cuban independence and Spanish colonial rule. On May 1, 1898, Commodore George Dewey led the U.S. Navy to a decisive victory over the Spanish fleet at Manila Bay. The U.S. invited Emilio Aguinaldo to return to the Philippines, hoping he would unite the Filipinos against Spanish colonial forces. By the time U.S. ground troops arrived, Filipino forces had already taken control of most of Luzon, except for the walled city of Intramuros in Manila, which they were besieging.
+            However, while the galleon trade introduced new goods and ideas to the Philippines, it primarily benefited the Spanish ruling class and their local allies, including the principalia. The profits from the trade rarely trickled down to the majority of Filipinos, who remained engaged in subsistence agriculture and local trade. The peasants and rural poor saw little improvement in their economic conditions, as the wealth generated by the trade was concentrated in the hands of a small, powerful elite. Moreover, the focus on the galleon trade often disrupted local industries, as agricultural resources were diverted to support the needs of Spanish commerce rather than the local population.
             <br><br>
-            On June 12, 1898, Aguinaldo declared the Philippines' independence in Kawit, Cavite, and established the First Philippine Republic under Asia’s first democratic constitution. However, hopes for independence were dashed when, under the Treaty of Paris (1898), Spain ceded the Philippines to the United States, along with Guam and Puerto Rico, in exchange for $20 million. This treaty officially ended the Spanish-American War.
+            The economic inequalities exacerbated by the galleon trade and the encomienda system created a volatile social environment, where the majority of the population faced increasing hardships while a small elite, both Spanish and Filipino, amassed wealth and power. This growing disparity, coupled with the exploitation of native labor and resources, laid the groundwork for future resistance movements against Spanish colonial rule.
             <br><br>
-            Meanwhile, a German squadron under Admiral Diedrichs arrived in Manila, asserting that if the U.S. did not claim the Philippines, Germany would. Filipino representative Felipe Agoncillo was ignored in the Treaty of Paris negotiations, and some believe the Battle of Manila between Spain and the U.S. was an effort to exclude Filipinos from the occupation of the city. Despite opposition in the U.S., the decision was made not to return the Philippines to Spain or allow German control. The first Philippine Republic, led by Aguinaldo, resisted the American occupation, leading to the Philippine-American War(1899–1913).
-            <br><br></p>
-        
+            Over time, the economic and social stratification fostered by these colonial policies contributed to the development of a distinct Filipino identity, as various groups within society began to unite in opposition to the injustices imposed by Spanish rule. The seeds of discontent down by the encomienda system and the galleon trade would later bear fruit in the form of uprisings and revolutionary movements that sought to challenge the colonial order and assert Filipino autonomy.
+            <br><br>
+            Thus, while Spanish colonial rule brought new economic opportunities through global trade and established a political framework that included local elites, it also entrenched social inequalities and economic exploitation that defined the colonial experience for most Filipinos. These tensions would eventually play a crucial role in the emergence of nationalist sentiments and the drive for independence.
+            
+        </p><br><br><h1 id="sbt3"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>Cultural and Intellectual Developments (1800–1896)</h1>
+        <img src="../PICS/unit 2 pics/3.png" alt="Image Description">
+        <p>
+            
+            The late Spanish colonial period in the Philippines marked a significant cultural and intellectual awakening, characterized by a flourishing of literature and the arts. This period was heavily influenced by the rise of the ilustrados, a class of educated Filipinos who had access to European ideas, Enlightenment philosophies, and revolutionary literature. Many of these ilustrados, coming from affluent families, were able to study in Spain and other European countries, where they were exposed to liberal and nationalist ideas that challenged the authoritarian nature of Spanish colonialism. This exposure had a profound impact on their views and laid the groundwork for the development of a national consciousness in the Philippines.
+            <br><br>
+            The increasing education of the ilustrados was a turning point in the intellectual and cultural history of the Philippines. While Spanish authorities maintained a tight grip on political power, the ilustrados used literature, journalism, and art as platforms to voice their criticisms of colonial abuses and advocate for reforms. José Rizal, the most famous ilustrado, embodied this intellectual awakening. His novels, Noli Me Tangere (1887) and El Filibusterismo (1891), exposed the corruption and injustices perpetrated by both the Spanish colonial government and the friars who dominated religious and political life in the Philippines. Through his writings, Rizal highlighted the exploitation, social inequality, and lack of justice that the Filipino people endured, stirring national consciousness and inspiring others to challenge the colonial system.
+            <br><br>
+            Rizal's works, in particular, were revolutionary in their ability to articulate a shared sense of identity among Filipinos, helping to unite diverse ethnic and linguistic groups under the idea of a single, cohesive nation. His writings played a central role in the formation of the Propaganda Movement, a group of reform-minded ilustrados who sought political and social reforms through peaceful and legal means. Their platform included demands for the representation of Filipinos in the Spanish Cortes , freedom of the press, and the secularization of the clergy.
+            <br><br>
+            Other notable figures in this intellectual movement included Marcelo H. del Pilar, who founded the newspaper La Solidaridad in Spain, which became the primary vehicle for the Propaganda Movement’s ideas. Through this publication, del Pilar and others, including Graciano López Jaena, advocated for the rights of Filipinos and exposed the abuses of the colonial government, particularly the friars. These ilustrados believed in peaceful reform rather than violent revolution, but their writings contributed to the growing national consciousness and the realization that Filipinos were capable of self-governance.
+            <br><br>
+            The arts also flourished during this period. Filipino artists, inspired by European styles, began to explore themes related to national identity and colonial oppression. Juan Luna and Félix Resurrección Hidalgo, two of the most prominent Filipino painters of the era, gained international recognition for their works. Luna’s famous painting Spoliarium, which depicts the bodies of gladiators being dragged into a chamber in ancient Rome, was seen as a powerful metaphor for the suffering of the Filipino people under Spanish rule. Similarly, Hidalgo’s works, such as Las Virgenes Cristianas Expuestas al Populacho addressed themes of colonial exploitation and religious hypocrisy.
+            <br><br>
+            These intellectual and artistic developments were significant because they reflected a broader shift in the consciousness of Filipinos. For the first time, a segment of the population began to imagine themselves not simply as subjects of a colonial power but as members of a distinct nation with its own identity, rights, and destiny. This burgeoning sense of nationalism was fueled by a growing dissatisfaction with the colonial system and the desire for reforms that would grant Filipinos greater autonomy and participation in their own governance.
+            <br><br>
+            Moreover, the spread of liberal ideas from Europe, particularly those associated with the French and American revolutions, resonated deeply with the ilustrados. Concepts such as equality, liberty, and fraternity were incorporated into the intellectual discourse of the time, leading to calls for freedom of speech, the end of abuses by the clergy, and, eventually, the independence of the Philippines from Spanish rule. This period also saw the rise of literary works in the native languages, particularly Tagalog, which helped foster a sense of unity among Filipinos from different regions.
+            <br><br>
+            While the ilustrados primarily sought reform through peaceful means, their efforts laid the intellectual and cultural foundations for the eventual revolution against Spanish colonial rule. The spread of nationalist ideas, combined with the abuses of the colonial government, fueled the growing discontent that would culminate in the Philippine Revolution of 1896. Though the ilustrados were initially cautious in their approach, their works inspired a new generation of Filipinos who were willing to take up arms to fight for independence.
+
+        </p><br><br><h1 id="sbt3"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>Francisco Balagtas and Florante at Laura</h1>
+        <img src="../PICS/unit 2 pics/3.png" alt="Image Description">
+        <p>
+            
+            One of the most significant literary works from the early 19th century in the Philippines is Francisco Balagtas’s  Florante at Laura, written in the 1830s. This narrative poem, considered a cornerstone of Filipino literature, transcends its simple love story between the characters Florante and Laura to become a profound allegory for the social and political struggles experienced by Filipinos under Spanish colonial rule. Through this work, Balagtas subtly critiqued the oppressive colonial system, embedding themes of resistance and national consciousness within the framework of a classical romance and adventure tale.
+            <br><br>
+            At its heart, Florante at Laura tells the story of Florante, a nobleman who suffers betrayal, imprisonment, and war, all while remaining loyal to his beloved Laura. However, beneath the surface of this romantic and heroic narrative lies a powerful metaphor for the plight of the Filipino people. Florante's suffering and struggles represent the oppression faced by Filipinos under the harsh rule of the Spanish colonizers, while Laura, who remains a symbol of love, justice, and integrity, reflects the ideals that the Filipino people aspired to—freedom, equality, and self-determination.
+            <br><br>
+            Through his use of allegory, Balagtas was able to craft a subtle yet powerful critique of the colonial regime. Ambeth Ocampo, a noted Filipino historian and literary critic, describes Florante at Laura as "an allegory of Filipino suffering and the yearning for freedom". The struggles of Florante resonated deeply with Filipinos who experienced the daily injustices of colonial rule, such as excessive taxation, forced labor, and the loss of autonomy. The betrayal Florante experiences within the poem, particularly by figures of power, reflects the treachery and corruption of colonial authorities, as well as the disillusionment many Filipinos felt toward the leadership of their country under Spain.
+            <br><br>
+            The poem also touches on broader themes of loyalty, betrayal, and patriotism. Florante’s steadfastness in the face of suffering, along with his loyalty to Laura, symbolizes the resilience of the Filipino people and their determination to hold onto their ideals, even in the face of oppression. The betrayal Florante endures from those close to him mirrors the political betrayal felt by many Filipinos who had been deceived by corrupt local leaders and Spanish officials who promised protection but delivered exploitation.
+            <br><br>
+            Moreover, Florante at Laura is written in Tagalog, a significant choice at a time when the Spanish colonial government promoted Spanish as the language of education and governance. By writing in the native language, Balagtas not only reached a wider Filipino audience but also affirmed the value of local culture, which was often diminished by colonial rule. His use of Tagalog contributed to a sense of pride in Filipino identity and cultural heritage, helping to foster a collective sense of belonging among his readers.
+            <br><br>
+            In terms of literary style, Balagtas drew inspiration from European epics, yet he infused his poem with Filipino values, concerns, and struggles. His work stood out because it seamlessly blended Western literary forms with local themes, creating a uniquely Filipino voice that resonated with a broad audience. This combination made *Florante at Laura* accessible to ordinary Filipinos while also speaking to the intellectual elite, including the emerging class of ilustrados—educated Filipinos who would later lead the movement for independence.
+            <br><br>
+            The themes and narrative of Florante at Laura played an essential role in inspiring a sense of national identity among Filipinos during a time of growing unrest. While not overtly political, the poem’s exploration of suffering, justice, and the fight against oppression provided a framework for understanding the colonial experience in a way that connected with Filipinos on both an emotional and intellectual level. Its allegorical critique of Spanish rule resonated with readers who, like Florante, were yearning for a better, more just society. In this way, the poem became more than a literary work—it was a form of cultural and political resistance. Florante at Laura continues to hold a central place in Filipino literature and is often regarded as a precursor to the more direct political writings of later Filipino authors, such as José Rizal, whose works would eventually call for outright reform and revolution against the Spanish regime. Through the power of his narrative and the depth of his allegory, Francisco Balagtas crafted a timeless work that not only captured the struggles of his time but also contributed to the shaping of a national consciousness that would eventually lead to the Philippines’ quest for independence.
+            
+        </p><br><br><h1 id="sbt3"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>José Rizal and the Rise of Nationalism</h1>
+        <img src="../PICS/unit 2 pics/3.png" alt="Image Description">
+        <p>
+            
+            A towering figure in Filipino literature and nationalism, José Rizal used his intellect and writings to expose the injustices of Spanish colonial rule and inspire a movement toward reform and independence. His seminal novels, Noli Me Tangere and El Filibusterismo, are widely regarded as two of the most important works in Philippine literature, both for their literary merit and for the impact they had on the development of Filipino national consciousness.
+            <br><br>
+            In Noli Me Tangere (Touch Me Not), Rizal illustrated the struggles of the Filipino people through the story of Crisostomo Ibarra, a young Filipino who returns home after studying abroad, filled with hopes of reforming his country. However, upon his return, Ibarra confronts the grim realities of colonial oppression—corruption in the Church, abuses by the friars, and the systemic exploitation of the Filipino people. Through Ibarra’s journey, Rizal brings to life the daily sufferings of the Filipino populace under Spanish rule, as well as the pervasive social inequalities that kept them impoverished and powerless.
+            <br><br>    
+            The characters in Noli Me Tangere are symbolic representations of different sectors of Filipino society. Padre Damaso, for instance, is the corrupt friar who wields his power to oppress the poor, and Maria Clara, Ibarra’s love interest, represents the Filipina who, like her country, is caught between the conflicting powers of colonialism and her own identity. The novel paints a vivid picture of the "social cancer" plaguing Philippine society, as Rizal himself referred to it, and calls for moral and political reform. The narrative is at once a moving love story and a bold critique of colonial rule, using the personal struggles of its characters to reflect the broader national struggle.
+            <br><br>
+            Ambeth Ocampo, a historian and scholar of Rizal’s works, remarks that Noli Me Tangere was "more than a novel; it was a mirror held up to society, exposing the rot beneath the surface" . It stirred the hearts and minds of many Filipinos, who saw their own suffering reflected in the experiences of Ibarra and the oppressed villagers in the novel.
+            <br><br>
+            Rizal’s second novel, El Filibusterismo (The Reign of Greed), takes on a darker, more revolutionary tone. In this sequel to Noli Me Tangere, Ibarra reappears under the guise of Simoun, a wealthy jeweler bent on exacting revenge against the Spanish colonial regime. Disillusioned by the failure of his earlier attempts at peaceful reform, Simoun now seeks to incite a revolution and overthrow the oppressive system by violent means. The novel delves deeply into the themes of revolution, sacrifice, and the moral complexities of pursuing freedom through violent resistance.
+            <br><br>
+            While Noli Me Tangere focuses on the need for reform and dialogue, El Filibusterismo reflects Rizal’s growing disillusionment with the possibility of peaceful change. The novel is a powerful exploration of the tensions between idealism and radicalism, as Simoun’s quest for vengeance leads to personal tragedy and the recognition that violence may not always lead to justice. This shift in tone reflects the growing frustration of Filipinos at the time, as hopes for reform were continuously thwarted by the intransigence of the colonial government and the clergy.
+            <br><br>
+            Rizal’s novels had an undeniable impact on Filipino society. They brought to light the abuses of the colonial system and the clergy, creating an awareness of the need for change. Rizal's portrayal of the Filipino experience resonated deeply with both the educated elite and the broader populace, inspiring many to take a more active stance against colonial rule.
+            <br><br>
+            Ambeth Ocampo emphasizes that "Rizal’s writings galvanized the Filipino spirit and inspired a new generation to aspire for freedom and reform". The publication of Noli Me Tangere and El Filibusterismo provided Filipinos with a sense of collective identity, one rooted in shared suffering and the desire for liberation. While Rizal advocated for peaceful reforms, his works planted the seeds for the eventual revolution against Spain by awakening Filipinos to the possibility of a future free from colonial domination.
+            <br><br>
+            Rizal’s activism extended beyond his literary work. He became a leading figure in the Propaganda Movement, a group of reformist Filipinos, or ilustrados, who sought political and social reforms from Spain. They lobbied for greater representation in the Spanish Cortes, the secularization of the clergy, and an end to colonial abuses. Rizal’s essays and speeches, alongside those of other ilustrados like Marcelo H. del Pilar and Graciano López Jaena, helped spread the movement’s ideas both in the Philippines and abroad.
+            <br><br>
+            Despite his commitment to peaceful reform, Rizal’s growing influence and his critique of the colonial system made him a target of the Spanish authorities. On December 30, 1896, he was executed by firing squad in Bagumbayan, charged with inciting rebellion. Rizal’s execution was a pivotal moment in Philippine history. His martyrdom ignited widespread anger and became a rallying cry for revolutionaries, particularly the Katipunan, a revolutionary group led by Andrés Bonifacio, who sought to overthrow Spanish rule by armed rebellion.
+            <br><br>
+            Rizal’s death solidified his status as a national hero and a martyr for the cause of independence. The revolutionaries who took up arms against Spain saw him as a symbol of sacrifice and the ultimate expression of the Filipino desire for freedom. His legacy is honored every December 30, celebrated as Rizal Day, a national holiday in the Philippines.
+            
+        </p><br><br><h1 id="sbt3"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>The Rise of Nationalism (1892–1896)</h1>
+        <img src="../PICS/unit 2 pics/3.png" alt="Image Description">
+        <p>
+            
+            The period between 1892 and 1896 was marked by a profound transformation in the Philippine struggle for independence, with the formation of the Katipunan led by Andrés Bonifacio serving as a pivotal moment. The Katipunan was not just a revolutionary organization; it was a symbol of Filipino unity and collective action against Spanish colonial rule. Bonifacio’s vision for the organization was deeply rooted in the ideals of freedom, equality, and national identity. He sought to awaken the masses, who had long suffered under oppressive colonial governance, and to inspire them to take up arms for their liberation.
+            <br><br>
+            William Henry Scott observes, "The emergence of the Katipunan represented the culmination of Filipino discontent, as the masses began to unite against their colonial oppressors". This assertion underscores the role of the Katipunan as a catalyst for mobilization among Filipinos from diverse backgrounds. The organization effectively drew support from various sectors of society, including the ilustrados , workers, and peasants, all of whom were weary of exploitation and oppression. The Katipunan’s commitment to revolutionary ideals galvanized the populace, leading to a burgeoning national consciousness that transcended regional and class differences.
+            <br><br>
+            The revolution began in August 1896 when Spanish authorities uncovered the Katipunan’s plans for revolt. This discovery led to a series of uprisings across the islands, marking the start of an armed struggle against colonial rule. The initial phases of the revolution were characterized by fierce and bloody battles, including the Battle of San Juan del Monte and the Battle of Imus. Despite being poorly armed and lacking formal military training, the Filipino revolutionaries displayed remarkable bravery, resilience, and ingenuity in their fight against the better-equipped Spanish forces.
+            <br><br>
+            The revolutionary spirit that fueled these early battles was rooted in a deep sense of injustice. The revolutionaries fought not only for independence but also for recognition of their rights as human beings and citizens of the nation. They were motivated by a desire to overthrow the oppressive systems that had long subjugated them, and their courage in the face of adversity laid the groundwork for future successes in the struggle for independence.
+            <br><br>
+            A key turning point in the revolution came with the execution of José Rizal on December 30, 1896. Rizal’s execution acted as a catalyst for the revolutionary movement, transforming him into a symbol of the fight for freedom and justice. Although Rizal advocated for reform through peaceful means, his martyrdom resonated deeply with the Filipino people, igniting widespread outrage and galvanizing support for the revolutionary cause. His life and work were seen as embodying the aspirations of the nation, and his death prompted many individuals, previously hesitant to join the revolution, to take up arms.
+            <br><br>
+            In the wake of Rizal’s execution, the struggle for independence took on new urgency. His death became a rallying cry that inspired Filipinos from all walks of life to join the ranks of the revolutionaries. The sentiment of sacrifice and collective struggle permeated the movement, as the desire for freedom grew stronger. The revolutionaries rallied around Rizal’s memory, viewing their fight as a moral obligation to honor his legacy and the ideals he represented.
+            <br><br>
+            This new wave of fervor led to intensified military engagements and strategic maneuvers by revolutionary leaders. The Katipunan evolved from a clandestine organization into a formidable revolutionary force, uniting various factions and creating a more organized resistance against the Spanish. The leadership of figures like Bonifacio and later Emilio Aguinaldo was instrumental in mobilizing troops and resources, coordinating efforts across different regions.
+            <br><br>
+            As the revolution progressed, the Filipino forces gained momentum, capturing key towns and territories. This not only boosted the morale of the revolutionaries but also attracted further support from the Filipino populace, who were inspired by the successes of their fellow countrymen. The revolutionaries established temporary local governments in liberated areas, further asserting their autonomy and capability to govern without colonial oversight.
+            <br><br>
+            The struggle also caught the attention of the international community. Filipinos sought to garner support from other nations sympathetic to their cause, framing their fight for independence as a quest for justice and self-determination. This international interest, combined with the escalating conflict between the revolutionaries and Spanish forces, set the stage for a broader confrontation that would ultimately lead to significant changes in the Philippines.
+
+        </p><br><br><h1 id="sbt3"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>The End of Spanish Rule (1898)</h1>
+        <img src="../PICS/unit 2 pics/3.png" alt="Image Description">
+        <p>
+            
+            The year 1898 marked a significant turning point in Philippine history with the onset of the Spanish-American War, a conflict that drastically altered the dynamics of colonial control in the archipelago. As tensions between the United States and Spain escalated, the U.S. sought to expand its influence in the Pacific. The American intervention in the Philippines, initially framed as support for the Filipinos in their fight for independence, soon revealed the complexities of imperial ambitions.
+            <br><br>
+            A decisive moment in the struggle for Filipino independence occurred on May 1, 1898, during the Battle of Manila Bay, where American naval forces, under the command of Commodore George Dewey, decisively defeated the Spanish fleet. This victory not only showcased the military might of the United States but also marked the beginning of the end for Spanish colonial rule in the Philippines. For the Filipino revolutionaries, this victory ignited hope that their own aspirations for independence would finally be realized.
+            <br><br>
+            However, the end of the Spanish-American War did not align with the expectations of the Filipino people. On December 10, 1898, the Treaty of Paris was signed, formally concluding the conflict. In this treaty, Spain ceded the Philippines to the United States for $20 million, a financial transaction that shocked and disheartened Filipino leaders who had fought valiantly for their independence. The transfer of power was perceived not as a liberation but as a betrayal of the promises of freedom that had fueled the revolution against Spain.
+            <br><br>
+            Historian Teodoro Agoncillo poignantly captures this sentiment, stating, "The end of Spanish rule did not bring the desired freedom for Filipinos but rather set the stage for a new colonial master". This transition revealed the complexity of colonial dynamics, as the aspirations of the Filipino people for true independence were met with the imposition of American imperialism.
+            <br><br>
+            The American administration presented itself as a benevolent force, claiming to bring progress and modernization to the Philippines. However, this narrative was met with skepticism and resistance by many Filipinos, who recognized that they were exchanging one colonial master for another. The initial goodwill towards the Americans quickly dissipated as it became clear that the U.S. intended to establish a colonial regime rather than support genuine self-governance.
+            <br><br>
+            As discontent grew, Filipino leaders and revolutionaries rallied to defend their hard-won aspirations for independence. The conflict escalated into a new struggle, this time against American rule. Emilio Aguinaldo, who had initially welcomed American support, now found himself at the forefront of the resistance against the new colonial power. The Philippine-American War erupted in 1899, with Aguinaldo leading the fight for independence.
+            <br><br>
+            The Philippine-American War was characterized by intense and brutal conflict, with both sides suffering significant casualties. The Filipino revolutionaries, emboldened by a deep sense of nationalism and the desire to assert their rights, engaged in guerilla warfare against American forces. The struggle highlighted the complexities of colonialism and the challenges faced by a nation fighting for its identity and sovereignty.
+            <br><br>
+            The aspirations of the Filipino people for self-determination faced tremendous challenges as they navigated the realities of American imperialism. The promise of democracy and progress touted by the United States clashed with the lived experiences of many Filipinos, who found themselves caught in a cycle of oppression and resistance. The struggle against American colonial rule would persist for years, shaping the trajectory of the Philippines as it sought to assert its identity on the world stage.
+            </p>
             
              </section>
+             <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">⬆️</button>
         </main>
         <button onclick="hideContent()">Back</button>
     </div>
@@ -277,99 +529,11 @@ if (isset($_POST['save_bookmark'])) {
 <button class="back-btn" onclick="hideContent()"><i class="fas fa-arrow-left"></i></button>
 
         <main id="mainContent">
-            <section class="content-section">
-             
-                 <h2 id="sbt3"><span class="bookmark-icon" onclick="saveBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> FILIPINO NATIONALISM <br>1872- 1913</h2><p>
-                 <img src="../PICS/unit 3 pics/1.png" alt="Image Description">
-        
-            The period of Filipino nationalism, from 1872 to 1913, was a crucial era in Philippine history marked by the beginning of the national movement against Spanish colonial powers and the US later after we had to change from Spain. It was marked by growing restiveness against Spanish rule, the appearance of genuine nationalist sentiment or national consciousness and a more militant and organized agitation for political & social reforms that led to Philippine Revolution and the ensuing Declaration of independence. All in all, this is the era that would one day influence both the fate of a Philippines no longer comfortable under Spanish domination and an identity waiting to be forged.
-            <br><br>
-        
-        <br><h1 id="sbt1"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> The 1872 Cavite Mutiny and Gomburza Execution</h1>
-        <img src="../PICS/unit 3 pics/2.png" alt="Image Description">
-        <p>
-            The 1872 Cavite Mutiny was one of the significant events in Philippine history. Wars and InsurrectionsIn 1872, Filipino workers marched upon the Cavite arsenal to protest work conditions; specifically, concerns related to tax exemptions were abolished and forced labor were subject of a series of worker uprisings. The mutiny was easily put down, but the Spanish government would thereafter utilize it as an excuse to exert a tighter control over perceived insurgent movements.
-            <br><br><img src="../PICS/unit 3 pics/3.png" alt="Image Description">
-            The mutiny was blamed on the equalizing – such as it was – of rights by the three Filipino priests Mariano Gómez, José Burgos and Jacinto Zamora, collectively known as Gomburza because they advocated for secularization of the clergy. The two were executed by firing squad in 1872, an event that inspired a new crop of ilustrado nationalists.
-            <br><br>
-        
-        </p><br><br><h1 id="sbt2"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Rise of the Ilustrados and the Propaganda Movement</h1>
-        <img src="../PICS/unit 3 pics/4.png" alt="Image Description">
-        <p>
-            Nationalism also flourished through the works of the ilustrados, a class of an educated Filipino elite. Most of them had received their education in Europe and were exposed to liberal, democratic and enlightened ideas, significantly affecting the way they would take a stand in colonial administration.
-            <br><br>
-            Another period followed before the Propaganda Movement developed, with ilustrados such as José Rizal, Marcelo H. del Pilar and Graciano López Jaena taking to the streets in the 1880s. Initially they demanded political reforms rather than full independence, claiming to be:
-            <br><br>
-            Due representation in the Spanish Cortes (parliament)
-            <br><br>
-            Secularization of the clergy
-            <br><br>
-            Filipinos and Spaniards were given the same treatment
-            <br><br>
-            Freedom of speech and press
-            <br><br><img src="../PICS/unit 3 pics/5.png" alt="Image Description">
-            The movement had several periodicals, but the most important was La Solidaridad where they complained and promoted reforms. The most well-known figure of the movement was José Rizal. His novels, Noli Me Tangere (1887) and El Filibusterismo (1891), were crucial in shedding light on the suffering of Filipinos under Spanish colonial rule and general abuse of its friars which had galvanized many into the freedom struggle.
-            <br><br>
-        
-        
-        </p><br><br><h1 id="sbt3"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> The Execution of José Rizal (1896)</h1><p>
-            Nationalist feeling emerged and the Filipinos became increasingly angered against their colonial masters. The invention of the growing revolutionary was used to suggest that former President José Rizal had been arrested in 1896. He had already moved away from armed rebellion when he was tried for sedition on December 30, 1896 and executed. His death was a turning point: one which inflamed the fires of rebellion and an even greater resistance against Spanish tyranny.
-            <br><br>
-         
-        
-        </p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> The Katipunan and the Philippine Revolution (1896)</h1>
-        <img src="../PICS/unit 3 pics/6.png" alt="Image Description">
-        <p>	 
-            The Propaganda Movement led by Jose Rizal, Marcelo H.del Pilar primarily aimed for reforms and the foundation of KATIPUNAN in 1892 under Andrés Bonifacio, a secret society that aims for total Philippine independence, this is referred to as the armed revolution. The Katipunan expanded rapidly specifically in Manila and, by 1896, had started the Philippine Revolution. 
-            <br><br>
-            Initially, the revolutionaries were divided between two groups:Magdiwang, led by Bonifacio and Magdalo- Emilio Aguinaldo. This eventually ended in Bonifacio being overthrown and executed by Aguinaldo´s forces in 1897. Aguinaldo later took over the revolutionary leadership.
-            <br><br>
-            
-        
-        </p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> The Pact of Biak-na-Bato and Exile of Aguinaldo (1897)</h1><p>
-            It took a theoretically long hiatus in 1897 with the Pact of Biak-na-Bato, which allowed Aguinaldo and his fellow revolutionaries to go into exile in Hong Kong for financial compensation from the Spanish government. Nevertheless, the agreement was not fully adhered to by either side and shortly afterwards revolutionary activities were renewed.<br><br>
-            <br><br>
-        
-        
-        </p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Spanish-American War and Declaration of Philippine Independence (1898)</h1>
-        <img src="../PICS/unit 3 pics/7.png" alt="Image Description">
-        <p>
-            It was because of the forces of tension undergoing in Cuba that the Spanish-American War broke out in 1898. Commodore George Dewey won the Spanish fleet in Manila Bay on May 1, 1898, which turned out to be a turning point of the war. The U.S. had invited Aguinaldo to come back to the Philippines so that he could join the fight against the Spanish.
-            <br><br>
-            Aguinaldo proclaimed the First Philippine Republic on June 12, 1898 in Kawit, Cavite, based on the Constitution of Malolos. At the same time, Spain ceded the Philippines to the United States under the Treaty of Paris that year after the Spanish-American War took away the last transpacific colony from them.
-            <br><br>
-        
-        
-        </p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Philippine-American War (1899–1913)</h1><p>
-            With the Philippines now an American protectorate, Filipino nationalists and United States forces clashed immediately, even igniting the Philippine-American War in 1899. At first, Aguinaldo fought against the United States's occupation for the newly declared republic, but the Filipinos were no match for the superior military strength of the Americans.
-            <br><br>
-            By 1901, Aguinaldo had been captured, and in effect, all organized resistance was over. Still, the fighting continued to struggle along, especially in Mindanao and other guerrilla groups, well into 1913. The fighting in this war was brutal, with heavy casualties on both sides and atrocities committed by both American and Filipino forces.
-            <br><br>
-        
-        </p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> American Colonial Rule and the Transition to Civil Government</h1>
-        <img src="../PICS/unit 3 pics/8.png" alt="Image Description">
-        <p>
-            The U.S. established a colonial government in the Philippines after the war. Filipino resistance was crushed, but the seeds of nationalism sown then continued to grow. The Philippine Commission under William Howard Taft led this integration effort, including reforms in education, infrastructure, and governance.
-            <br><br>
-            The Philippine Organic Act of 1902 gave the Islands a limited amount of self-governance, setting the stage for eventual independence. The Jones Act of 1916 merely promised Filipino independence, to be realized after World War II.
-            <br><br></p>
-            
-             </section>
-        </main>
-        <button onclick="hideContent()">Back</button>
-    </div>
-
-    <div id="lesson4" class="content hidden">
-
-<!-- Back Button in Top Left Corner -->
-<button class="back-btn" onclick="hideContent()"><i class="fas fa-arrow-left"></i></button>
-
-        <main id="mainContent">
     <section class="content-section">
 	 
-		 <h2 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> American Colonialism Period<br>1898-1946</h2>
+		 <h2 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> American Colonialism Period<br>&nbsp;&nbsp;&nbsp;1898-1946</h2>
 		 
-<br><h1 id="sbt1"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Prelude to war</h1>
+<h1 id="sbt1"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Prelude to war</h1>
 <img src="../PICS/unit 4 pics/1.png" alt="Image Description">
 <p>
 In the mid-19th century, as the United States sought to expand its territory, Spain’s control over its colonies weakened, particularly in the Philippines. The signing of the Pact of Biak na Bato sparked reform efforts among Filipinos. A new Governor General, unfamiliar with the local situation, took charge as tensions rose due to the Cuban rebellion against Spain. The U.S., with interests in Cuba, allied with the rebels and prepared to confront Spain.
@@ -380,11 +544,11 @@ An intercepted letter from the Spanish ambassador, calling President McKinley we
 On April 25, 1898, General George Dewey received a telegram announcing the start of war between Spain and the United States. He then sailed from Mears Bay, near Hong Kong, to Manila Bay, arriving on May 1, where he found Spanish forces at Sangley Point, Cavite.
 <br><br>
 
-</p><br><br><h1 id="sbt2"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Battle of Manila Bay</h1><p>
+</p><br><br><h1 id="sbt2"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Battle of Manila Bay</h1><p>
 Dewey directed his forces toward Sangley Point and, upon confirming they were ready to attack, instructed the captain of the flagship Olympia to open fire:
 <br><br>
 
-“Start firing if you’re ready!”</p>
+<strong>“Start firing if you’re ready!”</strong></p>
 <div class="toggle-container">
     <input type="checkbox" id="audio-toggle" class="toggle-checkbox">
     <label for="audio-toggle" class="toggle-label">
@@ -399,7 +563,7 @@ The battle was nearly one-sided, as Spanish forces were unprepared for American 
 <br><br>
 
 
-</p><br><br><h1 id="sbt3"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Aguinaldo’s Return</h1><p>
+</p><br><br><h1 id="sbt3"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Aguinaldo’s Return</h1><p>
 During his exile in Hong Kong, Emilio Aguinaldo and his government became aware of the conflict between Spain and the United States. They viewed this situation as a crucial opportunity to remove Spanish control from the Philippines. However, tensions within Aguinaldo's government arose regarding the distribution of funds received from the Spanish government after the signing of a pact. This disagreement led Isabelo Artacho to file a lawsuit against Aguinaldo, who evaded the court hearing by fleeing to Singapore with his associates, Gregorio del Pilar and Jay Leyva.
 <br><br><img src="../PICS/unit 4 pics/5.png" alt="Image Description">
 
@@ -422,7 +586,7 @@ However, the situation for the Filipinos took an unexpected turn. The Americans 
 <br><br><br>
 
 	 
-</p><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Mock Battle</h1>
+</p><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Mock Battle</h1>
 <img src="../PICS/unit 4 pics/9.png" alt="Image Description">
 <p>	 
 When American reinforcements arrived, preparations for an assault on Manila began. Meanwhile, Admiral Dewey sought to persuade General Agustin to surrender through the Belgian Consul. Although Agustin was considering surrender, he was replaced by General Haudene, who negotiated a mock battle with Dewey and General Merritt to save face.
@@ -440,17 +604,17 @@ The steady arrival of American troops surprised Aguinaldo's government, which be
 On August 13, despite warnings, the mock battle occurred after negotiations with Haudene. Aguinaldo positioned Filipino forces on General MacArthur's left flank. The mock battle lasted several hours, and around 11:30, the Spaniards raised a white flag, signaling their surrender.
 <br><br>
 	
-</p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> America’s True Intention </h1>
+</p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> America’s True Intention </h1>
 <img src="../PICS/unit 4 pics/12.png" alt="Image Description">
 <p>
 The Filipinos had initially seen the Americans as aiding them in their independence from Spain, but the Americans did not see things this way. For  them, it was an opportunity, as President William McKinley put it : 
 <br><br><br><br><br><br>
 
-“to uplift and civilize and Christianize them”</p>
+<strong>“to uplift and civilize and Christianize them”</strong></p>
 <div class="toggle-container">
     <input type="checkbox" id="audio-toggle" class="toggle-checkbox">
     <label for="audio-toggle" class="toggle-label">
-        <span class="toggle-text">🔈</span>a
+        <span class="toggle-text">🔈</span>
         <span class="toggle-text toggle-text-muted">🔇</span>
     </label>
 </div>
@@ -489,7 +653,7 @@ In response, Aguinaldo issued a counter-proclamation against this. His intention
 
 They held a conference with the Americans, who convinced them that they would listen to Filipino grievances. However, it was just a tactic to delay fighting, as they awaited reinforcements. Growing tensions between America and the Philippines erupted on February 4, 1899, when American and Filipino soldiers faced each other at San Juan Bridge. The encounter happened by chance, as Filipino troops stationed near the Americans came into contact with them. According to Private William Grayson, when he spotted armed Filipino soldiers, he shouted, 
 
-<br><br>"Halt,"</p> 
+<br><br><strong>"Halt,"</strong></p> 
 <div class="toggle-container">
     <input type="checkbox" id="audio-toggle" class="toggle-checkbox">
     <label for="audio-toggle" class="toggle-label">
@@ -500,7 +664,7 @@ They held a conference with the Americans, who convinced them that they would li
 
 but they kept moving forward. He called out again, and the Filipino soldier replied with 
 
-<br><br>"Halto." </p>
+<br><br><strong>"Halto."</strong> </p>
 <div class="toggle-container">
     <input type="checkbox" id="audio-toggle" class="toggle-checkbox">
     <label for="audio-toggle" class="toggle-label">
@@ -512,7 +676,7 @@ but they kept moving forward. He called out again, and the Filipino soldier repl
 Grayson then fired his weapon, hitting the Filipino soldier, who fell to the ground.
 <br><br>
 
-</p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> War of America and Filipino</h1>
+</p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> War of America and Filipino</h1>
 <img src="../PICS/unit 4 pics/18.png" alt="Image Description">
 <p>
 The news of the confrontation reached General MacArthur, who promptly declared the beginning of war between American and Filipino forces. In an attempt to clarify the situation, Aguinaldo sent a letter to General Ores, insisting that the chaos was not instigated by him. However, Otis suggested that, since hostilities had already commenced, they should continue their efforts.
@@ -526,7 +690,7 @@ Luna retreated to Pulo, where he established his headquarters. When American rei
 
 After a brief stay in Malolos, MacArthur pursued them to Kalumpit. The defense was expected to be strong, as the Americans needed to cross the Bagbag River. However, this defense failed because the hot-headed Luna had gone to Pampanga to confront General Mascardo, leaving only General Gregorio del Pilar to defend the position. Their defeat marked the beginning of the rapid fall of provinces and cities to American control.
 
-<br><br>"We are fighting for our independence!" - Emilio Aguinaldo, 1899</p>
+<br><br><strong>"We are fighting for our independence!"</strong> - Emilio Aguinaldo, 1899</p>
 <div class="toggle-container">
     <input type="checkbox" id="audio-toggle" class="toggle-checkbox">
     <label for="audio-toggle" class="toggle-label">
@@ -552,7 +716,7 @@ Prisoners of war camps suffered from inadequate supplies, leading to rampant dis
 Hostilities waned significantly after President Aguinaldo's capture in March 1901.
 <br><br>
 
-"I am still the president of the Republic of the Philippines."</p>
+<strong>"I am still the president of the Republic of the Philippines."</strong></p>
 <div class="toggle-container">
     <input type="checkbox" id="audio-toggle" class="toggle-checkbox">
     <label for="audio-toggle" class="toggle-label">
@@ -572,7 +736,7 @@ The war ultimately resulted in greater costs in lives and resources for the U.S.
 The casualties during the Philippine-American War were disproportionately higher among Filipinos compared to Americans. Nearly 4,000 American soldiers died out of approximately 125,000 who served in the conflict. In contrast, around 20,000 Filipino combatants lost their lives, along with an estimated 250,000 to 1 million non-combatants. The non-combatant deaths were attributed to several factors, including a severe cholera epidemic and violence perpetrated by U.S. military forces. This violence included targeted attacks on civilians and the establishment of concentration camps, which significantly contributed to the high death toll.
 <br><br>
 
-</p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Insular Government</h1>
+</p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Insular Government</h1>
 <img src="../PICS/unit 4 pics/25.png" alt="Image Description">
 <p>
 After the war, the Philippines were placed under the Insular Government, a territorial administration accountable to the United States, aimed at guiding the country toward independence. In 1907, elections were held for an assembly that served as the lower house of a bicameral legislature, with the U.S.-appointed Philippine Commission as the upper house. This assembly regularly passed resolutions calling for independence.
@@ -584,7 +748,7 @@ The Philippine Autonomy Act, or Jones Law, enacted in 1916, replaced the Commiss
 In January 1933, the U.S. established a timeline for independence through the Philippine Independence Act of 1934, which outlined the process for drafting a constitution and forming a commonwealth. The new constitution took effect on November 15, 1935, setting July 4, 1946, as the date for the Philippines to gain independence from U.S. oversight.
 <br><br>
 
-</p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Philippine Commonwealth</h1>
+</p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Philippine Commonwealth</h1>
 <img src="../PICS/unit 4 pics/26.png" alt="Image Description">
 <p>
 The period from 1935 to 1946 was intended for the Philippines to transition to full independence, allowing for significant autonomy. However, the outbreak of war with Japan disrupted these plans.
@@ -602,11 +766,12 @@ In 1939–1940, the Constitution was amended to restore a bicameral Congress and
 	
 	
 	 </section>
+     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">⬆️</button>
 </main>
         <button onclick="hideContent()">Back</button>
     </div>
 
-    <div id="lesson5" class="content hidden">
+    <div id="lesson4" class="content hidden">
 
         <!-- Back Button in Top Left Corner -->
 <button class="back-btn" onclick="hideContent()"><i class="fas fa-arrow-left"></i></button>
@@ -614,7 +779,7 @@ In 1939–1940, the Constitution was amended to restore a bicameral Congress and
         <main id="mainContent">
             <section class="content-section">
              
-                 <h2 id="sbt5"><span class="bookmark-icon" onclick="saveBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Japanese Occupation Period<br>1942-1945</h2>
+                 <h2 id="sbt5"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Japanese Occupation Period<br>1942-1945</h2>
                  <img src="../PICS/unit 5 pics/1.png" alt="Image Description">
                  <p>
                  
@@ -675,13 +840,13 @@ In 1939–1940, the Constitution was amended to restore a bicameral Congress and
         <br><br>
         
         
-        </p><br><br><h1 id="sbt2"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Bataan Death March</h1>
+        </p><br><br><h1 id="sbt2"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Bataan Death March</h1>
         <img src="../PICS/unit 5 pics/5.png" alt="Image Description">
         <p>
         As time passed, U.S. assistance arrived for the soldiers, impacted by the Europe First Policy. The weakening of USAFFE intensified with MacArthur’s departure to Australia on March 11, 1942 with his famous line
         <br><br><br><br><br>
         
-        “I shall return”</p>
+    <strong>“I shall return”</strong></p>
         <div class="toggle-container">
             <input type="checkbox" id="audio-toggle" class="toggle-checkbox">
             <label for="audio-toggle" class="toggle-label">
@@ -702,7 +867,7 @@ In 1939–1940, the Constitution was amended to restore a bicameral Congress and
         <br><br>
         
         
-        </p><br><br><h1 id="sbt3"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Occupation</h1><p>
+        </p><br><br><h1 id="sbt3"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Occupation</h1><p>
         Despite their promise of independence for the islands, the Japanese military authorities immediately began organizing a new government structure, with the Council of State in charge of civil affairs until October 1943, when they declared the Philippines an independent republic. However, the Japanese were not content with just political control. They also implemented a brutal system of sexual slavery, taking more than 1,000 Filipinos, including mothers, girls, and gay men, as comfort women for their military personnel.
         <br><br><img src="../PICS/unit 5 pics/8.png" alt="Image Description">
         <img src="../PICS/unit 5 pics/9.png" alt="Image Description">
@@ -720,7 +885,7 @@ In 1939–1940, the Constitution was amended to restore a bicameral Congress and
         <br><br>
         
              
-        </p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> End of Occupation</h1>
+        </p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> End of Occupation</h1>
         <img src="../PICS/unit 5 pics/10.png" alt="Image Description">
         <p>	 
         When General MacArthur returned to the Philippines in late 1944, he arrived well-informed, having gathered extensive intelligence, but faced a formidable Japanese defense determined to halt the American advance. The Japanese military poured every available resource into protecting the islands, including creating the kamikaze corps. The Battle of Leyte Gulf marked the largest naval clash of World War II and ended in disaster for Japan. 
@@ -738,9 +903,104 @@ In 1939–1940, the Constitution was amended to restore a bicameral Congress and
         Following the war, select resistance units were integrated into the Philippine Army, bringing valuable combat experience that would shape the military's future. The legacy of these resistance fighters serves as a testament to the resilience and strength of the Filipino people. The war left a devastating toll, with significant casualties for both U.S. and Japanese forces, but the suffering of the Filipino population was especially tragic, marked by famine and disease in the years that followed.
         <br><br></p>
         
+    
+    </section>
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">⬆️</button>
+        </main>
+        <button onclick="hideContent()">Back</button>
+    </div>
+
+    <div id="lesson5" class="content hidden">
+
+        <!-- Back Button in Top Left Corner -->
+<button class="back-btn" onclick="hideContent()"><i class="fas fa-arrow-left"></i></button>
+
+        <main id="mainContent">
+            <section class="content-section">
+             
+                 <h2 id="sbt5"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>Post Independence and Early Republic</h2>
+                <h1 id="sbt2"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>The Post-Colonial Struggle: A Nation in Chains of its Past</h1>
+                 <img src="../PICS/unit 5 pics/1.png" alt="Image Description">
+                 <p>
+                 
+                    On July 4, 1946, the Philippines officially gained independence from the United States, marking the end of almost five decades of American colonization. The Filipino people, weary from centuries of foreign domination, were optimistic about this newfound freedom. Yet, beneath the jubilant celebrations, a complex reality was unfolding. Independence, while symbolically achieved, had not freed the nation from the long-reaching shadows of its colonial past.
+                    <br><br>
+                    As historian Renato Constantino reflected, 
+                    <br><br>
+                    <strong>“The past cannot be changed, but it can be understood in ways that reveal the causes of present problems.”
+                    </strong><br><br>
+                     For Constantino, the post-colonial period was not a simple story of liberation and progress. Rather, it was a continuation of the old struggles, now cloaked in the trappings of sovereignty. The Philippines, though free in name, remained bound by economic dependence, political instability, and an entrenched elite class that had long benefited from colonial rule.
+                    
+        
+        </p><br><br><h1 id="sbt2"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>Economic Dependence and Neocolonialism</h1>
+        <img src="../PICS/unit 5 pics/5.png" alt="Image Description">
+        <p>
+        
+            In the years following independence, the Philippines struggled to define its economic future. While the Americans had left, they had not fully relinquished control. Through the Bell Trade Act, signed in 1946, the U.S. ensured that American businesses retained access to the Philippine market, continuing the export of raw materials like sugar and copra while flooding the country with American products. The act tied the Filipino economy closely to that of the United States, limiting the country's ability to develop its own industries.
+            <br><br>
+            <strong>“Neocolonialism is the continuation of foreign domination without the need for physical control”</strong>,  Constantino wrote, emphasizing how economic policies kept the Philippines under the influence of its former colonizers. The elites, who had cooperated with the Americans during their rule, profited immensely from this arrangement. Large landowners and business magnates controlled vast amounts of wealth while the majority of Filipinos remained impoverished, struggling to make a living in a system that favored the few.
+            <br><br>
+            In "The History of the Filipino People," Teodoro A. Agoncillo adds, <strong>“The economic ties established by the Americans created a dependency that left the Philippines vulnerable to external pressures.”</strong> He elaborates on how this dependency prevented genuine economic progress, forcing the country into a cycle of underdevelopment. The dream of a self-sufficient nation seemed distant. Constantino was critical of this post-colonial reality, noting how <strong>“The Filipino people were not truly independent; they were still held captive by foreign interests and the old colonial economy.”</strong> The economic inequality that began during Spanish rule and worsened under American tutelage continued to define the lives of ordinary Filipinos.
+        
+        </p><br><br><h1 id="sbt2"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Political Power and the Entrenched Elite</h1>
+        <img src="../PICS/unit 5 pics/5.png" alt="Image Description">
+        <p>
+        
+            Politically, the Philippines in the post-colonial period was ruled by a narrow elite class, composed of families that had long dominated the country's landscape. These were the same elites who had benefited from land reforms under the Americans and maintained their power after independence. In many ways, independence had merely transferred control from foreign rulers to a small Filipino oligarchy.
+            <br><br>
+            Presidents like Manuel Roxas and Elpidio Quirino, while celebrated as national leaders, were heavily influenced by American interests. This political class had little incentive to enact reforms that would uplift the poor or address the growing gap between rich and poor. Constantino criticized these leaders, stating, <strong>“The Filipino people have always been the main agents of their own history, but their leaders often failed to act in their best interests.”</strong>
+            <br><br>
+            Even in the early years of independence, dissent began to grow. The Hukbalahap Rebellion, which had its roots in the Japanese occupation, continued into the post-war period. The Huk rebels, composed largely of peasants, sought land reform and an end to the concentration of wealth in the hands of a few. The government’s response was brutal, with military campaigns designed to crush the movement. This period of unrest showed how disconnected the government was from the struggles of the rural poor, many of whom still labored under oppressive tenancy systems.
+            <br><br>
+            In "An Anarchy of Families: State and Family in the Philippines," Alfred W. McCoy highlights how familial ties often influenced political power, stating, <strong>“Political authority was historically embedded in the family structure, allowing elite families to maintain their influence across generations.”</strong> This deep-rooted patronage system stifled democratic processes and perpetuated inequality.
             
+        </p><br><br><h1 id="sbt2"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>The Struggle for True Democracy</h1>
+        <img src="../PICS/unit 5 pics/5.png" alt="Image Description">
+        <p>
+        
+            The 1950s and 60s saw the Philippines grappling with the balance between its democratic ideals and the realities of governance. While elections were held regularly, they were often marred by corruption, violence, and vote-buying. Constantino observed how the “illusion of democracy” kept the masses hopeful, even as their choices were limited to members of the elite. Political power remained concentrated in Manila, far removed from the rural provinces where most Filipinos lived.
+            <br><br>
+            Education, once heralded as the key to progress, also became a tool of control. The American-designed educational system promoted Western values, shaping Filipino minds to view their history through a colonial lens. As Constantino famously noted, “A people without a sense of history is a people condemned to remain underdeveloped.” The lack of a true national consciousness, fostered by years of colonial education, made it difficult for Filipinos to challenge the status quo.
+            <br><br>
+            Benedict Anderson, in his seminal work "Imagined Communities," examines the role of education in forming national identities. He argues, <strong>“The imagination of a community is often rooted in the shared histories and narratives taught in schools.”</strong> Yet, the narratives presented in Philippine schools often minimized local histories, focusing instead on colonial achievements, thus distorting the collective memory of the people.
+            <br><br>
+            Despite these challenges, the seeds of resistance continued to grow. By the late 1960s, a new generation of activists, students, and intellectuals began to question the country’s direction. Inspired by global movements for civil rights and independence, they sought to reclaim their history and their future.
+
+        </p><br><br><h1 id="sbt2"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>Martial Law: The Death and Rebirth of Democracy</h1>
+        <img src="../PICS/unit 5 pics/5.png" alt="Image Description">
+        <p>
+        
+            In 1972, President Ferdinand Marcos declared Martial Law, plunging the country into one of its darkest periods. Under the guise of restoring order and fighting communist insurgencies, Marcos dismantled democratic institutions and silenced opposition. The elites who had long ruled the country now shared power with a dictatorial regime. Civil liberties were suspended, the media was censored, and the military was used to suppress dissent.
+            <br><br>
+            Constantino viewed Martial Law as a continuation of the colonial mindset, where power was concentrated in the hands of a few and used to control the many. He described the Marcos regime as <strong>“a reflection of the failure of post-colonial leadership to address the fundamental problems of the Filipino people.”</strong> The dictatorship intensified the struggles of the poor, deepened economic inequality, and made it clear that independence had not yet brought true freedom.
+            <br><br>
+            In "The Philippine Revolution: A Historical Perspective,"  E. San Juan Jr. argues that <strong>“Martial Law represented a betrayal of the ideals of the revolution, turning the state into a tool for oppression rather than liberation.”</strong> The regime's use of violence and coercion against its own citizens starkly contrasted with the promises of democracy and social justice that had been made during the struggle for independence.
+            <br><br>
+            But as history often shows, the Filipino spirit of resistance could not be crushed. The years of Martial Law saw the rise of a broad opposition movement, culminating in the <strong>Power Revolution of 1986</strong>. Millions of Filipinos took to the streets, peacefully demanding the end of Marcos’ regime. This moment, a triumph of popular will, marked the fall of a dictator and the restoration of democracy.
+            <br><br>
+            Yet, even as the Marcos family fled into exile, the challenges of the post-colonial period remained. “The fight for democracy does not end with one revolution,” Constantino might have written.  “It is a continuing struggle, one that requires constant vigilance, participation, and an understanding of the forces that shape our society.”
             
+        </p><br><br><h1 id="sbt2"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>Continuing the Struggle for National Identity</h1>
+        <img src="../PICS/unit 5 pics/5.png" alt="Image Description">
+        <p>
+        
+            As the Philippines transitioned into the post-Marcos era, Constantino’s reflections on the post-colonial period remained relevant. The economic and political structures built during colonial times, reinforced by decades of elite rule and foreign influence, were still intact. The true challenge for the Filipino people was not just removing a dictator but dismantling the systems of exploitation that had persisted for centuries.
+            <br><br>
+            <strong>“The past is not something to be forgotten, but something to be learned from,”</strong> Constantino believed. The post-colonial period, for him, was not just a chapter in the nation’s history but a reminder that the fight for true independence—economic, political, and cultural—was ongoing. <strong>Our history</strong>, he wrote, <strong>a continuing past</strong>.
+            
+        </p><br><br><h1 id="sbt2"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span>The Continuing Quest for Sovereignty and Identity</h1>
+        <img src="../PICS/unit 5 pics/5.png" alt="Image Description">
+        <p>
+        
+            The post-colonial narrative of the Philippines is one of resilience and struggle. It reflects the challenges faced by a nation striving to define its identity in the shadow of its colonial past. The interplay of foreign influence, elite control, and popular movements has shaped the country's history since independence.
+            <br><br>
+            Renato Constantino’s insights remind us that the journey towards true independence is ongoing. As he wrote, <strong>“The struggle for a just and equitable society continues; it is a task that demands the active participation of every Filipino.”</strong> The story of the Philippines is not just about its leaders or political events; it is a testament to the enduring spirit of its people who continue to seek justice, equality, and genuine sovereignty.
+            <br><br>
+            In this ongoing quest, the lessons of the past remain crucial, as Filipinos navigate the complexities of their national identity, striving to build a better future for generations to come. The voices of the people, echoed through protests, movements, and grassroots efforts, serve as a reminder that the fight for genuine freedom and justice is a shared responsibility, a collective journey towards a brighter tomorrow.
+            </p>
+
              </section>
+             <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">⬆️</button>
         </main>
         <button onclick="hideContent()">Back</button>
     </div>
@@ -753,10 +1013,10 @@ In 1939–1940, the Constitution was amended to restore a bicameral Congress and
         <main id="mainContent">
     <section class="content-section">
 	 
-		 <h2 id="sbt6"><span class="bookmark-icon" onclick="saveBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Period of Philippine Republic<br>1946 - Present</h2>
+		 <h2 id="sbt6"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Period of Philippine Republic<br>&nbsp;&nbsp;&nbsp;1946 - Present</h2>
          <p>
 		
-<h1 id="sb1"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Independence (1946)</h1>
+<h1 id="sb1"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Independence (1946)</h1>
 <img src="../PICS/unit 6 pics/6pic0.avif" alt="Image Description">
 <p>		
 The Philippines joined the United Nations as a founding member on October 11, 1945. Consequently, the Treaty of Manila, which was signed on July 4, 1946, during Manuel Roxas's administration, allowed the United States to formally recognize the Philippines as an independent country. With this pact, American rule over the islands was terminated and the independence of the Republic of the Philippines was recognized. Independence Day was observed on July 4 from 1946 until 1961. On the other hand, June 12, 1962 was designated as a special public holiday by President Macapagal on May 12, 1962. Independence Day was formally rescheduled to June 12 by Republic Act No. 4166 in 1964, which also declared July 4 to be Philippine Republic Day.
@@ -769,7 +1029,7 @@ The challenges faced by the nascent republic began even before independence. Pre
 <br><br>
 
 
-</p><br><br><h1 id="sbt2"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> The Roxas Administration (1946–1948)</h1>
+</p><br><br><h1 id="sbt2"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> The Roxas Administration (1946–1948)</h1>
 <img src="../PICS/unit 6 pics/6pic1.jfif" alt="Image Description">
 <p>
 When the Congress of the Philippines was convened in 1945, the legislators elected in 1941 chose Manuel Roxas as Senate President. In the national elections of 1946, Roxas ran for president as the nominee of the liberal wing of the Nacionalista Party, bolstered by the strong support of General MacArthur. His opponent, Sergio Osmeña, chose not to campaign, believing that his reputation was well-known among the Filipino people. On April 23, 1946, Roxas won 54 percent of the vote, leading the Liberal Party to a majority in the legislature. When the Philippines gained independence from the United States on July 4, 1946, Roxas became the first president of the new republic.
@@ -788,7 +1048,7 @@ Tragically, Roxas's presidency was cut short when he suffered a fatal heart atta
 <br><br>
 
 
-</p><br><br><h1 id="sbt3"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> The Quirino Administration (1948–1953)</h1>
+</p><br><br><h1 id="sbt3"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> The Quirino Administration (1948–1953)</h1>
 <img src="../PICS/unit 6 pics/6pic2.jpg" alt="Image Description">
 <p>
 Quirino assumed the presidency on April 17, 1948, just two days after Manuel Roxas's death. His administration began amidst accusations of corruption, particularly during the 1949 election against former wartime president Jose P. Laurel, who was widely believed to have won but did not contest Quirino's declared victory.
@@ -804,7 +1064,7 @@ While Quirino's presidency saw some economic improvements and increased U.S. aid
 <br><br>
 
 	 
-</p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> The Magsaysay Administration (1953–1957)</h1>
+</p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> The Magsaysay Administration (1953–1957)</h1>
 <img src="../PICS/unit 6 pics/6pic3.jpg" alt="Image Description">
 <p>	 
 In the 1953 election, Ramon Magsaysay emerged victorious over incumbent Elpidio Quirino, aided by American officials and funds. Sworn in wearing the barong tagalog, Magsaysay became known for his close ties to the United States and his strong anti-communist stance during the Cold War. He played a pivotal role in founding the Southeast Asia Treaty Organization (Manila Pact) in 1954, aimed at countering Marxist-Leninist movements across Southeast Asia, South Asia, and Oceania.
@@ -819,7 +1079,7 @@ Magsaysay's presidency is often celebrated as a period of honest governance, dub
 <br><br>
 
 
-</p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> The Garcia Administration (1957–1961)</h1>
+</p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> The Garcia Administration (1957–1961)</h1>
 <img src="../PICS/unit 6 pics/6pic4.jpg" alt="Image Description">
 <p>	 
 Garcia took office after Ramón Magsaysay's tragic death in a plane crash on March 17, 1957, and he was elected to a full term later that same year during the 1957 elections.
@@ -835,7 +1095,7 @@ At the end of his second term, he sought re-election in the November 1961 electi
 <br><br>
 
 
-</p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> The Macapagal Administration (1961–1965)</h1>
+</p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> The Macapagal Administration (1961–1965)</h1>
 <img src="../PICS/unit 6 pics/6pic5.jpg" alt="Image Description">
 <p>	 
 In the 1961 presidential election, Diosdado Macapagal defeated incumbent president Carlos Garcia with a 55% to 45% margin. His administration aimed to stimulate economic development, allowing the Philippine peso to float on the free market, though his reform efforts faced opposition from the Nacionalista-dominated legislature. Notable achievements included the abolition of tenancy through the Agricultural Land Reform Code of 1963 and changing the celebration of Philippine independence from July 4 to June 12, marking Emilio Aguinaldo's declaration in 1898.
@@ -845,7 +1105,7 @@ Macapagal's tenure was marked by significant reforms, but he lost the 1965 elect
 <br><br>
 
 
-</p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> The Marcos Administration (1965–1972)</h1>
+</p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> The Marcos Administration (1965–1972)</h1>
 <img src="../PICS/unit 6 pics/6pic6.webp" alt="Image Description">
 <p>	 
 In 1965, Ferdinand Marcos was elected as the 10th president of the Philippines, prioritizing industrial growth and infrastructure projects, such as the North Luzon Expressway. However, Senator Benigno Aquino Jr. raised concerns in 1968, warning that Marcos was steering the country towards a "garrison state," citing increases in the military budget and the militarization of civilian life. During the Vietnam War, Marcos chose not to send combat troops, instead deploying the Philippine Civic Action Group (PHILCAG) in 1966, which he withdrew in November 1969 due to rising unpopularity.
@@ -912,7 +1172,7 @@ A small group of Aquino supporters, led by her brother-in-law Butz Aquino, went 
 <br><br>
 
 
-</p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Corazon Aquino Administration (1986–1992)</h1>
+</p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Corazon Aquino Administration (1986–1992)</h1>
 <img src="../PICS/unit 6 pics/6pic7.jpg" alt="Image Description">
 <p>	 
 Corazon Aquino's rise to power following the People Power Revolution marked a significant restoration of democracy in the Philippines. Upon assuming the presidency in 1986, she swiftly established a revolutionary government aimed at stabilizing the nation after Ferdinand Marcos's regime. Aquino introduced a transitional "Freedom Constitution," which restored civil liberties, dismantled the entrenched Marcos bureaucracy, and abolished the Batasang Pambansa, relieving all public officials of their duties.
@@ -931,7 +1191,7 @@ Aquino’s administration faced significant challenges, including internal confl
 <br><br>
 
 
-</p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Fidel Ramos Administration (1992–1998)</h1>
+</p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Fidel Ramos Administration (1992–1998)</h1>
 <img src="../PICS/unit 6 pics/6pic8.jpg" alt="Image Description">
 <p>	 
 In the 1992 elections, Defense Secretary Fidel V. Ramos, with the endorsement of Corazon Aquino, secured the presidency with 23.6% of the vote, beating competitors such as Miriam Defensor Santiago and Imelda Marcos. Early in his term, Ramos focused on "national reconciliation," legalizing the Communist Party and forming the National Unification Commission to foster peace talks with various insurgent groups. In June 1994, he enacted a general conditional amnesty for rebels and military personnel involved in conflicts, leading to a peace agreement with the military insurgency by October 1995.
@@ -947,7 +1207,7 @@ The 1998 elections resulted in a victory for former movie actor Joseph Estrada, 
 <br><br>
 
 
-</p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Joseph Estrada Administration (1998–2001)</h1>
+</p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Joseph Estrada Administration (1998–2001)</h1>
 <img src="../PICS/unit 6 pics/6pic9.jpg" alt="Image Description">
 <p>	 
 Joseph Estrada took office during the Asian Financial Crisis but managed to steer the economy toward recovery, achieving a growth rate of 3.4% by 1999 after a low of −0.6% in 1998. He attempted to amend the 1987 Constitution through the CONCORD initiative, aimed at liberalizing economic provisions to attract foreign investments, but was unsuccessful.
@@ -962,7 +1222,7 @@ In October 2000, Estrada was implicated in a corruption scandal involving illega
 This led to widespread protests, known as "EDSA II," demanding his resignation. With the support of the military and police withdrawn, Estrada's cabinet resigned en masse. On January 20, the Supreme Court declared the presidency vacant, swearing in Vice President Gloria Macapagal Arroyo as the 14th President. Estrada claimed he did not resign but took a leave of absence, though the Supreme Court upheld Arroyo's legitimacy on March 2, 2001.
 <br><br>
 
-</p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Gloria Macapagal Arroyo Administration (2001–2010)</h1>
+</p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Gloria Macapagal Arroyo Administration &nbsp;&nbsp;&nbsp;(2001–2010)</h1>
 <img src="../PICS/unit 6 pics/6pic10.avif" alt="Image Description">
 <p>	 
 Vice President Gloria Macapagal Arroyo was sworn in as president following Estrada's departure, despite his allies challenging the legitimacy of her government. The Supreme Court upheld her presidency twice. After Estrada's arrest on plunder charges in April 2001, thousands rallied in "EDSA III" to demand his reinstatement, attempting to storm Malacañang Palace on May 1, but were stopped by authorities. Arroyo's position was further solidified by her coalition's overwhelming victory in the May 2001 elections.
@@ -974,7 +1234,7 @@ Her early presidency faced challenges, including coalition conflicts and a milit
 In 2005, a wiretapped conversation emerged, seemingly revealing Arroyo discussing election results with an official, sparking protests demanding her resignation. While she admitted to the conversation, she denied any electoral fraud. Efforts to impeach her failed that year. Towards the end of her term, Arroyo proposed a controversial constitutional overhaul to shift from a unitary presidential republic to a federal parliamentary government.
 <br><br>
 
-</p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Benigno Aquino III Administration (2010–2016)</h1>
+</p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Benigno Aquino III Administration (2010–&nbsp;&nbsp;&nbsp;2016)</h1>
 <img src="../PICS/unit 6 pics/6pic11.jpg" alt="Image Description">
 <p>	 
 On June 9, 2010, the Congress of the Philippines proclaimed Benigno Aquino III as President-elect, having secured 15,208,678 votes. Jejomar Binay was declared Vice President-elect with 14,645,574 votes, defeating Mar Roxas.
@@ -995,7 +1255,7 @@ Aquino and Binay were inaugurated on June 30, 2010, at Quirino Grandstand in Lun
 In 2013, the Aquino administration began formulating a new framework for peace talks with the New People's Army. However, a deadly clash in Mamasapano, Maguindanao, in 2015, which resulted in the deaths of 44 police commandos, stalled progress on the Bangsamoro Basic Law.
 <br><br>
 
-</p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Rodrigo Duterte Administration (2016–2022)</h1>
+</p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Rodrigo Duterte Administration (2016–2022)</h1>
 <img src="../PICS/unit 6 pics/6pic12.jpg" alt="Image Description">
 <p>	 
 Rodrigo Duterte won the 2016 presidential election with 39.01% of the votes, becoming the first president from Mindanao. Leni Robredo was elected vice president. Duterte's presidency began on June 30, 2016, with his inauguration at Malacañang Palace.
@@ -1013,7 +1273,7 @@ In 2017, Duterte launched the "Build, Build, Build" program to enhance infrastru
 Duterte initiated measures to combat corruption, improve agricultural policies, and implement various health and safety laws. His administration faced challenges during the COVID-19 pandemic, resulting in a GDP contraction of 9.5% in 2020, followed by a recovery to 5.6% in 2021. Throughout his presidency, Duterte maintained a relatively high domestic approval rating.
 <br><br>
 
-</p><br><br><h1 id="sbt4"><span class="bookmark-icon" onclick="saveMiniBookmark(this)"  id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Bongbong Marcos Administration (2022–present)</h1>
+</p><br><br><h1 id="sbt4"><span class="bookmark-icon" id="bookmarkIcon"><i id="bookmark" class="fas fa-bookmark"></i></span> Bongbong Marcos Administration (2022–&nbsp;&nbsp;&nbsp;&nbsp;present)</h1>
 <img src="../PICS/unit 6 pics/6pic13.webp" alt="Image Description">
 <p>	 
 Ferdinand Marcos Jr., popularly known as Bongbong, assumed the presidency in 2022, aiming to distinguish his administration from the controversial policies of his predecessor, Rodrigo Duterte. His election followed a period marked by geopolitical tensions, particularly regarding the South China Sea, where China's ambitions created friction.
@@ -1026,8 +1286,7 @@ Critics have expressed concern over his leadership, pointing to a lack of clear 
 <br><br>
 	
 	</section>
-</main>
-
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">
 
     </div>
 </div>
@@ -1110,7 +1369,7 @@ function saveBookmark(element) {
         data: { title: title },  // Send the title dynamically
         success: function(response) {
             alert('Bookmark saved successfully!');
-            // alert(response);
+            alert(response);
         },
         error: function(error) {
             console.error('Error saving bookmark:', error);
@@ -1146,6 +1405,7 @@ function saveMiniBookmark(element) {
         data: { title: title },
         success: function(response) {
             alert('Bookmark saved successfully for: ' + title);
+            
         },
         error: function(error) {
             console.error('Error saving bookmark:', error);
@@ -1153,8 +1413,18 @@ function saveMiniBookmark(element) {
     })
 };
 
+const bookmark = document.querySelectorAll('#sbt1');
+bookmark.forEach(bm => {
+    bm.addEventListener('click', (event) => saveBookmark.call(bm, event));
+});
 
 
+const bookmarksMini = document.querySelectorAll('#sbt2, #sbt3, #sbt4, #sbt5, #sbt6');
+bookmarksMini.forEach(function(bms) {
+    bms.addEventListener('click', (event) => {
+        bms.style.backgroundColor = 'orange';
+        saveBookmark.call(bms, event)})
+})
 </script>
 </body>
 </html>
