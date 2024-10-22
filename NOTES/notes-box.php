@@ -26,127 +26,33 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_id'])) {
     <title>NOTES</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <style>
-        .square-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Each Note Square */
-.square {
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-/* Hover Effect */
-.square:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Inner Box */
-.inner-box {
-    padding: 20px;
-    text-align: left;
-}
-
-.inner-box p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    color: #333;
-    line-height: 1.6;
-    flex-grow: 1;
-    transform: translate(-20px, -60px);
-    padding-left: 1.5rem;
-}
-
-/* Created At Small Text (Positioned Bottom Right) */
-.inner-box small {
-    font-family: 'Poppins', sans-serif;
-    font-size: 12px;
-    color: #888;
-    align-self: flex-end;
-    margin-top: 10px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .square-container {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        padding: 10px;
-    }
-
-    .inner-box {
-        padding: 15px;
-    }
-
-    .inner-box p {
-        font-size: 14px;
-    }
-
-    .inner-box small {
-        font-size: 11px;
-    }
-}
-
-@media (max-width: 480px) {
-    .square-container {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        padding: 5px;
-    }
-
-    .inner-box {
-        padding: 10px;
-    }
-
-    .inner-box p {
-        font-size: 12px;
-    }
-
-    .inner-box small {
-        font-size: 10px;
-    }
-}
-
-/* Non-Desktop View */
-@media (max-width: 768px) {
-    .square-container {
-        display: none;
-    }
-}
-    </style>
 </head>
 
 <body>
 
-<!-- Sidebar on the Right -->
-<div id="sidebar" class="sidebar">
+  <!-- Sidebar -->
+  <aside class="sidebar">
     <div class="user-info">
-    <img src="<?php echo $profile_path?>" alt="User Icon" class="user-icon profile-pic" id="userIcon">
-        
-        <span class="username"><?php echo $_SESSION['username']; ?></span>
+        <img src="<?php echo $profile_path?>" alt="User Icon" class="user-icon">
+        <span class="username"><?php echo $_SESSION['username']?></span>
     </div>
-    <a href="../HOME1/home.php"><i class="fas fa-home"></i> Home</a>
-    <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmark</a>
-    <a href="../GAMES/games.php"><i class="fas fa-gamepad"></i> Games</a>
-    <a href="../NOTES/notes-box.php"><i class="fas fa-sticky-note"></i> Notes</a>
-    <a href="../GALLERY/gallery.php"><i class="fas fa-image"></i> Gallery</a>
-    <a href="../QUIZ1/quiz1.php"><i class="fas fa-question-circle"></i> Quiz</a>
-    <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
-    <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> <?php echo $logging ?></a>
-    </div>
+    <nav class="sidebar-links">
+        <a href="../HOME1/home.php" class="active"><i class="fas fa-home"></i> Home</a>
+        <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmarks</a>
+        <a href="../GAMES/games.php"><i class="fas fa-gamepad"></i> Activities</a>
+        <a href="../NOTES/notes-box.php"><i class="fas fa-sticky-note"></i> Notes</a>
+        <a href="../GALLERY/gallery.php"><i class="fas fa-image"></i> Gallery</a>
+        <a href="../QUIZ1/quiz1.php"><i class="fas fa-question-circle"></i> Quiz</a>
+        <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivia & Facts</a>
+        <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> <?php echo $logging ?></a>
+    </nav>
+</aside>
+	
+<!-- CONTENTS -->	
+			<main id="mainContent">
 
-<!-- Navbar Section -->
-<nav class="navbar">
+ <!-- Navbar -->
+ <header class="navbar">
     <div class="navbar-left">
         <div class="navbar-logo">
             <img src="../PICS/logo1.png" alt="Website Logo" class="logo">
@@ -154,17 +60,42 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_id'])) {
         </div>
     </div>
     <div class="navbar-right">
-        <input type="text" class="search-bar" placeholder="Search...">
-        <a href="#" class="info-icon">ℹ️</a>
+        <input type="text" class="search-bar" placeholder="Search lessons...">
+        <div id="toggleIcon" class="icon" onclick="toggleSidebar()">
+        <a href="#" class="info-icon"><i class="fas fa-info-circle"></i></a>
     </div>
-</nav>
+    </div>
+</header>
 
-<!-- CONTENTS -->	
-<main id="mainContent">
+<!-- Sidebar -->
+<div id="sidebar2" class="sidebar2">
+<a href="#"><strong>About<br></strong>
+
+    This website is an online learning module about Philippine history, offering lessons, quizzes, and fun games to make learning enjoyable. Its goal is to help users understand and appreciate the rich history of the Philippines in an engaging and easy way.
+
+</a>
+<a href="#"><strong>Developers<br></strong>
+
+    <img class="devpic" src="../PICS/jok1.jpg"><br>
+    Joan Hermo<br><br><br>
+
+    <img class="devpic" src="../PICS/danni.jpg"><br>
+    Allen Candelaria<br><br><br>
+
+    <img class="devpic" src="../PICS/jok3.jpg"><br>
+    Jose Rivera<br><br><br>
+
+    <img class="devpic" src="../PICS/jok2.jpg"><br>
+    Mikas Viscayno
+
+</a>
+</div>
+
     <section class="content-section">
         <h2>Notes</h2>
-
+        
         <div class="square-container">
+            <!-- Box 1 -->
             <?php
 if (isset($_SESSION['notes']) && count($_SESSION['notes']) > 0) {
     $notes = $_SESSION['notes'];
@@ -182,12 +113,9 @@ if (isset($_SESSION['notes']) && count($_SESSION['notes']) > 0) {
     echo '<p class="nonotes">No notes found.</p>';
 }
 ?>
-        </div>
     </section>
 </main>
 
-<script src="../HOME1/home-js.js"></script>
-
-
+    <script src="../HOME1/home-js.js"></script>
 </body>
 </html>

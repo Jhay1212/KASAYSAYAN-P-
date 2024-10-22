@@ -12,9 +12,78 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
     <title>GAMES</title>
     <link rel="stylesheet" href="../GAMES/games-css.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../HOME1/new_home.css">
     <link rel="stylesheet" href="./baybayin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <style>
+        .sidebar {
+  width: 250px;
+  background-color: var(--secondary-color);
+  box-shadow: 2px 0 5px var(--card-shadow);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding-top: 20px;
+  transition: width var(--transition-speed);
+}
+
+.sidebar .user-info {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar .user-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #333333;
+}
+
+.sidebar .username {
+  display: block;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333333;
+}
+
+.sidebar-links a {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  color: #333333;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.sidebar-links a i {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.sidebar-links a:hover,
+.sidebar-links a.active {
+  background-color: #333333;
+  color: var(--secondary-color);
+}
+
+.sidebar-links a:hover, .sidebar-links a.active {
+    background-color: #000; 
+    color: #fff; 
+}
+
+/* 
+div.main-content {
+    margin-top: 5rem;
+} */
+    </style>
+    <link rel="stylesheet" href="../HOME1/new_home.css">
 </head>
 <body>
 
@@ -58,7 +127,7 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
     </nav>
 
     <!-- Game Selection Section -->
-    <div class="main-content">
+    <div class="main-baybayin">
         <div class="h-wrapper">
             <h1 class="gradient-text">Baybayin Key Translator</h1>
         </div>

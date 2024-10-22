@@ -6,6 +6,10 @@ const defaultIcon = '../PICS/user.jpg'; // Default user icon path
 const icon = document.querySelector('.user-icon');
 const searchBar = document.querySelector('.search-bar');
 const favIcon = document.createElement('link');
+const newCss = document.createElement('link');
+newCss.rel = 'stylesheet';
+newCss.href = '../HOME1/new_home.css';
+// document.head.appendChild(newCss);
 favIcon.rel  = 'shortcut icon';
 favIcon.href= '../PICS/icon/favicon.ico';
 favIcon.type = 'image/x-icon';

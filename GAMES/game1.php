@@ -12,28 +12,90 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
     <link rel="stylesheet" href="../GAMES/game1-css.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .sidebar {
+  width: 250px;
+  background-color: #FFF;
+  box-shadow: 2px 0 5px var(--card-shadow);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding-top: 20px;
+  transition: width var(--transition-speed);
+}
+
+.sidebar .user-info {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar .user-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #333333;
+}
+
+.sidebar .username {
+  display: block;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333333;
+}
+
+.sidebar-links a {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  color: #333333;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.sidebar-links a i {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.sidebar-links a:hover,
+.sidebar-links a.active {
+  background-color: #333333;
+  color: var(--secondary-color);
+}
+
+.sidebar-links a.active i {
+  color: var(--secondary-color);
+}
+.sidebar-links a:hover, .sidebar-links a.active {
+    background-color: #eeeee; 
+    color: #fff; 
+}
+
+</style>
 </head>
 <body>
 
-    <!-- Sidebar on the Right -->
-    <div id="sidebar" class="sidebar">
-
-        <!-- User Info Section -->
-        <div class="user-info">
-    <img src="<?php echo $profile_path?>" alt="User Icon" class="user-icon profile-pic" id="userIcon">
-           
-            <span class="username"><?php echo $_SESSION['username'] ?></span>
-        </div>
-
-        <a href="../HOME1/home.php"><i class="fas fa-home"></i> Home</a>
-        <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmark</a>
-        <a href="../GAMES/games.php"><i class="fas fa-gamepad"></i> Games</a>
+<aside class="sidebar">
+    <div class="user-info">
+        <img src="<?php echo $profile_path?>" alt="User Icon" class="user-icon">
+        <span class="username"><?php echo $_SESSION['username']?></span>
+    </div>
+    <nav class="sidebar-links">
+        <a href="../HOME1/home.php" class="active"><i class="fas fa-home"></i> Home</a>
+        <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmarks</a>
+        <a href="../GAMES/games.php"><i class="fas fa-gamepad"></i> Activities</a>
         <a href="../NOTES/notes-box.php"><i class="fas fa-sticky-note"></i> Notes</a>
         <a href="../GALLERY/gallery.php"><i class="fas fa-image"></i> Gallery</a>
         <a href="../QUIZ1/quiz1.php"><i class="fas fa-question-circle"></i> Quiz</a>
-        <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
+        <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivia & Facts</a>
         <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> <?php echo $logging ?></a>
-    </div>
+    </nav>
+</aside>
 
     <!-- Navbar Section -->
     <nav class="navbar">

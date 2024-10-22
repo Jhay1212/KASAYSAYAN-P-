@@ -5,10 +5,10 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
 
 
 if (isset($_SESSION['user_id'])) {
-    var_dump($_SESSION['user_id']);  // Check if user_id is set and correct
-    // echo "User ID: " . $_SESSION['user_id'];
+    // var_dump($_SESSION['user_id']);  // Check if user_id is set and correct
+    // // echo "User ID: " . $_SESSION['user_id'];
 } else {
-    echo "User ID not set in session.";
+    // echo "User ID not set in session.";
 }
 $servername = "localhost";
 $username = "root";

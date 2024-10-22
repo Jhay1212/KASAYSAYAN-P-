@@ -54,56 +54,46 @@ if (isset($_POST['save_bookmark'])) {
     <button type="submit">Upload</button>
 </form>
 
-
-    <div id="sidebar" class="sidebar">
-
-        <!-- User Info Section -->
-        <div class="user-info">
-            <img src="$profile_path" alt="User Icon" class="user-icon profile-pic" id="userIcon">
-            <span class="username">$_SESSION[username]</span>
-        </div>
-
-        <a href="../HOME1/home.php"><i class="fas fa-home"></i> Home</a>
-        <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmark</a>
-        <a href="../GAMES/games.php"><i class="fas fa-gamepad"></i> Games</a>
+<!-- Sidebar -->
+     <aside class="sidebar">
+    <div class="user-info">
+        <img src="$profile_path" alt="User Icon" class="user-icon" id='userIcon'>
+        <span class="username">$_SESSION[username]</span>
+    </div>
+    <nav class="sidebar-links">
+        <a href="../HOME1/home.php" class="active"><i class="fas fa-home"></i> Home</a>
+        <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmarks</a>
+        <a href="../GAMES/games.php"><i class="fas fa-gamepad"></i> Activities</a>
         <a href="../NOTES/notes-box.php"><i class="fas fa-sticky-note"></i> Notes</a>
         <a href="../GALLERY/gallery.php"><i class="fas fa-image"></i> Gallery</a>
         <a href="../QUIZ1/quiz1.php"><i class="fas fa-question-circle"></i> Quiz</a>
-        <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
-        <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> $logging</a>
-    </div>
+        <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivia & Facts</a>
+        <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i>  $logging></a>
+    </nav>
+</aside>
+   
 
-    <!-- Navbar Section -->
-    <nav class="navbar">
-        <!-- Sidebar Toggle Button --
+   <!-- Main Content -->
+<div class="main-content">
+
+     <!-- Navbar -->
+     <header class="navbar">
         <div class="navbar-left">
-
-            <!-- Website Logo and Name -->
             <div class="navbar-logo">
                 <img src="../PICS/logo1.png" alt="Website Logo" class="logo">
                 <span class="website-name">DISCOVERING PHILIPPINE HISTORY</span>
             </div>
         </div>
-
-        <!-- Search and Info Section -->
         <div class="navbar-right">
-        <form method="post" id='searchForm'>
-            <input type="text" class="search-bar" placeholder="Search..." id='searchInput'>
-            <a href="#" class="info-icon">ℹ️</a>
-            <button type="submit" name="searchFormBtn" id='searchFormBtn'><i class="fa-sharp-duotone fa-solid fa-magnifying-glass"></i></button>
-        </form>
+            <input type="text" class="search-bar" placeholder="Search lessons...">
+            <div id="toggleIcon" class="icon" onclick="toggleSidebar()">
+            <a href="#" class="info-icon"><i class="fas fa-info-circle"></i></a>
         </div>
+        </div>
+    </header>
 
-
-        
-    </nav>
-
-   <!-- Main Content -->
-<div class="main-content">
-
-    <div id='searchResults'></div>
-
-    <div id="sidebar2" class="sidebar2">
+<!-- Sidebar -->
+<div id="sidebar2" class="sidebar2">
     <a href="#"><strong>About<br></strong>
 
         This website is an online learning module about Philippine history, offering lessons, quizzes, and fun games to make learning enjoyable. Its goal is to help users understand and appreciate the rich history of the Philippines in an engaging and easy way.
@@ -185,7 +175,6 @@ if (isset($_POST['save_bookmark'])) {
     </main>
     </div>
 
-
      <!-- Content sections for lessons -->
      <div id="lesson1" class="content hidden">
 
@@ -193,7 +182,7 @@ if (isset($_POST['save_bookmark'])) {
 <button class="back-btn" onclick="hideContent()"><i class="fas fa-arrow-left"></i></button>
 
         <!-- CONTENTS -->	
-	<main id="mainContent">
+			<main id="mainContent">
 
                 <section class="content-section">
                  
@@ -1286,10 +1275,15 @@ Critics have expressed concern over his leadership, pointing to a lack of clear 
 <br><br>
 	
 	</section>
-    <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">⬆️</button>
+</main>
+
+<button onclick="hideContent()">Back</button>
+
 
     </div>
 </div>
+
 
  <!-- Add Note Button as an Icon -->
  <button class="note-btn" onclick="openForm()">
@@ -1358,73 +1352,76 @@ localStorage.setItem('bookmarks', JSON.stringify(bookmarksArray));
 console.log(localStorage.getItem('bookmarks'));
   
     // alert('this')
-function saveBookmark(element) {
-
+    function saveBookmark(element) {
     if (checkSession()) {
-    var title = $(element).closest('h2').text().trim();
+        // Traverse up from the clicked element to find the closest parent h1 or h2
+        var title = $(element).closest('span').parent().text().trim();
+
+        if (title === "") {
+            console.error("Title not found.");
+            return;
+        }
         
+        // Send the title to the PHP script for saving in the database
+        $.ajax({
+            url: '../HOME1/save_bookmark.php',  // PHP script to handle the database insertion
+            type: 'POST',
+            data: { title: title },  // Send the title dynamically
+            success: function(response) {
+                alert('Bookmark saved successfully!');
+                console.log(response);
+            },
+            error: function(error) {
+                console.error('Error saving bookmark:', error);
+            }
+        });
+    }
+    console.log('title:', title);
+};
+
+function saveMiniBookmark(element) {
+    // Similar logic for the mini bookmark function
+    var title = $(element).closest('h2, h1').text().trim();
+
+    if (title === "") {
+        console.error("Title not found.");
+        return;
+    }
+
+    // Send the title to PHP for saving in the database
     $.ajax({
-        url: '../HOME1/save_bookmark.php',  // PHP script to handle the database insertion
+        url: '../HOME1/save_bookmark.php',
         type: 'POST',
-        data: { title: title },  // Send the title dynamically
+        data: { title: title },
         success: function(response) {
-            alert('Bookmark saved successfully!');
-            alert(response);
+            alert('Bookmark saved successfully for: ' + title);
+            console.log(response);
         },
         error: function(error) {
             console.error('Error saving bookmark:', error);
         }
     });
-    }
-    // alert('bookmartk clicked');
-    // Get the title text from the parent <h2> element
-    console.log('title:', title);
-
-}
-function setCookie(cname, cvalue, cdate) {
-    const d = new Date();
-    const val = document.querySelector('.note-text')
-    const title = document.querySelector("input[type='text']");
-
-    d.setTime(d.getTime() + (cdate * 24 * 60 * 60 * 1000));
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = title.value  +"=" + value + ";" + expires + ";path=/";
 }
 
-
-
-
-function saveMiniBookmark(element) {
-    // Get the title text from the parent <h1> element
-    var title = $(element).closest('h1').text().trim();
-
-    // Send the title to PHP for saving in the database
-    $.ajax({
-        url: '../HOME1/save_bookmark.php',  // PHP file to handle the database insertion
-        type: 'POST',
-        data: { title: title },
-        success: function(response) {
-            alert('Bookmark saved successfully for: ' + title);
-            
-        },
-        error: function(error) {
-            console.error('Error saving bookmark:', error);
-        }
-    })
-};
-
+// Attach event listeners to bookmark elements
 const bookmark = document.querySelectorAll('#sbt1');
 bookmark.forEach(bm => {
-    bm.addEventListener('click', (event) => saveBookmark.call(bm, event));
+    bm.addEventListener('click', (event) => saveBookmark(bm));
 });
 
+// const bookmarkKKK = document.querySelectorAll('#sb1');
+// bookmarkKKK.forEach(bm => {
+//     bm.addEventListener('click', (event) => saveBookmark(bm));
+// });
 
 const bookmarksMini = document.querySelectorAll('#sbt2, #sbt3, #sbt4, #sbt5, #sbt6');
 bookmarksMini.forEach(function(bms) {
     bms.addEventListener('click', (event) => {
-        bms.style.backgroundColor = 'orange';
-        saveBookmark.call(bms, event)})
-})
+        // bms.style.backgroundColor = 'orange';
+        saveMiniBookmark(bms);
+    });
+});
+
 </script>
 </body>
 </html>

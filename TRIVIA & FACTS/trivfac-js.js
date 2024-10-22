@@ -47,21 +47,21 @@ const triviaImages = [
     "../PICS/trivfac pics/13.jpg",
     "../PICS/trivfac pics/14.jpg",
     "../PICS/trivfac pics/15.jpg",
-    "../PICS/trivfac pics/1.jpg",
-    "../PICS/trivia-image1.jpg",
-    "../PICS/trivia-image1.jpg",
-    "../PICS/trivia-image1.jpg",
-    "../PICS/trivia-image1.jpg",
-    "../PICS/trivia-image1.jpg",
-    "../PICS/trivia-image1.jpg",
-    "../PICS/trivia-image1.jpg",
-    "../PICS/trivia-image1.jpg",
-    "../PICS/trivia-image1.jpg",
-    "../PICS/trivia-image1.jpg",
-    "../PICS/trivia-image1.jpg",
-    "../PICS/trivia-image1.jpg",
-    "../PICS/trivia-image1.jpg",
-    "../PICS/trivia-image1.jpg",
+    "../PICS/trivfac pics/16.jpg",
+    "../PICS/trivfac pics/17.jpg",
+    "../PICS/trivfac pics/18.jpg",
+    "../PICS/trivfac pics/19.jpg",
+    "../PICS/trivfac pics/20.jpg",
+    "../PICS/trivfac pics/21.jpg",
+    "../PICS/trivfac pics/22.jpg",
+    "../PICS/trivfac pics/23.jpg",
+    "../PICS/trivfac pics/24.jpg",
+    "../PICS/trivfac pics/25.jpg",
+    "../PICS/trivfac pics/26.jpg",
+    "../PICS/trivfac pics/27.jpg",
+    "../PICS/trivfac pics/28.jpg",
+    "../PICS/trivfac pics/29.jpg",
+    "../PICS/trivfac pics/30.jpg",
     // Add corresponding images for all trivia facts...
 ];
 
@@ -71,6 +71,20 @@ const triviaText = document.getElementById('trivia-text');
 const triviaImage = document.querySelector('.trivia-image'); // Get the image element
 const backBtn = document.getElementById('back-btn');
 const nextBtn = document.getElementById('next-btn');
+
+// Function to shuffle two arrays in the same order
+function shuffleTrivia() {
+    for (let i = triviaList.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        // Swap trivia facts
+        [triviaList[i], triviaList[j]] = [triviaList[j], triviaList[i]];
+        // Swap corresponding images
+        [triviaImages[i], triviaImages[j]] = [triviaImages[j], triviaImages[i]];
+    }
+}
+
+// Call shuffle function before displaying any trivia
+shuffleTrivia();
 
 // Function to display trivia
 function displayTrivia(index) {
