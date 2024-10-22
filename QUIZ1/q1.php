@@ -1,4 +1,4 @@
-<?php 
+<?php
 include __DIR__.'\\..\\UTILS\\session_check.php';
 ?>
 
@@ -11,78 +11,13 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../QUIZ1/q1-css.css">
     <title>QUIZ 1</title>
-    <style>
-        .sidebar {
-  width: 250px;
-  background-color: #FFF;
-  box-shadow: 2px 0 5px var(--card-shadow);
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  padding-top: 20px;
-  transition: width var(--transition-speed);
-}
-
-.sidebar .user-info {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.sidebar .user-icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #333333;
-}
-
-.sidebar .username {
-  display: block;
-  margin-top: 10px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #333333;
-}
-
-.sidebar-links a {
-  display: flex;
-  align-items: center;
-  padding: 15px 20px;
-  color: #333333;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: background-color var(--transition-speed), color var(--transition-speed);
-}
-
-.sidebar-links a i {
-  margin-right: 10px;
-  font-size: 1.2rem;
-}
-
-.sidebar-links a:hover,
-.sidebar-links a.active {
-  background-color: #333333;
-  color: var(--secondary-color);
-}
-
-.sidebar-links a.active i {
-  color: var(--secondary-color);
-}
-.search-bar {
-  display: none;
-}
-.sidebar-links a:hover, .sidebar-links a.active {
-    background-color: #eeeee; 
-    color: #fff; 
-}
-
-</style>
 </head>
 <body>
-<aside class="sidebar">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
     <div class="user-info">
-        <img src="../PICS/user.jpg" alt="User Icon" class="user-icon">
+        <img src="<?php echo $profile_path?>" alt="User Icon" class="user-icon">
         <span class="username"><?php echo $_SESSION['username']?></span>
     </div>
     <nav class="sidebar-links">
@@ -97,11 +32,12 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
     </nav>
 </aside>
 
+
  <!-- Navbar -->
  <header class="navbar">
     <div class="navbar-left">
         <div class="navbar-logo">
-            <img src="<?php echo $prpfile_path?>" alt="Website Logo" class="logo">
+            <img src="../PICS/logo1.png" alt="Website Logo" class="logo">
             <span class="website-name">DISCOVERING PHILIPPINE HISTORY</span>
         </div>
     </div>
@@ -112,8 +48,8 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
     </div>
     </div>
 </header>
-<!-- 
-Sidebar
+
+<!-- Sidebar -->
 <div id="sidebar2" class="sidebar2">
 <a href="#"><strong>About<br></strong>
 
@@ -135,7 +71,7 @@ Sidebar
     Mikas Viscayno
 
 </a>
-</div> -->
+</div>
 
 <!-- CONTENTS -->	
 <div class="quiz-container">
@@ -185,7 +121,6 @@ Sidebar
 
 <script src="../QUIZ1/q1-js.js"></script>
 <script src="../HOME1/home-js.js"></script>
-
 
 </body>
 </html>

@@ -187,7 +187,7 @@ function checkSession(){
     console.log(`uid ${uid.value}  ${typeof uid.value}`)
     if (uid.value == 0) {
         alert('Please login first');
-        window.location.href = '../LOGIN1/Login1.html';
+        window.location.href = '../LOGIN1/Login1.php';
         
         return false;
     };

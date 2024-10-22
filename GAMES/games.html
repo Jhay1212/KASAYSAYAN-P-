@@ -1,6 +1,3 @@
-<?php 
-include __DIR__."\\..\\UTILS\\session_check.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,22 +10,23 @@ include __DIR__."\\..\\UTILS\\session_check.php";
 </head>
 <body>
 
-<aside class="sidebar">
-    <div class="user-info">
-        <img src="<?php echo $profile_path?>" alt="User Icon" class="user-icon">
-        <span class="username"><?php echo $_SESSION['username']?></span>
-    </div>
-    <nav class="sidebar-links">
-        <a href="../HOME1/home.php" class="active"><i class="fas fa-home"></i> Home</a>
-        <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmarks</a>
-        <a href="../GAMES/games.php"><i class="fas fa-gamepad"></i> Activities</a>
-        <a href="../NOTES/notes-box.php"><i class="fas fa-sticky-note"></i> Notes</a>
-        <a href="../GALLERY/gallery.php"><i class="fas fa-image"></i> Gallery</a>
-        <a href="../QUIZ1/quiz1.php"><i class="fas fa-question-circle"></i> Quiz</a>
-        <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivia & Facts</a>
-        <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> <?php echo $logging ?></a>
-    </nav>
-</aside>
+     <!-- Sidebar -->
+     <aside class="sidebar">
+        <div class="user-info">
+            <img src="../PICS/user.jpg" alt="User Icon" class="user-icon">
+            <span class="username">USERNAME</span>
+        </div>
+        <nav class="sidebar-links">
+            <a href="../HOME1/home.php""><i class="fas fa-home"></i> Home</a>
+            <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmarks</a>
+            <a href="../GAMES/games.php" class="active"><i class="fas fa-gamepad"></i> Activities</a>
+            <a href="../NOTES/notes-box.php"><i class="fas fa-sticky-note"></i> Notes</a>
+            <a href="../GALLERY/gallery.php"><i class="fas fa-image"></i> Gallery</a>
+            <a href="../QUIZ1/quiz1.php"><i class="fas fa-question-circle"></i> Quiz</a>
+            <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivia & Facts</a>
+            <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </aside>
 
     <!-- Game Selection Section -->
     <div class="main-content">
@@ -84,11 +82,11 @@ include __DIR__."\\..\\UTILS\\session_check.php";
                 <img src="../PICS/GAMES PICS/2.png" alt="Game 2">
                 <div class="game-title">TRUE or FALSE</div>
             </div>
-            <div class="game-card" onclick="location.href='../QUEST/quest.php';">
+            <div class="game-card" onclick="location.href='#';">
                 <img src="../PICS/GAMES PICS/3.png" alt="Game 3">
                 <div class="game-title">HISTORY IN ORDER</div>
             </div>
-            <div class="game-card" onclick="location.href='../BAYBAYIN/baybayin.php';">
+            <div class="game-card" onclick="location.href='#';">
                 <img src="../PICS/GAMES PICS/4.jpg" alt="Game 4">
                 <div class="game-title">Baybayin Translator</div>
             </div>

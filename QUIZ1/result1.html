@@ -9,23 +9,23 @@
 
 <body>
 
-<!-- Sidebar on the Right -->
-<div id="sidebar" class="sidebar">
-
+ <!-- Sidebar on the Right -->
+ <div id="sidebar" class="sidebar">
     <!-- User Info Section -->
     <div class="user-info">
         <img src="../PICS/user.jpg" alt="User Icon" class="user-icon">
-        <span class="username">John Doe</span>
+        <span class="username">USERNAME</span>
     </div>
-
-    <a href="../HOME1/home.php"><i class="fas fa-home"></i> Home</a>
-    <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmark</a>
-    <a href="../GAMES/games.php"><i class="fas fa-gamepad"></i> Games</a>
-    <a href="../NOTES/notes-box.php"><i class="fas fa-sticky-note"></i> Notes</a>
-    <a href="../GALLERY/gallery.php"><i class="fas fa-image"></i> Gallery</a>
-    <a href="../QUIZ1/quiz1.php"><i class="fas fa-question-circle"></i> Quiz</a>
-    <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivias & Facts</a>
-    <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    <nav class="sidebar-links">
+        <a href="../HOME1/home.php"><i class="fas fa-home"></i> Home</a>
+        <a href="../BOOKMARK/bookmark1.php"><i class="fas fa-bookmark"></i> Bookmarks</a>
+        <a href="../GAMES/games.php"><i class="fas fa-gamepad"></i> Activities</a>
+        <a href="../NOTES/notes-box.php"><i class="fas fa-sticky-note"></i> Notes</a>
+        <a href="../GALLERY/gallery.php"><i class="fas fa-image"></i> Gallery</a>
+        <a href="../QUIZ1/quiz1.php"><i class="fas fa-question-circle"></i> Quiz</a>
+        <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivia & Facts</a>
+        <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
 </div>
 
 <!-- Navbar Section -->
@@ -41,11 +41,39 @@
 		</div>
 	</div>
 
-	<!-- Search and Info Section -->
-	<div class="navbar-right">
-		<input type="text" class="search-bar" placeholder="Search...">
-		<a href="#" class="info-icon">ℹ️</a>
-	</div>
+	 <!-- Search and Info Section -->
+     <div class="navbar-right">
+        <input type="text" class="search-bar" placeholder="Search...">
+    </div>
+
+<!-- Sidebar -->
+<div id="sidebar2" class="sidebar2">
+<a href="#"><strong>About<br></strong>
+
+    This website is an online learning module about Philippine history, offering lessons, quizzes, and fun games to make learning enjoyable. Its goal is to help users understand and appreciate the rich history of the Philippines in an engaging and easy way.
+
+</a>
+<a href="#"><strong>Developers<br></strong>
+
+    <img class="devpic" src="../PICS/jok1.jpg"><br>
+    Joan Hermo<br><br><br>
+
+    <img class="devpic" src="../PICS/danni.jpg"><br>
+    Allen Candelaria<br><br><br>
+
+    <img class="devpic" src="../PICS/jok3.jpg"><br>
+    Jose Rivera<br><br><br>
+
+    <img class="devpic" src="../PICS/jok2.jpg"><br>
+    Mikas Viscayno
+
+</a>
+</div>
+
+<!-- Sidebar Toggle Icon -->
+<div id="toggleIcon" class="icon" onclick="toggleSidebar()">
+<a href="#" class="info-icon">ℹ️</a>
+</div>
 </nav>
 	
 <!-- CONTENTS -->	

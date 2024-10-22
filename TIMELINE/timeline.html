@@ -245,7 +245,7 @@
             .on("mouseover", function (event, d) {
                 d3.select(this).style("fill", "green").attr("r", 50);
                 tooltip.transition().duration(200).style("opacity", 0.9);
-                tooltip.html(d.event + "<br/>" + d.date.toDateString())
+                tooltip.php(d.event + "<br/>" + d.date.toDateString())
                     .style("left", (event.pageX + 5) + "px")
                     .style("top", (event.pageY - 28) + "px");
             })

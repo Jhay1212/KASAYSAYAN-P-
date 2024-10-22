@@ -1,5 +1,14 @@
+// Shuffle function to randomize the gameData array
+function shuffleQuestions(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+    return array;
+}
+
 // Game Data: Array of questions with images, hints, options, and correct answer
-const gameData = [
+const gameData = shuffleQuestions([
     {
         image: "../PICS/GAMES PICS/game1 pics/1.png",
         hint: "Hint: I am known as the Father of the Philippine Revolution and I founded the Katipunan, the secret society that launched the revolution against Spain.",
@@ -92,7 +101,7 @@ const gameData = [
     }
     
 
-];
+]);
 
 let currentQuestion = 0;
 
@@ -109,6 +118,9 @@ function loadQuestion() {
 
     document.getElementById('feedback').textContent = ''; // Clear feedback
     document.getElementById('next-btn').style.visibility = 'hidden'; // Hide next button
+
+    // Update the question progress indicator
+    document.getElementById('question-indicator').textContent = `Question ${currentQuestion + 1} of ${gameData.length}`;
 }
 
 // Check if the selected answer is correct
@@ -117,6 +129,7 @@ function checkAnswer(selected) {
     const feedback = document.getElementById('feedback');
 
     if (selected === question.correct) {
+        score++; // Increase score for a correct answer
         feedback.textContent = "Correct!";
         feedback.style.color = "green";
         document.getElementById('next-btn').style.visibility = 'visible'; // Show next button
@@ -124,6 +137,9 @@ function checkAnswer(selected) {
         feedback.textContent = "Wrong! Try again.";
         feedback.style.color = "red";
     }
+
+    // Update the score display
+    document.getElementById('score').innerText = score;
 }
 
 // Load the next question
@@ -151,3 +167,25 @@ function exitGame() {
 
 // Initial call to load the first question
 loadQuestion();
+
+let score = 0; // Initialize the score variable
+
+// Get the audio element and the button
+const sound = document.getElementById('sound');
+const soundButton = document.getElementById('soundButton');
+
+// Boolean to track the sound state
+let isPlaying = false;
+
+// Event listener to toggle sound
+soundButton.addEventListener('click', () => {
+    if (isPlaying) {
+        sound.pause();
+        soundButton.textContent = '🔇'; // Change icon to mute
+    } else {
+        sound.play();
+        soundButton.textContent = '🔊'; // Change icon to speaker
+    }
+    isPlaying = !isPlaying;
+});
+

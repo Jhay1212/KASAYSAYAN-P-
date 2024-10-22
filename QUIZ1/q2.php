@@ -1,6 +1,8 @@
-<?php 
+<?php
 include __DIR__.'\\..\\UTILS\\session_check.php';
 ?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,79 +11,11 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../QUIZ1/q1-css.css">
     <title>QUIZ 2</title>
-
-    <style>
-        .sidebar {
-  width: 250px;
-  background-color: #FFF;
-  box-shadow: 2px 0 5px var(--card-shadow);
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  padding-top: 20px;
-  transition: width var(--transition-speed);
-}
-
-.sidebar .user-info {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.sidebar .user-icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #333333;
-}
-
-.sidebar .username {
-  display: block;
-  margin-top: 10px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #333333;
-}
-
-.sidebar-links a {
-  display: flex;
-  align-items: center;
-  padding: 15px 20px;
-  color: #333333;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: background-color var(--transition-speed), color var(--transition-speed);
-}
-
-.sidebar-links a i {
-  margin-right: 10px;
-  font-size: 1.2rem;
-}
-
-.sidebar-links a:hover,
-.sidebar-links a.active {
-    background-color: #eeeee; 
-    color: #fff; 
-}
-
-.sidebar-links a.active i {
-  color: var(--secondary-color);
-}
-.search-bar {
-  display: none;
-}
-.sidebar-links a:hover, .sidebar-links a.active {
-    background-color: #eeeee; 
-    color: #fff; 
-}
-
-</style>
 </head>
 <body>
 
-<!-- Sidebar on the Right -->
-<aside class="sidebar">
+ <!-- Sidebar -->
+ <aside class="sidebar">
     <div class="user-info">
         <img src="<?php echo $profile_path?>" alt="User Icon" class="user-icon">
         <span class="username"><?php echo $_SESSION['username']?></span>
@@ -116,7 +50,7 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
 </header>
 
 <!-- Sidebar -->
-<!-- <div id="sidebar2" class="sidebar2">
+<div id="sidebar2" class="sidebar2">
 <a href="#"><strong>About<br></strong>
 
     This website is an online learning module about Philippine history, offering lessons, quizzes, and fun games to make learning enjoyable. Its goal is to help users understand and appreciate the rich history of the Philippines in an engaging and easy way.
@@ -137,7 +71,7 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
     Mikas Viscayno
 
 </a>
-</div> -->
+</div>
 
 <!-- CONTENTS -->	
 <div class="quiz-container">
@@ -185,6 +119,8 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
  <!-- Button for sound control -->
  <button id="soundButton">🔊</button>
 
+<script src="../QUIZ1/q2-js.js"></script>
+<script src="../HOME1/home-js.js"></script>
 
 </body>
 </html>
