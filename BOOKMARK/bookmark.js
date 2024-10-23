@@ -153,6 +153,7 @@ const historyMap = {
   }
 };
 
+alert(Object.keys(historyMap).length)
 
 const desc = document.querySelector('.desc');
 const squares = document.querySelectorAll('.square');

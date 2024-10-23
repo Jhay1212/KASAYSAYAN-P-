@@ -91,7 +91,7 @@ if (isset($_POST['save_bookmark'])) {
             <input type="text" class="search-bar" placeholder="Search lessons..." id="searchInput">
             <div id="toggleIcon" class="icon" onclick="toggleSidebar()">
             <a href="#" class="info-icon"><i class="fas fa-info-circle"></i></a>
-            <button type="submit" name="searchFormBtn" id='searchFormBtn'><i class="fa-sharp-duotone fa-solid fa-magnifying-glass"></i></button>
+            <button type="submit" name="searchFormBtn" id='searchFormBtn'></button>
             </div>
             </form>
         </div>
@@ -1320,7 +1320,8 @@ EOD;
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
-
+searchBar.style.display = 'block';
+ 
 let bookmarksArray = [];
 
 // Select all main bookmark titles using their class or ID
@@ -1355,7 +1356,8 @@ subBookmarks.forEach(subBookmark => {
 
 // Output the array to console (for testing)
 localStorage.setItem('bookmarks', JSON.stringify(bookmarksArray));
-console.log(localStorage.getItem('bookmarks'));
+console.log(localStorage.getItem('bookmarks'))
+alert(bookmarksArray.length, subBookmarks.length);
   
     // alert('this')
     function saveBookmark(element) {
@@ -1407,7 +1409,49 @@ function saveMiniBookmark(element) {
             console.error('Error saving bookmark:', error);
         }
     });
+
 }
+
+function saveH1Bookmark(element) {
+    if (checkSession()) {
+        // Traverse up to the nearest h1 and get its text
+        var title = $(element).closest('h1').clone() // Clone the h1 element to avoid modifying the original
+                     .children()                    // Remove any children (like the bookmark icon)
+                     .remove()                      // Remove the children (span and i)
+                     .end()                         // Go back to the cloned h1 element
+                     .text().trim();                // Get the remaining text, which is the title
+
+        if (title === "") {
+            console.error("Title not found for h1.");
+            return;
+        }
+
+        // Send the title to the PHP script for saving in the database
+        $.ajax({
+            url: '../HOME1/save_bookmark.php',  // PHP script to handle the database insertion
+            type: 'POST',
+            data: { title: title },  // Send the title dynamically
+            success: function(response) {
+                alert('Bookmark saved successfully for h1!');
+                console.log(response);
+            },
+            error: function(error) {
+                console.error('Error saving bookmark for h1:', error);
+            }
+        });
+    }
+    console.log('h1 title:', title);
+}
+
+
+// Attach event listeners to the <h1> bookmark icons
+const bookmarkH1 = document.querySelectorAll('#bookmarkIcon i');
+bookmarkH1.forEach(bm => {
+    bm.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default action for the icon click
+        saveH1Bookmark(bm);
+    });
+});
 
 // Attach event listeners to bookmark elements
 const bookmark = document.querySelectorAll('#sbt1');

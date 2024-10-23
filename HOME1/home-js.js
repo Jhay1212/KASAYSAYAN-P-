@@ -14,6 +14,7 @@ favIcon.rel  = 'shortcut icon';
 favIcon.href= '../PICS/icon/favicon.ico';
 favIcon.type = 'image/x-icon';
 document.head.appendChild(favIcon);
+searchBar.style.display = 'none';
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -30,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
     icon.addEventListener('click', function() {
         const profileForm = document.querySelector('#profile-picture-form');
         profileForm.style.display = 'flex';
-        })}
+        })};
         
         ;
     // Handle the image upload and change the user icon
