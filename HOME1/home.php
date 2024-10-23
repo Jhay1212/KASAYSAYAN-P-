@@ -46,6 +46,8 @@ if (isset($_POST['save_bookmark'])) {
     <input  type="checkbox" id="uname" class="hidden" name="usernamej"  value=" $username">
     <input  type="checkbox" id="uid" class="hidden" name="useridj"  value=" $user_id">
 <form id="profile-picture-form" action="profile.php" method="POST" enctype="multipart/form-data" class='hidden'>
+            <span class="close-btn" onclick="closeProfileForm()">X</span>
+
     <div>
         <label for="profilePicture">Change Profile Picture:</label><br>
         <img id="profilePicPreview" src="../HOME1/uploads/profile_pictures/guest/user.jpg" alt="Profile Picture" width="150" class='profile-pic'/>
@@ -85,10 +87,13 @@ if (isset($_POST['save_bookmark'])) {
             </div>
         </div>
         <div class="navbar-right">
-            <input type="text" class="search-bar" placeholder="Search lessons...">
+        <form method="post" id='searchForm'>
+            <input type="text" class="search-bar" placeholder="Search lessons..." id="searchInput">
             <div id="toggleIcon" class="icon" onclick="toggleSidebar()">
             <a href="#" class="info-icon"><i class="fas fa-info-circle"></i></a>
-        </div>
+            <button type="submit" name="searchFormBtn" id='searchFormBtn'><i class="fa-sharp-duotone fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            </form>
         </div>
     </header>
 
@@ -118,7 +123,8 @@ if (isset($_POST['save_bookmark'])) {
 
      <!-- Gallery Section -->
      <main class="gallery-section">
-        <h2>Periods of Philippine History</h2>
+        <h2 id='title'>Periods of Philippine History</h2>
+        <div id='searchResults'></div>
         <div class="gallery-container">
             <!-- Lesson Card Example -->
             <div class="card" onclick="showContent('lesson1')">

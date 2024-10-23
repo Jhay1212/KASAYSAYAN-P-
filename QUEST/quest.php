@@ -92,8 +92,6 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
 
 <body>
 
-
-
 <aside class="sidebar">
     <div class="user-info">
         <img src="<?php echo $profile_path?>" alt="User Icon" class="user-icon">
@@ -111,27 +109,49 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
     </nav>
 </aside>
 
-    <!-- Navbar Section -->
-    <nav class="navbar">
-        <!-- Sidebar Toggle Button --
-        <div class="navbar-left">
+<!-- CONTENTS -->
+    <main id="mainContent">
 
-            Website Logo and Name -->
+         <!-- Navbar -->
+     <header class="navbar">
+        <div class="navbar-left">
             <div class="navbar-logo">
                 <img src="../PICS/logo1.png" alt="Website Logo" class="logo">
                 <span class="website-name">DISCOVERING PHILIPPINE HISTORY</span>
             </div>
         </div>
-
-        <!-- Search and Info Section -->
         <div class="navbar-right">
-            <input type="text" class="search-bar" placeholder="Search...">
-            <a href="#" class="info-icon">ℹ️</a>
+            <input type="text" class="search-bar" placeholder="Search lessons...">
+            <div id="toggleIcon" class="icon" onclick="toggleSidebar()">
+            <a href="#" class="info-icon"><i class="fas fa-info-circle"></i></a>
         </div>
+        </div>
+    </header>
 
+<!-- Sidebar -->
+<div id="sidebar2" class="sidebar2">
+    <a href="#"><strong>About<br></strong>
 
-        
-    </nav>
+        This website is an online learning module about Philippine history, offering lessons, quizzes, and fun games to make learning enjoyable. Its goal is to help users understand and appreciate the rich history of the Philippines in an engaging and easy way.
+
+    </a>
+    <a href="#"><strong>Developers<br></strong>
+
+        <img class="devpic" src="../PICS/jok1.jpg"><br>
+        Joan Hermo<br><br><br>
+
+        <img class="devpic" src="../PICS/danni.jpg"><br>
+        Allen Candelaria<br><br><br>
+
+        <img class="devpic" src="../PICS/jok3.jpg"><br>
+        Jose Rivera<br><br><br>
+
+        <img class="devpic" src="../PICS/jok2.jpg"><br>
+        Mikas Viscayno
+
+    </a>
+  </div>
+
 
 
 <main>

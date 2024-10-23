@@ -19,7 +19,7 @@ document.head.appendChild(favIcon);
 document.addEventListener("DOMContentLoaded", function() {
 
     const iconX = document.getElementById('userIcon');
-    // setDefaultUserIcon();
+    // setDefaultUserIcon();sear
 
     // Toggle profile form visibility when the icon is clicked
     iconX.addEventListener('click', function () {
@@ -79,7 +79,7 @@ function searchContent() {
     // Get search query from input
     const rectangleContainer = document.querySelector('.rectangle-container');
     
-    const title = document.querySelector('h1.rectangle');
+    const title = document.querySelector('h2#title');
     let query = document.getElementById('searchInput').value.toLowerCase();
 ;
     // Clear previous search results
@@ -95,13 +95,19 @@ function searchContent() {
 
         // If the query is found inside the section, display the section
         if (sectionText.includes(query)) {
+            const gallerySection = document.querySelector('.gallery-container');
+            gallerySection.style.display = 'none';
             let result = section.cloneNode(true);  // Clone the matching section
             searchResults.appendChild(result);     // Append it to the search results div
     title.textContent = `Result for query ${query.toUpperCase()}`;
     rectangleContainer.style.display = 'none';
 
         }
+        else {
+            title.textContent = 'No result found';
+        }
     });
+    
 
     // Store the query for later use (if necessary)
     localStorage.setItem('searchQuery', query);
@@ -204,6 +210,14 @@ function openForm() {
         form.classList.remove('hidden');
     }
     
+}
+
+function closeProfileForm() {
+    const formProfile = document.getElementById('profile-picture-form');
+    formProfile.classList.add('hidden');
+    formProfile.classList.remove('show');
+    formProfile.style.display ='none'
+    preventDefault();
 }
 
 
