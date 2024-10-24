@@ -58,16 +58,16 @@ $_SESSION['profile_path'] = '../HOME1/uploads/profile_pictures/guest/user.jpg';
         <!-- Right Side: Login and Signup Section -->
         <div class="auth-section">
             <!-- Login Section -->
-            <div class="login-container animate-fade-in" id="loginForm">
+            <div class="login-container animate-fade-in" id="lgForm">
                 <h2>MABUHAY!</h2>
-                <form method="post">
+                <form method="post" id="loginForm" name="loginForm">
                     <input type="text" name="username" placeholder="Username" required aria-label="Username">
                     <div class="password-input">
                         <input type="password" name="password" id="password" placeholder="Password" required aria-label="Password">
                         <img class="eye" src="../PICS/close.png" alt="Toggle Password Visibility" onclick="togglePasswordVisibility('password')">
                     </div>
                     <button type="button" class="forgot-password-btn">Forgot Password?</button>
-                    <input type="submit" value="Login">
+                    <input type="submit" value="Login" name="'login">
                 </form>
                 <p>No Account? <a href="#" onclick="showSignup()">Signup here</a></p>
             </div>

@@ -56,11 +56,11 @@ const historyMap = {
     era: "External Influences and Cultural Adaptation",
     description: "Trade and migration brought external influences to the Philippines, shaping its language, religion, and cultural practices."
   },
-  "arrival_of_the_spanish": {
+  "the_arrival_of_the_spanish": {
     era: "The Arrival of the Spanish (1521–1565)",
     description: "The arrival of Ferdinand Magellan in 1521 marked the beginning of European presence, leading to initial conflicts with local rulers and the introduction of Christianity."
   },
-  "establishment_of_spanish_rule": {
+  "the_establishment_of_spanish_rule": {
     era: "The Establishment of Spanish Rule (1565–1600)",
     description: "Spanish rule formally began with the conquest of Cebu in 1565 by Miguel López de Legazpi, ushering in widespread conversion to Christianity and the colonial system."
   },
@@ -84,7 +84,7 @@ const historyMap = {
     era: "The Rise of Nationalism (1892–1896)",
     description: "The late 19th century witnessed the birth of organized nationalist movements like the Katipunan, aiming to overthrow Spanish colonial rule."
   },
-  "end_of_spanish_rule": {
+  "the_end_of_spanish_rule": {
     era: "The End of Spanish Rule (1898)",
     description: "The Spanish-American War of 1898 marked the end of over 300 years of Spanish rule in the Philippines, with the country ceded to the United States."
   },
@@ -132,7 +132,7 @@ const historyMap = {
     era: "End of Occupation",
     description: "The Japanese occupation ended in 1945 when Allied forces, with the help of Filipino guerrillas, liberated the Philippines."
   },
-  "post_colonial_struggle": {
+  "the_post-colonial_struggle:_a_nation_in_chains_of_its_past": {
     era: "The Post-Colonial Struggle: A Nation in Chains of its Past",
     description: "After gaining independence, the Philippines struggled to overcome the legacies of colonialism, including economic dependence and political instability."
   },
@@ -164,55 +164,55 @@ const historyMap = {
     era: "Independence (1946)",
     description: "On July 4, 1946, the Philippines was granted independence by the United States, marking the birth of the Third Republic."
   },
-  "roxas_administration": {
+  "the_roxas_administration": {
     era: "The Roxas Administration (1946–1948)",
     description: "Manuel Roxas, the first President of the independent Philippines, led the nation through the early years of reconstruction and recovery."
   },
-  "quirino_administration": {
+  "the_quirino_administration": {
     era: "The Quirino Administration (1948–1953)",
     description: "Elpidio Quirino's presidency was marked by efforts to maintain stability, counter-insurgency, and economic development."
   },
-  "magsaysay_administration": {
+  "the_magsaysay_administration": {
     era: "The Magsaysay Administration (1953–1957)",
     description: "President Ramon Magsaysay is remembered for his populist policies, focus on rural development, and efforts to combat corruption."
   },
-  "garcia_administration": {
+  "the_garcia_administration": {
     era: "The Garcia Administration (1957–1961)",
     description: "Carlos P. Garcia's presidency was characterized by the Filipino First Policy, aimed at reducing foreign influence in the economy."
   },
-  "macapagal_administration": {
+  "the_macapagal_administration": {
     era: "The Macapagal Administration (1961–1965)",
     description: "Diosdado Macapagal focused on land reform and shifted Independence Day celebrations from July 4 to June 12, reflecting a nationalist sentiment."
   },
-  "marcos_administration": {
+  "the_marcos_administration": {
     era: "The Marcos Administration (1965–1972)",
     description: "Ferdinand Marcos’s rule before Martial Law was characterized by infrastructure development, but also increasing political unrest."
   },
-  "corazon_aquino_administration": {
+  "the_corazon_aquino_administration": {
     era: "Corazon Aquino Administration (1986–1992)",
     description: "Corazon Aquino, the first female president of the Philippines, restored democracy after the People Power Revolution."
   },
-  "fidel_ramos_administration": {
+  "the_fidel_ramos_administration": {
     era: "Fidel Ramos Administration (1992–1998)",
     description: "Fidel Ramos's presidency was marked by economic reforms, peace negotiations, and efforts to promote political stability."
   },
-  "joseph_estrada_administration": {
+  "the_joseph_estrada_administration": {
     era: "Joseph Estrada Administration (1998–2001)",
     description: "Joseph Estrada’s short-lived presidency ended in a second People Power movement due to accusations of corruption."
   },
-  "gloria_macapagal_arroyo_administration": {
+  "the_gloria_macapagal_arroyo_administration": {
     era: "Gloria Macapagal Arroyo Administration (2001–2010)",
     description: "Gloria Macapagal Arroyo’s presidency was marked by economic growth, political controversies, and efforts to address poverty."
   },
-  "benigno_aquino_iii_administration": {
+  "the_benigno_aquino_iii_administration": {
     era: "Benigno Aquino III Administration (2010–2016)",
     description: "Benigno Aquino III focused on anti-corruption efforts, economic stability, and infrastructure development."
   },
-  "rodrigo_duterte_administration": {
+  "the_rodrigo_duterte_administration": {
     era: "Rodrigo Duterte Administration (2016–2022)",
     description: "Rodrigo Duterte’s administration was known for its war on drugs, controversial policies, and strong stance on foreign relations."
   },
-  "bongbong_marcos_administration": {
+  "the_bongbong_marcos_administration": {
     era: "Bongbong Marcos Administration (2022–present)",
     description: "The current administration under Bongbong Marcos focuses on continuity, economic development, and addressing contemporary challenges."
   }

@@ -70,7 +70,7 @@ if (isset($_POST['save_bookmark'])) {
         <a href="../GALLERY/gallery.php"><i class="fas fa-image"></i> Gallery</a>
         <a href="../QUIZ1/quiz1.php"><i class="fas fa-question-circle"></i> Quiz</a>
         <a href="../TRIVIA & FACTS/trivfac.php"><i class="fas fa-lightbulb"></i> Trivia & Facts</a>
-        <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i>  $logging></a>
+        <a href="../LANDING PAGE/landpage.php"><i class="fas fa-sign-out-alt"></i>  $logging</a>
     </nav>
 </aside>
    

@@ -774,7 +774,6 @@ main {
 
 form#searchForm {
     position: relative;
-    border: 1px solid black;
 }
 
 form#searchForm button {

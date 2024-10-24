@@ -35,12 +35,12 @@ function togglePasswordVisibility(inputId) {
   }
   
   function showSignup() {
-    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('lgForm').style.display = 'none';
     document.getElementById('signupForm').style.display = 'block';
   }
   
   function showLogin() {
-    document.getElementById('loginForm').style.display = 'block';
+    document.getElementById('lgForm').style.display = 'block';
     document.getElementById('signupForm').style.display = 'none';
   }
 
