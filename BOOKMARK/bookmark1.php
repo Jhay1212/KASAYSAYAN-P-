@@ -179,15 +179,24 @@ div.main-content {
     <section class="content-section">
         <h2>Bookmarks</h2>
 
-        <div class="square-container">
-            <!-- Box 1 -->
-            <?php 
+        <?php 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        // Get the title and standardize it (remove spaces and convert to lowercase)
+        // Get the title from the database
         $title = htmlspecialchars($row['title']);
-        $formattedTitle = strtolower(str_replace(' ', '_', $title)); // Replace spaces with underscores and convert to lowercase
         
+        // Remove numbers, parentheses, and their contents
+        $sanitizedTitle = preg_replace('/\s*\([^)]*\)|[0-9]/', '', $title);
+        
+        // Replace multiple spaces with a single space
+        $sanitizedTitle = preg_replace('/\s+/', ' ', $sanitizedTitle);
+        
+        // Trim leading and trailing whitespace
+        $sanitizedTitle = trim($sanitizedTitle);
+        
+        // Replace spaces with underscores and convert to lowercase
+        $formattedTitle = strtolower(str_replace(' ', '_', $sanitizedTitle));
+
         // Use the formatted title as the data-title attribute
         echo('<div class="square" data-title="'.htmlspecialchars($formattedTitle).'">');
         echo('<img src="../PICS/bookmark.svg" alt="Bookmark Image">');
@@ -196,14 +205,16 @@ if ($result->num_rows > 0) {
     }
 }
 ?>
-        </div>
-    </section>
+
+
+        
 
     <!-- Bookmark Preview Section -->
     <section id="bookmarkPreview" class="preview-section">
         <h2>Bookmark Preview</h2>
         <div id="previewContent">
-            <p>Select a bookmark to see details here.</p>
+            <p class="'inst">Select a bookmark to see details here.</p>
+            <p class="desc"></p>
         </div>
     </section>
 </main>

@@ -1357,7 +1357,7 @@ subBookmarks.forEach(subBookmark => {
 // Output the array to console (for testing)
 localStorage.setItem('bookmarks', JSON.stringify(bookmarksArray));
 console.log(localStorage.getItem('bookmarks'))
-alert(bookmarksArray.length, subBookmarks.length);
+// alert(bookmarksArray.length);
   
     // alert('this')
     function saveBookmark(element) {
