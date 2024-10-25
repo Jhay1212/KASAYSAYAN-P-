@@ -23,19 +23,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = mysqli_real_escape_string($conn, $username);
     $password = mysqli_real_escape_string($conn, $password);
 
-    // Hash the password for security
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    // Check if the username already exists in the database
+    $checkUsernameQuery = "SELECT * FROM users WHERE username='$username'";
+    $result = $conn->query($checkUsernameQuery);
 
-    // Insert user data into the database
-    $sql = "INSERT INTO users (username, password) VALUES ('$username', '$hashed_password')";
-
-    if ($conn->query($sql) === TRUE) {
-        // Registration successful, redirect to login page
-        header("Location: ../LOGIN1/Login1.html");
-        exit();
+    if ($result->num_rows > 0) {
+        // Username is already taken, alert the user
+        echo "<script>alert('Username is already taken. Please choose a different one.'); window.location.href = '../LANDING PAGE/landpage.php';</script>";
     } else {
-        // Registration failed, display error message
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        // Hash the password for security
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // Insert user data into the database
+        $sql = "INSERT INTO users (username, password) VALUES ('$username', '$hashed_password')";
+
+        if ($conn->query($sql) === TRUE) {
+            // Registration successful, redirect to login page
+            header("Location: ../LANDING PAGE/landpage.php");
+            exit();
+        } else {
+            // Registration failed, display error message
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
     }
 }
 

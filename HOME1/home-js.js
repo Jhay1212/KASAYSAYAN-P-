@@ -14,10 +14,16 @@ favIcon.rel  = 'shortcut icon';
 favIcon.href= '../PICS/icon/favicon.ico';
 favIcon.type = 'image/x-icon';
 document.head.appendChild(favIcon);
+icon.setAttribute('id', 'userIcon');
 searchBar.style.display = 'none';
 
 
 document.addEventListener("DOMContentLoaded", function() {
+    const formCss = document.createElement('link');
+
+    formCss.rel = 'stylesheet';
+    formCss.href = '../HOME1/form.css';
+    document.head.appendChild(formCss);
 
     const iconX = document.getElementById('userIcon');
     // setDefaultUserIcon();sear

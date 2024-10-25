@@ -92,6 +92,9 @@ $result = $conn->query($sql);
   color: var(--secondary-color);
 }
 
+#sidebar2 {
+    z-index: 9999
+}
 .sidebar-links a.active i {
   color: #000;
 }
@@ -107,6 +110,9 @@ $result = $conn->query($sql);
     color: #fff; 
 }
 
+.hidden {
+    display: none;
+}
 /* 
 div.main-content {
     margin-top: 5rem;
@@ -116,6 +122,17 @@ div.main-content {
 </head>
 
 <body>
+<form id="profile-picture-form" action="profile.php" method="POST" enctype="multipart/form-data" class='hidden'>
+            <span class="close-btn" onclick="closeProfileForm()">X</span>
+
+    <div>
+        <label for="profilePicture">Change Profile Picture:</label><br>
+        <img id="profilePicPreview" src="../HOME1/uploads/profile_pictures/guest/user.jpg" alt="Profile Picture" width="150" class='profile-pic'/>
+        <input type="file" id="profilePicture" name="profilePicture" accept="image/*" onchange="previewImage(event)">
+    </div>
+    <button type="submit">Upload</button>
+</form>
+
 <aside class="sidebar">
     <div class="user-info">
         <img src="<?php echo $profile_path?>" alt="User Icon" class="user-icon">

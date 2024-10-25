@@ -76,7 +76,7 @@ if (isset($_POST['save_bookmark'])) {
 <!-- Sidebar -->
      <aside class="sidebar">
     <div class="user-info">
-        <img src="$profile_path" alt="User Icon" class="user-icon" id='userIcon'>
+        <img src="$profile_path" alt="User Icon" class="user-icon">
         <span class="username">$_SESSION[username]</span>
     </div>
     <nav class="sidebar-links">

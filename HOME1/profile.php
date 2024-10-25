@@ -54,6 +54,7 @@ if (isset($_SESSION['user_id']) && isset($_FILES['profilePicture'])) {
         if ($stmt->execute()) {
             echo 'Profile picture updated successfully.';
             $_SESSION['profile_path'] = $uploadPath;
+            echo 'skibidi';
             header('Location: home.php');
         } else {
             echo 'Failed to update profile picture in the database.';
@@ -77,4 +78,5 @@ if (isset($_SESSION['username'])) {
 echo json_encode($_SESSION['path']);
 
 $conn->close();
+
 ?>
