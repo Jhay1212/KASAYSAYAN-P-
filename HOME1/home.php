@@ -38,6 +38,23 @@ if (isset($_POST['save_bookmark'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../Home1/new_home.css">
     <link rel="shortcut icon" href="../PICS/icon/favicon.ico" type="image/x-icon">
+
+    <style>
+        .navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    margin-right: 10px;
+}
+
+#searchFormBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+    </style>
 </head>
 <body>
     <?php
@@ -89,11 +106,10 @@ if (isset($_POST['save_bookmark'])) {
         <div class="navbar-right">
         <form method="post" id='searchForm'>
             <input type="text" class="search-bar" placeholder="Search lessons..." id="searchInput">
+            </form>
             <div id="toggleIcon" class="icon" onclick="toggleSidebar()">
             <a href="#" class="info-icon"><i class="fas fa-info-circle"></i></a>
-            <button type="submit" name="searchFormBtn" id='searchFormBtn'></button>
             </div>
-            </form>
         </div>
     </header>
 
