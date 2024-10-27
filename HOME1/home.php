@@ -62,15 +62,17 @@ if (isset($_POST['save_bookmark'])) {
 
     <input  type="checkbox" id="uname" class="hidden" name="usernamej"  value=" $username">
     <input  type="checkbox" id="uid" class="hidden" name="useridj"  value=" $user_id">
-<form id="profile-picture-form" action="profile.php" method="POST" enctype="multipart/form-data" class='hidden'>
+<form id="profile-picture-form" action="../HOME1/profile.php" method="POST" enctype="multipart/form-data" class='hidden'>
             <span class="close-btn" onclick="closeProfileForm()">X</span>
 
     <div>
         <label for="profilePicture">Change Profile Picture:</label><br>
-        <img id="profilePicPreview" src="../HOME1/uploads/profile_pictures/guest/user.jpg" alt="Profile Picture" width="150" class='profile-pic'/>
+        <img id="profilePicPreview" src="$_SESSION[profile_path]" alt="Profile Picture"
+ width="150" class='profile-pic'/>
+
         <input type="file" id="profilePicture" name="profilePicture" accept="image/*" onchange="previewImage(event)">
     </div>
-    <button type="submit">Upload</button>
+    <button type="submit" name="change_profile">Upload</button>
 </form>
 
 <!-- Sidebar -->
@@ -1418,7 +1420,7 @@ function saveMiniBookmark(element) {
         type: 'POST',
         data: { title: title },
         success: function(response) {
-            alert('Bookmark saved successfully for: ' + title);
+            alert('Bookmark saved successfully');
             console.log(response);
         },
         error: function(error) {
@@ -1448,11 +1450,11 @@ function saveH1Bookmark(element) {
             type: 'POST',
             data: { title: title },  // Send the title dynamically
             success: function(response) {
-                alert('Bookmark saved successfully for h1!');
+                alert('Bookmark saved successfully!');
                 console.log(response);
             },
             error: function(error) {
-                console.error('Error saving bookmark for h1:', error);
+                console.error('Error saving bookmark:', error);
             }
         });
     }
@@ -1472,7 +1474,10 @@ bookmarkH1.forEach(bm => {
 // Attach event listeners to bookmark elements
 const bookmark = document.querySelectorAll('#sbt1');
 bookmark.forEach(bm => {
-    bm.addEventListener('click', (event) => saveBookmark(bm));
+    bm.addEventListener('click', (event) => {
+        event.preventDefault();
+        saveBookmark(bm)
+    });
 });
 
 // const bookmarkKKK = document.querySelectorAll('#sb1');
@@ -1480,13 +1485,14 @@ bookmark.forEach(bm => {
 //     bm.addEventListener('click', (event) => saveBookmark(bm));
 // });
 
-const bookmarksMini = document.querySelectorAll('#sbt2, #sbt3, #sbt4, #sbt5, #sbt6');
-bookmarksMini.forEach(function(bms) {
-    bms.addEventListener('click', (event) => {
-        // bms.style.backgroundColor = 'orange';
-        saveMiniBookmark(bms);
-    });
-});
+// const bookmarksMini = document.querySelectorAll('#sbt2, #sbt3, #sbt4, #sbt5, #sbt6');
+// bookmarksMini.forEach(function(bms) {
+//     bms.addEventListener('click', (event) => {
+//         // bms.style.backgroundColor = 'orange';
+//         event.preventDefault();
+//         saveMiniBookmark(bms);
+//     });
+// });
 
 </script>
 </body>

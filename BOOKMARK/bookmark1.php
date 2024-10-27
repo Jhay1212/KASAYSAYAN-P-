@@ -37,91 +37,18 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="../BOOKMARK/bookmark-css.css">
     <!-- <link rel="stylesheet" href="../HOME1/new_home.css"> -->
 
-    <style>
-        .sidebar {
-  width: 250px;
-  background-color: #FFF;
-  box-shadow: 2px 0 5px var(--card-shadow);
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  padding-top: 20px;
-  transition: width var(--transition-speed);
-}
 
-.sidebar .user-info {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.sidebar .user-icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #333333;
-}
-
-.sidebar .username {
-  display: block;
-  margin-top: 10px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #333333;
-}
-
-.sidebar-links a {
-  display: flex;
-  align-items: center;
-  padding: 15px 20px;
-  color: #333333;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: background-color var(--transition-speed), color var(--transition-speed);
-}
-
-.sidebar-links a i {
-  margin-right: 10px;
-  font-size: 1.2rem;
-}
-
-.sidebar-links a:hover,
-.sidebar-links a.active {
-  background-color: #333333;
-  color: var(--secondary-color);
-}
-
-.sidebar-links a.active i {
-  color: #000;
-}
-.searchbar {
-    display: none;
-}
-.searchbar {
-    display: none;
-}
-
-.sidebar-links a:hover, .sidebar-links a.active {
-    background-color: #eeeee; 
-    color: #fff; 
-}
-
-/* 
-div.main-content {
-    margin-top: 5rem;
-} */
-    </style>
     <title>BOOKMARK</title>
 </head>
 
 <body>
-<form id="profile-picture-form" action="profile.php" method="POST" enctype="multipart/form-data" class='hidden'>
+<form id="profile-picture-form" action="../HOME1/profile.php" method="POST" enctype="multipart/form-data" class='hidden'>
             <span class="close-btn" onclick="closeProfileForm()">X</span>
 
     <div>
         <label for="profilePicture">Change Profile Picture:</label><br>
-        <img id="profilePicPreview" src="../HOME1/uploads/profile_pictures/guest/user.jpg" alt="Profile Picture" width="150" class='profile-pic'/>
+        <img id="profilePicPreview" src="<?php echo $_SESSION['profile_path']?>" alt="Profile Picture"
+ width="150" class='profile-pic'/>
         <input type="file" id="profilePicture" name="profilePicture" accept="image/*" onchange="previewImage(event)">
     </div>
     <button type="submit">Upload</button>
@@ -189,7 +116,11 @@ div.main-content {
     <section class="content-section">
         <h2>Bookmarks</h2>
 
-        <?php 
+
+        <div class="container-flex">
+        <div class="bookmarks">
+
+            <?php 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         // Get the title from the database
@@ -206,7 +137,7 @@ if ($result->num_rows > 0) {
         
         // Replace spaces with underscores and convert to lowercase
         $formattedTitle = strtolower(str_replace(' ', '_', $sanitizedTitle));
-
+        
         // Use the formatted title as the data-title attribute
         echo('<div class="square" data-title="'.htmlspecialchars($formattedTitle).'">');
         echo('<img src="../PICS/bookmark.svg" alt="Bookmark Image">');
@@ -215,20 +146,22 @@ if ($result->num_rows > 0) {
     }
 }
 ?>
+</div>
 
 
         
 
-    <!-- Bookmark Preview Section -->
-    <section id="bookmarkPreview" class="preview-section">
-        <h2>Bookmark Preview</h2>
-        <div id="previewContent">
-            <p class="'inst">Select a bookmark to see details here.</p>
+<!-- Bookmark Preview Section -->
+<section id="bookmarkPreview" class="preview-section">
+    <h2>Bookmark Preview</h2>
+    <div id="previewContent">
+        <p class="'inst">Select a bookmark to see details here.</p>
             <p class="desc"></p>
         </div>
     </section>
 </main>
 
+</div>
 <script src="../HOME1/home-js.js"></script>
 <script src="./bookmark.js"></script>
 

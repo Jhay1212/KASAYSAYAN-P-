@@ -12,7 +12,7 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
     <title>QUIZ 4</title>
 </head>
 <body>
-<form id="profile-picture-form" action="profile.php" method="POST" enctype="multipart/form-data" class='hidden'>
+<form id="profile-picture-form" action="../HOME1/profile.php" method="POST" enctype="multipart/form-data" class='hidden'>
             <span class="close-btn" onclick="closeProfileForm()">X</span>
 
     <div>

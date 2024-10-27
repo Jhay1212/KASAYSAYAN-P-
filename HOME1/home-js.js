@@ -8,8 +8,8 @@ const searchBar = document.querySelector('.search-bar');
 const favIcon = document.createElement('link');
 const newCss = document.createElement('link');
 newCss.rel = 'stylesheet';
-newCss.href = '../HOME1/new_home.css';
-// document.head.appendChild(newCss);
+// newCss.href = '../HOME1/home-css.css';
+document.head.appendChild(newCss);
 favIcon.rel  = 'shortcut icon';
 favIcon.href= '../PICS/icon/favicon.ico';
 favIcon.type = 'image/x-icon';
@@ -17,7 +17,11 @@ document.head.appendChild(favIcon);
 icon.setAttribute('id', 'userIcon');
 searchBar.style.display = 'none';
 
+const homeCss = document.createElement('link');
 
+homeCss.rel = 'stylesheet';
+homeCss.href = '../HOME1/home.css';
+document.head.appendChild(homeCss);
 document.addEventListener("DOMContentLoaded", function() {
     const formCss = document.createElement('link');
 

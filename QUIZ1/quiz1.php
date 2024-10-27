@@ -13,12 +13,14 @@ include __DIR__.'\\..\\UTILS\\session_check.php';
 </head>
 
 <body>
-<form id="profile-picture-form" action="profile.php" method="POST" enctype="multipart/form-data" class='hidden'>
+<form id="profile-picture-form" action="../HOME1/profile.php" method="POST" enctype="multipart/form-data" class='hidden'>
             <span class="close-btn" onclick="closeProfileForm()">X</span>
 
     <div>
         <label for="profilePicture">Change Profile Picture:</label><br>
-        <img id="profilePicPreview" src="../HOME1/uploads/profile_pictures/guest/user.jpg" alt="Profile Picture" width="150" class='profile-pic'/>
+        <img id="profilePicPreview" src="<?php echo $_SESSION['profile_path']?>" alt="Profile Picture"
+ width="150" class='profile-pic'/>
+
         <input type="file" id="profilePicture" name="profilePicture" accept="image/*" onchange="previewImage(event)">
     </div>
     <button type="submit">Upload</button>
