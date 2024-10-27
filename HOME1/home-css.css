@@ -802,3 +802,8 @@ form#searchForm button {
   border-radius: 50%;
   height: 20%;
 }
+
+.highlight {
+  background-color: yellow; /* Or any color you prefer */
+  font-weight: bold;
+}

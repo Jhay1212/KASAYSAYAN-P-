@@ -89,10 +89,9 @@ document.addEventListener("DOMContentLoaded", function() {
 function searchContent() {
     // Get search query from input
     const rectangleContainer = document.querySelector('.rectangle-container');
-    
     const title = document.querySelector('h2#title');
     let query = document.getElementById('searchInput').value.toLowerCase();
-;
+
     // Clear previous search results
     let searchResults = document.getElementById('searchResults');
     searchResults.innerHTML = '';
@@ -101,6 +100,7 @@ function searchContent() {
     let sections = document.querySelectorAll('.content-section');
 
     // Loop through each section and search for the query
+    let found = false;
     sections.forEach(section => {
         let sectionText = section.innerText.toLowerCase();
 
@@ -108,17 +108,27 @@ function searchContent() {
         if (sectionText.includes(query)) {
             const gallerySection = document.querySelector('.gallery-container');
             gallerySection.style.display = 'none';
-            let result = section.cloneNode(true);  // Clone the matching section
-            searchResults.appendChild(result);     // Append it to the search results div
-    title.textContent = `Result for query ${query.toUpperCase()}`;
-    rectangleContainer.style.display = 'none';
 
-        }
-        else {
-            title.textContent = 'No result found';
+            // Clone the section and modify it for highlighting
+            let result = section.cloneNode(true);
+            let innerHTML = result.innerHTML;
+
+            // Highlight the matched query
+            let regex = new RegExp(`(${query})`, 'gi');
+            innerHTML = innerHTML.replace(regex, '<span class="highlight">$1</span>');
+            result.innerHTML = innerHTML;
+
+            searchResults.appendChild(result); // Append it to the search results div
+
+            title.textContent = `Result for query "${query.toUpperCase()}"`;
+            rectangleContainer.style.display = 'none';
+            found = true;
         }
     });
-    
+
+    if (!found) {
+        title.textContent = 'No result found';
+    }
 
     // Store the query for later use (if necessary)
     localStorage.setItem('searchQuery', query);
